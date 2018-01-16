@@ -1,4 +1,4 @@
-# Adventure Team Final project for CS 467 Capstone Course
+# Adventure Team Final Project for CS 467 Capstone Course
 
 #### Team Members
 * Michael Heinemann
