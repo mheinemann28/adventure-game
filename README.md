@@ -1,9 +1,9 @@
 # Adventure Team Final project for CS 467 Capstone Course
 
 ## Team Members
-Michael Heinemann
-Stephen Liu
-Heidi Uphoff
+* Michael Heinemann
+* Stephen Liu
+* Heidi Uphoff
 
 This is a command line adventure game modeled from classic text adventures like Colossal Cave and Zork. It is an escape game. Users will be placed in a starting room and must navigate through the maze of rooms to the end room. Within each room users will be presented with descriptions,  options, and an enemy or obstacle to defeat. Failure to defeat the enemy or overcome the obstacle will result in the game ending. Users interact with the room using natural language commands such as “look out window,” “open up chest,” or “go through north door.” 
 
