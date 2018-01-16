@@ -1,6 +1,6 @@
 # Adventure Team Final project for CS 467 Capstone Course
 
-## Team Members
+#### Team Members
 * Michael Heinemann
 * Stephen Liu
 * Heidi Uphoff
