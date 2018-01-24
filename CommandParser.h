@@ -8,5 +8,16 @@
  ** Output: a string array with 3 values: verb, noun1, noun2
  *********************************************************************/
  
- 
+ /* To prevent compiler from processing contents twice, wrap in a conditional */
+#ifndef COMMANDPARSER_H
+#define COMMANDPARSER_H
+
+
+
+
+
+
+
+/* Place at end of file - End of header conditional */
+#endif
  
