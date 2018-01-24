@@ -5,7 +5,7 @@
  ** Description: Parses command line input using natural language
  **      parsing
  ** Input: a command string
- ** Output: a string array with 3 values: verb, nown1, nown2
+ ** Output: a string array with 3 values: verb, noun1, noun2
  *********************************************************************/
  
  
