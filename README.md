@@ -24,9 +24,7 @@ decide what to do next. Items from the inventory may or may not work to defeat t
 depending on the room.
 
 #### Instructions to Run Game
-git clone https://github.com/endtoendpaper/adventure-game.git
-
-make
-
-adventure-game
+* git clone https://github.com/endtoendpaper/adventure-game.git
+* make
+* adventure-game
 
