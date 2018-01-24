@@ -28,3 +28,6 @@ depending on the room.
 * make
 * adventure-game
 
+#### Instructions to Run Testing Program for Command Line Parser 
+* make test-CommandParser
+* test-CommandParser
