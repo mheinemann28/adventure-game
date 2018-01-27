@@ -7,5 +7,17 @@
  ** Output: data loaded into GameEngine
  *********************************************************************/
  
+/* To prevent compiler from processing contents twice, wrap in a conditional */
+#ifndef ROOMLOADER_H
+#define ROOMLOADER_H
+
 #include "GameEngine_helpers.h"
+
+
+
+
+
+/* Place at end of file - End of header conditional */
+#endif
+
 

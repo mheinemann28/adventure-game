@@ -6,6 +6,17 @@
  ** Input: gamestate text file
  ** Output: data loaded into GameEngine
  *********************************************************************/
- 
+
+/* To prevent compiler from processing contents twice, wrap in a conditional */
+#ifndef GAMESTATELOADER_H
+#define GAMESTATELOADER_H
+
 #include "GameEngine_helpers.h"
+
+
+
+
+
+/* Place at end of file - End of header conditional */
+#endif
 

@@ -7,9 +7,17 @@
  ** Input: command line input
  ** Output: game response
  *********************************************************************/
- 
-#include "GameEngine.h"
+#ifndef GAME_ENGINE_H
+#define GAME_ENGINE_H
+
 #include "GameEngine_helpers.h"
 #include "GameStateLoader.h"
 #include "RoomLoader.h"
 
+struct Room rooms[15];
+
+void intro();
+void runGame(struct Room *rooms);
+void getInput(char *inputBuff);
+
+#endif
