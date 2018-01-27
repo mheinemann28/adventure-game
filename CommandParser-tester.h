@@ -1,17 +1,17 @@
 /*********************************************************************
- ** Program Filename: RoomLoader.h
+ ** Program Filename: CommandParser-tester.h 
  ** Author: Adventure Team (Michael Heinemann, Stephen Liu, Heidi Uphoff)
- ** Date: Jan. 15, 2018
- ** Description: Loads rooms from text files into the game
- ** Input: rooms text files (there are 15)
- ** Output: data loaded into GameEngine
+ ** Date: Jan. 24, 2018
+ ** Description: tests CommandParser.h without running GameEngine.c
+ ** Input: command line input
+ ** Output: parsed response
  *********************************************************************/
- 
-/* To prevent compiler from processing contents twice, wrap in a conditional */
-#ifndef ROOMLOADER_H
-#define ROOMLOADER_H
 
-#include "GameEngine_helpers.h"
+/* To prevent compiler from processing contents twice, wrap in a conditional */
+#ifndef COMMANDPARSERTESTER_H
+#define COMMANDPARSERTESTER_H
+
+
 
 
 

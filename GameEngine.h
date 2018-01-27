@@ -7,6 +7,7 @@
  ** Input: command line input
  ** Output: game response
  *********************************************************************/
+
 #ifndef GAME_ENGINE_H
 #define GAME_ENGINE_H
 
@@ -21,3 +22,4 @@ void runGame(struct Room *rooms);
 void getInput(char *inputBuff);
 
 #endif
+
