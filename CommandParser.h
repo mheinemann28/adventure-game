@@ -5,7 +5,7 @@
  ** Description: Parses command line input using natural language
  **      parsing
  ** Input: a command string
- ** Output: a string array with 3 values: verb, noun1, noun2
+ ** Output: a struct parsed_command with 3 values: verb, noun1, noun2
  *********************************************************************/
  
  /* To prevent compiler from processing contents twice, wrap in a conditional */
