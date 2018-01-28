@@ -12,10 +12,20 @@
 #ifndef COMMANDPARSER_H
 #define COMMANDPARSER_H
 
+/* parsed command that is returned by void parseCommand(char command[500]) */
+struct parsed_command {
+	char verb[50];
+	char noun1[50];
+	char noun2[50];
+};
 
+/* stores everything needed by the command parser functions */
+struct command_line {
+	char userInput[500];
+};
 
-
-
+/* function declarations */
+struct parsed_command parseCommand(char command[500]);
 
 
 /* Place at end of file - End of header conditional */
