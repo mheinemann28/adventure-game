@@ -22,6 +22,9 @@ struct parsed_command {
 /* stores everything needed by the command parser functions */
 struct command_line {
 	char userInput[500];
+	char processedInput[500];
+	char inputArray[10][50];
+	int inputArraySize;
 };
 
 /* function declarations */
@@ -30,4 +33,4 @@ struct parsed_command parseCommand(char command[500]);
 
 /* Place at end of file - End of header conditional */
 #endif
-
+ 
