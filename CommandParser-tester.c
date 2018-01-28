@@ -26,13 +26,17 @@
  
  	/* initialize new parsed_command and string for input */
 	struct parsed_command pc;
-	char line[500];
+	char line[2000];
 	
  	/* loop through recieving and parsing commands until user sends stop signal  */
  	while(1) {
- 		memset(line, '\0', sizeof(line)); //clear line's memory
+ 		memset(line, '\0', sizeof(line)); //clear memory
+ 		memset(pc.verb, '\0', sizeof(pc.verb));
+ 		memset(pc.noun1, '\0', sizeof(pc.noun1));
+ 		memset(pc.noun2, '\0', sizeof(pc.noun2));
  		printf("\n\nEnter Command: ");
  		fgets(line,500,stdin);
+ 		fflush(stdout);
  	
  		pc = parseCommand(line);
  	

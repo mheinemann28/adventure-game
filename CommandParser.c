@@ -23,18 +23,29 @@
  ** Post-Conditions: returns a struct parsed_command
  *********************************************************************/
  
-struct parsed_command parseCommand(char commandLine[500]) {
+struct parsed_command parseCommand(char commandLine[2000]) {
 	
 	/* initialize new parsed_command  */
 	struct parsed_command pc;
 	
 	/* initialize new command_line  */
 	struct command_line cl;
+	
+	/* clear memory  */ 
+ 	memset(pc.verb, '\0', sizeof(pc.verb));
+ 	memset(pc.noun1, '\0', sizeof(pc.noun1));
+ 	memset(pc.noun2, '\0', sizeof(pc.noun2));
+ 	memset(cl.userInput, '\0', sizeof(cl.userInput));
+ 	memset(cl.processedInput, '\0', sizeof(cl.processedInput));
+ 	cl.inputArraySize = 0;
+ 	int i;
+ 	for (i = 0; i < 40; i++) {
+ 		memset(cl.inputArray[i], '\0', sizeof(cl.inputArray[i]));
+ 	}
 	 
 	strcpy(cl.userInput, commandLine);
 	
 	/* split commandLine into array of strings  */
-	cl.inputArraySize = 0;
 	char *rest = commandLine;
  	char *token;
     while ((token = strtok_r(rest, " ", &rest))) {
