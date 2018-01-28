@@ -7,20 +7,19 @@
  ** Input: command line input
  ** Output: game response
  *********************************************************************/
- 
-/* To prevent compiler from processing contents twice, wrap in a conditional */
-#ifndef GAMEENGINE_H
-#define GAMEENGINE_H
 
-#include "GameEngine.h"
+#ifndef GAME_ENGINE_H
+#define GAME_ENGINE_H
+
 #include "GameEngine_helpers.h"
 #include "GameStateLoader.h"
 #include "RoomLoader.h"
 
+struct Room rooms[15];
 
+void intro();
+void runGame(struct Room *rooms);
+void getInput(char *inputBuff);
 
-
-
-
-/* Place at end of file - End of header conditional */
 #endif
+

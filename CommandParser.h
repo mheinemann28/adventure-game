@@ -30,4 +30,4 @@ struct parsed_command parseCommand(char command[500]);
 
 /* Place at end of file - End of header conditional */
 #endif
- 
+
