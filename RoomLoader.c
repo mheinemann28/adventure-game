@@ -7,18 +7,217 @@
  ** Output: data loaded into GameEngine
  *********************************************************************/
  
-#include "GameEngine_helpers.h"
+
 #include "RoomLoader.h"
 
-struct Room rooms[2];
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
-int main(){
-	rooms[0].type = "START";
-	rooms[0].name = "Basement";
-	rooms[0].longDescription = "You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.\n
-				There are stairs leading down.  The only lightsource is from the high window in the corner.\n
-				You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike,\n
-				moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a\n
-				cabinet on the opposite west wall.  They may hold something useful.  You should examine the room\n
-				further and figure out what to do next.";
+#define BUFFER_SIZE 32766
+
+/*********************************************************************
+* readRooms() - Read room info from files into Room array.
+*********************************************************************/
+void readRooms(Room* array, char newestDirName[256]) {
+	int i=0;
+	int j=1;
+	FILE* file;
+	char dirname[80];
+	sprintf(dirname, "%s", newestDirName);
+	
+	
+		char filename[500];
+		sprintf(filename, "%s/room-%d.txt", dirname, j);
+		printf("filename: %s\n", filename);
+		/* Open file */
+		file = fopen(filename, "r");
+		
+		char word[BUFFER_SIZE];
+
+		/*change the file position of the stream by x bytes to get info after :
+		  And remove the newline character read by fgets()
+		*/
+		fseek(file, 9, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].visited, strtok(word, "\n"));
+		printf("%s\n",array[i].visited);
+		i=i+1;
+
+		fseek(file, 10, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].type, strtok(word, "\n"));
+		printf("%s\n",array[i].type);
+		i=i+1;
+
+		fseek(file, 10, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].name, strtok(word, "\n"));
+		printf("%s\n",array[i].name);
+		i=i+1;
+
+		fseek(file, 17, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].longDescription, strtok(word, "\n"));
+		printf("%s\n",array[i].longDescription);
+		i=i+1;
+
+		fseek(file, 18, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].shortDescription, strtok(word, "\n"));
+		printf("%s\n",array[i].shortDescription);
+		i=i+1;
+
+		fseek(file, 10, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].feature1, strtok(word, "\n"));
+		printf("%s\n",array[i].feature1);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].look1, strtok(word, "\n"));
+		printf("%s\n",array[i].look1);
+		i=i+1;
+
+
+		fseek(file, 6, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].hit1, strtok(word, "\n"));
+		printf("%s\n",array[i].hit1);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].open1, strtok(word, "\n"));
+		printf("%s\n",array[i].open1);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].move1, strtok(word, "\n"));
+		printf("%s\n",array[i].move1);
+		i=i+1;
+
+		fseek(file, 10, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].feature2, strtok(word, "\n"));
+		printf("%s\n",array[i].feature2);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].look2, strtok(word, "\n"));
+		printf("%s\n",array[i].look2);
+		i=i+1;
+
+		fseek(file, 6, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].hit2, strtok(word, "\n"));
+		printf("%s\n",array[i].hit2);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].open2, strtok(word, "\n"));
+		printf("%s\n",array[i].open2);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].move2, strtok(word, "\n"));
+		printf("%s\n",array[i].move2);
+		i=i+1;
+
+		fseek(file, 9, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].lookatd2, strtok(word, "\n"));
+		printf("%s\n",array[i].lookatd2);
+		i=i+1;
+
+		fseek(file, 7, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].hitd2, strtok(word, "\n"));
+		printf("%s\n",array[i].hitd2);
+		i=i+1;
+
+		fseek(file, 8, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].opend2, strtok(word, "\n"));
+		printf("%s\n",array[i].opend2);
+		i=i+1;
+
+		fseek(file, 8, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].moved2, strtok(word, "\n"));
+		printf("%s\n",array[i].moved2);
+		i=i+1;
+
+		fseek(file, 8, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].objectd2, strtok(word, "\n"));
+		printf("%s\n",array[i].objectd2);
+		i=i+1;
+
+		fseek(file, 11, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit1name, strtok(word, "\n"));
+		printf("%s\n",array[i].exit1name);
+		i=i+1;
+
+		fseek(file, 16, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit1direction, strtok(word, "\n"));
+		printf("%s\n",array[i].exit1direction);
+		i=i+1;
+
+		fseek(file, 11, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit2name, strtok(word, "\n"));
+		printf("%s\n",array[i].exit2name);
+		i=i+1;
+
+		fseek(file, 16, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit2direction, strtok(word, "\n"));
+		printf("%s\n",array[i].exit2direction);
+		i=i+1;
+
+		fseek(file, 11, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit3name, strtok(word, "\n"));
+		printf("%s\n",array[i].exit3name);
+		i=i+1;
+
+		fseek(file, 16, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit3direction, strtok(word, "\n"));
+		printf("%s\n",array[i].exit3direction);
+		i=i+1;
+
+		fseek(file, 11, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit4name, strtok(word, "\n"));
+		printf("%s\n",array[i].exit4name);
+		i=i+1;
+
+		fseek(file, 16, SEEK_CUR);
+		fgets(word, BUFFER_SIZE, file);
+		strcpy(array[i].exit4direction, strtok(word, "\n"));
+		printf("%s\n",array[i].exit4direction);
+
+		fclose(file);	
+	
 }
+
+int main()
+{
+  	Room roomArray[29];
+  	readRooms(roomArray, "rooms");
+  	
+	return 0;
+}
+
+
