@@ -14,6 +14,47 @@
 #include <string.h> 
 #include <unistd.h>
 
+/* data  */
+const int stop_words_size = 173;
+// stop word list from https://www.ranks.nl/stopwords
+const char *stop_words[] = {"a","about","above","after","again","against",
+	"all","am","an","and","any","are","arent","as","be","because","been",
+	"before","being","below","between","both","but","by","cant","cannot",
+	"could","couldnt","did","didnt","do","does","doesnt","doing","dont",
+	"down","during","each","few","for","from","further","had","hadnt",
+	"has","hasnt","have","havent","having","he","hed","hell","hes","her",
+	"here","heres","hers","herself","him","himself","his","how","hows","i",
+	"id","ill","im","ive","if","in","into","is","isnt","it","its","its",
+	"itself","lets","me","more","most","mustnt","my","myself","no","nor",
+	"not","of","off","on","once","only","or","other","ought","our","ours",
+	"ourselves","out","over","own","same","shant","she","shed","shell",
+	"shes","should","shouldnt","so","some","such","than","that","thats",
+	"the","their","theirs","them","themselves","then","there","theres",
+	"these","they","theyd","theyll","theyre","theyve","this","those",
+	"through","to","too","under","until","up","very","was","wasnt","we",
+	"wed","well","were","weve","were","werent","what","whats","when",
+	"whens","where","wheres","which","while","who","whos","whom","why",
+	"whys","with","wont","would","wouldnt","you","youd","youll",
+	"youre","youve","your","yours","yourself","yourselves"};
+const int verb_look_synonyms_size = 1;
+const char *verb_look_synonyms[] = {"look"};
+const int verb_go_synonyms_size = 1;
+const char *verb_go_synonyms[] = {"go"};
+const int verb_take_synonyms_size = 1;
+const char *verb_take_synonyms[] = {"take"};
+const int verb_drop_synonyms_size = 1;
+const char *verb_drop_synonyms[] = {"drop"};
+const int verb_help_synonyms_size = 1;
+const char *verb_help_synonyms[] = {"help"};
+const int verb_inventory_synonyms_size = 1;
+const char *verb_inventory_synonyms[] = {"inventory"};
+const int verb_hit_synonyms_size = 1;
+const char *verb_hit_synonyms[] = {"hit"};
+const int verb_open_synonyms_size = 1;
+const char *verb_open_synonyms[] = {"open"};
+const int verb_move_synonyms_size = 1;
+const char *verb_move_synonyms[] = {"move"};
+
 /*********************************************************************
  ** Function: struct parsed_command parseCommand(char commandLine[500])
  ** Description: function that GameEngine will call to parse
@@ -24,7 +65,6 @@
  *********************************************************************/
  
 struct parsed_command parseCommand(char commandLine[2000]) {
-	
 	/* initialize new parsed_command  */
 	struct parsed_command pc;
 	
@@ -50,8 +90,8 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	/* parse command  */  
 	lowercaseCommand(&cl);
 	stripPunctuation(&cl);
-	removeStopWords(&cl);
 	splitCommandIntoArray(&cl);
+	removeStopWords(&cl);
 	getVerb(&cl);
 	getExit(&cl);
 	getFeature(&cl);
@@ -61,8 +101,8 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	
 	
 	/* comments for debugging  */ 
-	printf("\nParser received: %s\n", cl.userInput);
-	printf("Processed string: %s\n", cl.processedInput);
+	printf("\nFOR DEBUGGING - Parser received: %s", cl.userInput);
+	printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
 	
 	/* return parsed_command struct with verb and nouns  */ 
 	strcpy(pc.verb, cl.inputArray[0]); 
@@ -96,7 +136,7 @@ void lowercaseCommand(struct command_line* cl) {
  ** Post-Conditions: cl.processedInput has all punctuation removed
  *********************************************************************/
 
-void stripPunctuation(struct command_line* cl) {
+void stripPunctuation(struct command_line* cl) { 
 	int i = 0;
     int p = 0;
     for (i = 0; i < 2000; i++) {
@@ -106,18 +146,6 @@ void stripPunctuation(struct command_line* cl) {
         }  
     }    
 } 
- 
-/*********************************************************************
- ** Function: void removeStopWords(struct command_line* cl)
- ** Description: remove stop words from user input
- ** Parameters: struct command_line* cl
- ** Pre-Conditions: none
- ** Post-Conditions: cl.processedInput has all stop words removed
- *********************************************************************/
-
-void removeStopWords(struct command_line* cl) {
-
-}
 
 /*********************************************************************
  ** Function: void splitCommandIntoArray(struct command_line* cl
@@ -140,6 +168,28 @@ void splitCommandIntoArray(struct command_line* cl) {
         	cl->inputArraySize++;
         } 
     }
+}
+
+/*********************************************************************
+ ** Function: void removeStopWords(struct command_line* cl)
+ ** Description: remove stop words from user input
+ ** Parameters: struct command_line* cl
+ ** Pre-Conditions: none
+ ** Post-Conditions: cl.processedInput has all stop words removed
+ *********************************************************************/
+
+void removeStopWords(struct command_line* cl) {
+	/* loop through input array and remove words that are on the stop word list */
+	int i;
+	int j;
+	int k;
+
+	/* after removing stop words from array, put array back into the processed string */
+	memset(cl->processedInput, '\0', sizeof(cl->processedInput));
+	for (i = 0; i < cl->inputArraySize; i++) {
+		strcat(cl->processedInput, cl->inputArray[i]);
+		strcat(cl->processedInput, " ");
+	}
 }
 
 /*********************************************************************
