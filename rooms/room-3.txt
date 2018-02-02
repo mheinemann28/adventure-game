@@ -1,0 +1,28 @@
+VISITED: 0
+ROOMTYPE: MID
+ROOMNAME: doll room
+LONGDESCRIPTION: Your hair stands on end as you enter this room. Three shelves line the four walls of this room, containing dolls of all shapes and sizes. You swear their eyes follow you as you make your way to the center of the room. Once you get there, you bump into a crib. A baby doll rests inside. To the left is a life size barbie. To the north, there is a musty exit. To the west, there is an exit blowing in fresh air.
+SHORTDESCRIPTION: You’ve entered the doll room. There is a crib with a baby doll and a life size barbie in the center of the room. To the north, there is a musty exit. To the west, there is an exit blowing in fresh air.
+FEATURE1: baby doll
+LOOK1: It is hairless and ugly. Perhaps a child’s former favorite toy, well used.
+HIT1: It bounces in the crib. You didn’t cause any visible damage. The toy is already beat up. 
+OPEN1: There isn’t a way to open it. 
+MOVE1: You move it to the side. Did its eyes follow you? 
+FEATURE2: life size barbie
+LOOK2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+HIT2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+OPEN2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+MOVE2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+LOOKAT2: She stands at your height, with blonde hair wearing a bathing suit.
+HITD2: You knock her over. Did her eyes follow you?
+OPEND2: There isn’t a way to open it.
+MOVED2: You move her a few feet to the side. Did her eyes follow you?
+OBJECT: NA
+EXIT1NAME: musty
+EXIT1DIRECTION: north
+EXIT2NAME: fresh air
+EXIT2DIRECTION: west
+EXIT3NAME: NA
+EXIT3DIRECTION: NA
+EXIT4NAME: NA
+EXIT4DIRECTION: NA

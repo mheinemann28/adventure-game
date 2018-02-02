@@ -1,0 +1,28 @@
+VISITED: 0
+ROOMTYPE: MID
+ROOMNAME: Basement
+LONGDESCRIPTION: You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.  There are stairs leading down.  The only lightsource is from the high window in the corner.  You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike, moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a cabinet on the opposite west wall.  They may hold something useful.  You should examine the rooms further and figure out what to do next.
+SHORTDESCRIPTION: You are back in the basement.  There are 3 doors, 1 window, a cabinet one one wall, and a chest near another.  Maybe there is something you missed before…
+FEATURE1: Cabinet
+LOOK1: Just an old beat up cabinet, maybe there is something inside.
+HIT1: NA
+OPEN1: There is a crowbar inside 
+MOVE1: Better see what else is in this room
+FEATURE2: Chest
+LOOK2: This chest is padlocked, Maybe I can find something to open it
+HIT2: NA
+OPEN2: NA
+MOVE2: NA
+LOOKAT2: NA
+HITD2: NA
+OPEND2: NA.
+MOVED2: NA
+OBJECT: NA
+EXIT1NAME: NA
+EXIT1DIRECTION: NA
+EXIT2NAME: NA
+EXIT2DIRECTION: NA
+EXIT3NAME: NA
+EXIT3DIRECTION: NA
+EXIT4NAME: NA
+EXIT4DIRECTION: NA
