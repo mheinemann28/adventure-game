@@ -88,8 +88,7 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	strcpy(cl.processedInput, commandLine);
 	
 	/* parse command  */  
-	lowercaseCommand(&cl);
-	stripPunctuation(&cl);
+	stripPunctuationLowercase(&cl);
 	splitCommandIntoArray(&cl);
 	removeStopWords(&cl);
 	getVerb(&cl);
@@ -113,35 +112,20 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 }
 
 /*********************************************************************
- ** Function: void lowercaseCommand(struct command_line* cl)
- ** Description: lowercase the user input
- ** Parameters: struct command_line* cl
- ** Pre-Conditions: none
- ** Post-Conditions: cl.processedInput contains lowercase version
- ** 	of cl.userInput
- *********************************************************************/
-
-void lowercaseCommand(struct command_line* cl) {
-	int i;
-	for (i = 0; i < 2000; i++) {
-		cl->processedInput[i] = tolower(cl->processedInput[i]);
-  	}
-}
-
-/*********************************************************************
- ** Function: void stripPunctuation(struct command_line* cl)
- ** Description: strip punctuation from user input
+ ** Function: void stripPunctuationLowercase(struct command_line* cl)
+ ** Description: strip punctuation from user input and lowercase
  ** Parameters: struct command_line* cl
  ** Pre-Conditions: none
  ** Post-Conditions: cl.processedInput has all punctuation removed
+ ** 	and is lowercased
  *********************************************************************/
 
-void stripPunctuation(struct command_line* cl) { 
+void stripPunctuationLowercase(struct command_line* cl) { 
 	int i = 0;
     int p = 0;
     for (i = 0; i < 2000; i++) {
         if (! ispunct(cl->processedInput[i])) {
-            cl->processedInput[p] = cl->processedInput[i];
+            cl->processedInput[p] = tolower(cl->processedInput[i]);
             p++; 
         }  
     }    
@@ -188,7 +172,7 @@ void removeStopWords(struct command_line* cl) {
 	memset(cl->processedInput, '\0', sizeof(cl->processedInput));
 	for (i = 0; i < cl->inputArraySize; i++) {
 		strcat(cl->processedInput, cl->inputArray[i]);
-		strcat(cl->processedInput, " ");
+		strcat(cl->processedInput, " ");  
 	}
 }
 

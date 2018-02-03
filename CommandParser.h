@@ -35,8 +35,7 @@ struct command_line {
 
 /* function declarations */
 struct parsed_command parseCommand(char command[2000]);
-void lowercaseCommand(struct command_line* cl);
-void stripPunctuation(struct command_line* cl);
+void stripPunctuationLowercase(struct command_line* cl);
 void removeStopWords(struct command_line* cl);
 void splitCommandIntoArray(struct command_line* cl);
 void getVerb(struct command_line* cl);
