@@ -1,6 +1,6 @@
 VISITED: 0
 ROOMTYPE: START
-ROOMNAME: TENNIS COURT
+ROOMNAME: Tennis Court
 LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. A tennis ball rolls towards you and stops at your feet. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northeast corner, there is an exit covered in animal hair. In the southeast corner, there is an exit blowing in fresh air onto the tennis court.
 SHORTDESCRIPTION: You’ve entered the tennis court. A tennis ball rests at your feet. Serena Williams stands on the opposite side of the court. In the northeast corner, there is an exit covered in animal hair. In the southeast corner, there is an exit blowing in fresh air onto the tennis court.
 FEATURE1: TENNIS BALL

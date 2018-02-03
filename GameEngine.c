@@ -30,78 +30,370 @@ int main() {
 
 	//Using hard coded data for testing
 	//remove and format for real data when available
+	/*
+		char *roomNames[10] = {"Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Room 6", "Room 7", "Room 8", "Room 9", "Room 10"};
 
-	char *roomNames[10] = {"Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Room 6", "Room 7", "Room 8", "Room 9", "Room 10"};
 
+		int i;
+		for (i = 0; i < 10; i++) {
+			rooms[i].type = calloc(255, sizeof(char));
+			rooms[i].name = calloc(255, sizeof(char));
+			rooms[i].longDescription = calloc(255, sizeof(char));
+			rooms[i].shortDescription = calloc(255, sizeof(char));
+
+			rooms[i].visited = 0;
+			rooms[i].name = roomNames[i];
+			rooms[i].longDescription = "Long Description for ";
+			rooms[i].shortDescription = "Short Description for ";
+		}
+		rooms[0].type = "START";
+		rooms[9].type = "END";
+
+		for (i = 1; i < 9; i++) {
+			rooms[i].type = "MID_ROOM";
+		}
+
+
+		rooms[0].numExits = 4;
+		rooms[0].Exit[0] = &rooms[1];
+		rooms[0].Exit[1] = &rooms[3];
+		rooms[0].Exit[2] = &rooms[5];
+		rooms[0].Exit[3] = &rooms[7];
+
+		rooms[1].numExits = 3;
+		rooms[1].Exit[0] = &rooms[0];
+		rooms[1].Exit[1] = &rooms[2];
+		rooms[1].Exit[2] = &rooms[4];
+
+		rooms[2].numExits = 2;
+		rooms[2].Exit[0] = &rooms[1];
+		rooms[2].Exit[1] = &rooms[3];
+
+		rooms[3].numExits = 3;
+		rooms[3].Exit[0] = &rooms[0];
+		rooms[3].Exit[1] = &rooms[2];
+		rooms[3].Exit[2] = &rooms[6];
+
+		rooms[4].numExits = 2;
+		rooms[4].Exit[0] = &rooms[1];
+		rooms[4].Exit[1] = &rooms[5];
+
+		rooms[5].numExits = 3;
+		rooms[5].Exit[0] = &rooms[0];
+		rooms[5].Exit[1] = &rooms[4];
+		rooms[5].Exit[2] = &rooms[8];
+
+		rooms[6].numExits = 2;
+		rooms[6].Exit[0] = &rooms[3];
+		rooms[6].Exit[1] = &rooms[7];
+
+		rooms[7].numExits = 3;
+		rooms[7].Exit[0] = &rooms[0];
+		rooms[7].Exit[1] = &rooms[6];
+		rooms[7].Exit[2] = &rooms[8];
+
+		rooms[8].numExits = 3;
+		rooms[8].Exit[0] = &rooms[5];
+		rooms[8].Exit[1] = &rooms[7];
+		rooms[8].Exit[2] = &rooms[9];
+		//end of hard coded data
+	*/
+	readRooms(rooms, "rooms");
+
+	connectRooms(rooms);
 
 	int i;
-	for (i = 0; i < 10; i++) {
-		rooms[i].type = calloc(255, sizeof(char));
-		rooms[i].name = calloc(255, sizeof(char));
-		rooms[i].longDescription = calloc(255, sizeof(char));
-		rooms[i].shortDescription = calloc(255, sizeof(char));
-
-		rooms[i].visited = 0;
-		rooms[i].name = roomNames[i];
-		rooms[i].longDescription = "Long Description for ";
-		rooms[i].shortDescription = "Short Description for ";
+	int j;
+	for (i = 0; i < 15; i++) {
+		printf("Room: %s\n", rooms[i].name);
+		for (j = 0; j < rooms[i].numExits; j++) {
+			printf("     Exit: %s\n", rooms[i].Exits[j]->name);
+		}
 	}
-	rooms[0].type = "START";
-	rooms[9].type = "END";
-
-	for (i = 1; i < 9; i++) {
-		rooms[i].type = "MID_ROOM";
-	}
-	
-	
-	rooms[0].numExits = 4;
-	rooms[0].Exit[0] = &rooms[1];
-	rooms[0].Exit[1] = &rooms[3];
-	rooms[0].Exit[2] = &rooms[5];
-	rooms[0].Exit[3] = &rooms[7];
-
-	rooms[1].numExits = 3;
-	rooms[1].Exit[0] = &rooms[0];
-	rooms[1].Exit[1] = &rooms[2];
-	rooms[1].Exit[2] = &rooms[4];
-
-	rooms[2].numExits = 2;
-	rooms[2].Exit[0] = &rooms[1];
-	rooms[2].Exit[1] = &rooms[3];
-
-	rooms[3].numExits = 3;
-	rooms[3].Exit[0] = &rooms[0];
-	rooms[3].Exit[1] = &rooms[2];
-	rooms[3].Exit[2] = &rooms[6];
-
-	rooms[4].numExits = 2;
-	rooms[4].Exit[0] = &rooms[1];
-	rooms[4].Exit[1] = &rooms[5];
-	
-	rooms[5].numExits = 3;
-	rooms[5].Exit[0] = &rooms[0];
-	rooms[5].Exit[1] = &rooms[4];
-	rooms[5].Exit[2] = &rooms[8];
-
-	rooms[6].numExits = 2;
-	rooms[6].Exit[0] = &rooms[3];
-	rooms[6].Exit[1] = &rooms[7];
-	
-	rooms[7].numExits = 3;
-	rooms[7].Exit[0] = &rooms[0];
-	rooms[7].Exit[1] = &rooms[6];
-	rooms[7].Exit[2] = &rooms[8];
-
-	rooms[8].numExits = 3;
-	rooms[8].Exit[0] = &rooms[5];
-	rooms[8].Exit[1] = &rooms[7];
-	rooms[8].Exit[2] = &rooms[9];
-	//end of hard coded data
-
-	intro();
-	runGame(rooms);
+	//intro();
+	//runGame(rooms);
 
 	return 0;
+}
+
+void connectRooms(struct Room *rooms) {
+	int i;
+	int j;
+	int k;
+
+	//loop through room to add exits
+	for (i = 0; i < 11; i++) {
+		k = 0;
+		rooms[i].numExits = k;
+
+		//loop through potential exits
+		for (j = 0; j < 11; j++) {
+			//add exits to Library
+			if (strcmp(rooms[i].name, "Library") == 0) {
+				if (strcmp(rooms[j].name, "Cat Kingdom") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Courtyard") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+				}
+				if (strcmp(rooms[j].name, "Doll Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits to Doll Room
+			if (strcmp(rooms[i].name, "Doll Room") == 0) {
+				if (strcmp(rooms[j].name, "Library") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Courtyard") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Basement") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for basement
+			if (strcmp(rooms[i].name, "Basement") == 0) {
+				if (strcmp(rooms[j].name, "Doll Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Courtyard") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Riddle Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Cat Kingdom
+			if (strcmp(rooms[i].name, "Cat Kingdom") == 0) {
+				if (strcmp(rooms[j].name, "Library") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for CourtYard
+			if (strcmp(rooms[i].name, "Courtyard") == 0) {
+				if (strcmp(rooms[j].name, "Library") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Doll Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Basement") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Tennis Court
+			if (strcmp(rooms[i].name, "Tennis Court") == 0) {
+				if (strcmp(rooms[j].name, "Cat Kingdom") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Courtyard") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Cage Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Riddle Room
+			if (strcmp(rooms[i].name, "Riddle Room") == 0) {
+				if (strcmp(rooms[j].name, "Basement") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Storage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Ghost Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Cage Room
+			if (strcmp(rooms[i].name, "Cage Room") == 0) {
+				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Storage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Music Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Garage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Storage
+			if (strcmp(rooms[i].name, "Storage Room") == 0) {
+				if (strcmp(rooms[j].name, "Cage Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Riddle Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Ghost Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Garage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Ghost Room
+			if (strcmp(rooms[i].name, "Riddle Room") == 0) {
+				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Storage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Animal Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Music Room
+			if (strcmp(rooms[i].name, "Music Room") == 0) {
+				if (strcmp(rooms[j].name, "Cage Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Bar Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Garage
+			if (strcmp(rooms[i].name, "Garage") == 0) {
+				if (strcmp(rooms[j].name, "Cage Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Storage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Bar Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Animal Room
+			if (strcmp(rooms[i].name, "Animal Room") == 0) {
+				if (strcmp(rooms[j].name, "Ghost Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Bar Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Cafe") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Bar Room
+			if (strcmp(rooms[i].name, "Bar Room") == 0) {
+				if (strcmp(rooms[j].name, "Music Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Garage") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+				if (strcmp(rooms[j].name, "Animal Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+			//add exits for Cafe
+			if (strcmp(rooms[i].name, "Cafe") == 0) {
+				if (strcmp(rooms[j].name, "Animal Room") == 0) {
+					rooms[i].Exits[k] = &rooms[j];
+					k++;
+					rooms[i].numExits = k;
+				}
+			}
+		}
+	}
 }
 
 /*********************************************************************
@@ -138,7 +430,7 @@ void intro() {
 //All input and output here was used for testing purposes.
 //Function at the moment can move between rooms.
 //will add more functionality in the next week
-void runGame(struct Room *rooms) {
+/*void runGame(struct Room *rooms) {
 	int i, j;
 
 	//buffer to hold keyboard input data
@@ -177,7 +469,7 @@ void runGame(struct Room *rooms) {
 					printf("\n%s%s\n\n", rooms[i].shortDescription, rooms[i].name);
 
 				printf("Exits:\n");
-				
+
 				for (j = 0; j < rooms[i].numExits; j++) {
 					printf("    %s\n", rooms[i].Exit[j]->name);
 				}
@@ -192,5 +484,5 @@ void getInput(char *inputBuff){
 	printf("\nCommand: ");
 	fgets(inputBuff, 255, stdin);
 	inputBuff[strlen(inputBuff) - 1] = '\0';
-}
+}*/
 

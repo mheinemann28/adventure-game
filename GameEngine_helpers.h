@@ -10,7 +10,7 @@
 
 #ifndef _GAMEENGINE_HELPERS_H
 #define _GAMEENGINE_HELPERS_H
-
+/*
 //**Note to Team
 //Make any changes you feel necessary here, this is just a basic example of how we can
 //organize room data.  I was able to get basic movement from room to room with what is here
@@ -26,7 +26,7 @@ struct Room {
 	int numExits;
 	struct Room* Exit[5];
 };
-
+*/
 //**Note to team
 //Not sure if this is necessary. Have not tried implementing with yet -- Mike
 struct Object{
