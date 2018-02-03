@@ -102,9 +102,10 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	/* comments for debugging  */ 
 	printf("\nFOR DEBUGGING - Parser received: %s", cl.userInput);
 	printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
+	printf("%d\n", cl.verbIndex);
 	
 	/* return parsed_command struct with verb and nouns  */ 
-	strcpy(pc.verb, cl.inputArray[0]); 
+	strcpy(pc.verb, cl.verb); 
 	strcpy(pc.noun1, cl.inputArray[1]); 
 	strcpy(pc.noun2, cl.inputArray[2]);
 	return pc;
@@ -170,7 +171,6 @@ void removeStopWords(struct command_line* cl) {
 	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < stop_words_size; j++) {
 			if (strcmp(cl->inputArray[i], stop_words[j]) == 0) {
-				printf("found one!\n");
 				for (k = i; k < cl->inputArraySize; k++) {
 					strcpy(cl->inputArray[k], cl->inputArray[k+1]);
 				}
@@ -198,7 +198,27 @@ void removeStopWords(struct command_line* cl) {
  *********************************************************************/
 
 void getVerb(struct command_line* cl) {
-
+	memset(cl->verb, '\0', sizeof(cl->verb));
+	int i;
+	int j;
+	if(strstr(cl->processedInput, "look at") != NULL) {
+    	strcpy(cl->verb, "look at");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "at") == 0) {
+    			cl->verbIndex = i;
+    		}
+    	}	
+    	return;
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_look_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_look_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_look_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
 }
 
 /*********************************************************************
