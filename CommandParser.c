@@ -15,7 +15,7 @@
 #include <unistd.h>
 
 /* data  */
-const int stop_words_size = 173;
+const int stop_words_size = 174;
 // stop word list from https://www.ranks.nl/stopwords
 const char *stop_words[] = {"a","about","above","after","again","against",
 	"all","am","an","and","any","are","arent","as","be","because","been",
@@ -35,7 +35,7 @@ const char *stop_words[] = {"a","about","above","after","again","against",
 	"wed","well","were","weve","were","werent","what","whats","when",
 	"whens","where","wheres","which","while","who","whos","whom","why",
 	"whys","with","wont","would","wouldnt","you","youd","youll",
-	"youre","youve","your","yours","yourself","yourselves"};
+	"youre","youve","your","yours","yourself","yourselves","around"};
 const int verb_look_synonyms_size = 1;
 const char *verb_look_synonyms[] = {"look"};
 const int verb_go_synonyms_size = 1;
@@ -167,6 +167,19 @@ void removeStopWords(struct command_line* cl) {
 	int i;
 	int j;
 	int k;
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < stop_words_size; j++) {
+			if (strcmp(cl->inputArray[i], stop_words[j]) == 0) {
+				printf("found one!\n");
+				for (k = i; k < cl->inputArraySize; k++) {
+					strcpy(cl->inputArray[k], cl->inputArray[k+1]);
+				}
+				cl->inputArraySize--;
+				i--;
+				break;
+			}
+		}
+	}
 
 	/* after removing stop words from array, put array back into the processed string */
 	memset(cl->processedInput, '\0', sizeof(cl->processedInput));
