@@ -103,8 +103,8 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	
 	
 	/* comments for debugging  */ 
-	printf("\nFOR DEBUGGING - Parser received: %s", cl.userInput);
-	printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
+	//printf("\nFOR DEBUGGING - Parser received: %s", cl.userInput);
+	//printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
 	
 	/* return parsed_command struct with verb and nouns  */ 
 	strcpy(pc.verb, cl.verb); 
