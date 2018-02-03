@@ -86,6 +86,9 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	/* save original user input into command_line struct  */ 
 	strcpy(cl.userInput, commandLine);
 	strcpy(cl.processedInput, commandLine);
+	cl.verbIndex = -1;
+	cl.noun1Index = -1; 
+	cl.noun2Index = -1;
 	
 	/* parse command  */  
 	stripPunctuationLowercase(&cl);
@@ -102,12 +105,11 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	/* comments for debugging  */ 
 	printf("\nFOR DEBUGGING - Parser received: %s", cl.userInput);
 	printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
-	printf("%d\n", cl.verbIndex);
 	
 	/* return parsed_command struct with verb and nouns  */ 
 	strcpy(pc.verb, cl.verb); 
-	strcpy(pc.noun1, cl.inputArray[1]); 
-	strcpy(pc.noun2, cl.inputArray[2]);
+	strcpy(pc.noun1, cl.noun1); 
+	strcpy(pc.noun2, cl.noun2);
 	return pc;
 	
 }
@@ -219,6 +221,78 @@ void getVerb(struct command_line* cl) {
     		}
 		}
 	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_go_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_go_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_go_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_take_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_take_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_take_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_drop_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_drop_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_drop_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_help_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_help_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_help_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_inventory_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_inventory_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_inventory_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_hit_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_hit_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_hit_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_open_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_open_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_open_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_move_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_move_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_move_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+	}
 }
 
 /*********************************************************************
@@ -256,5 +330,24 @@ void getFeature(struct command_line* cl) {
  *********************************************************************/
 
 void getOtherNouns(struct command_line* cl) {
-
+	if (cl->noun1Index == -1) {
+		cl->noun1Index = cl->verbIndex + 1;
+		if (cl->noun1Index < cl->inputArraySize) {
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, cl->inputArray[cl->noun1Index]);
+		}
+		else {
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+		}
+	}
+	if (cl->noun2Index == -1) {
+		cl->noun2Index = cl->noun1Index + 1;
+		if (cl->noun2Index < cl->inputArraySize) {
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, cl->inputArray[cl->noun2Index]);
+		}
+		else {
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+		}
+	}
 }
