@@ -36,8 +36,8 @@ const char *stop_words[] = {"a","about","above","after","again","against",
 	"whens","where","wheres","which","while","who","whos","whom","why",
 	"whys","with","wont","would","wouldnt","you","youd","youll",
 	"youre","youve","your","yours","yourself","yourselves","around"};
-const int verb_look_synonyms_size = 1;
-const char *verb_look_synonyms[] = {"look"};
+const int verb_look_synonyms_size = 2;
+const char *verb_look_synonyms[] = {"look", "see"};
 const int verb_go_synonyms_size = 1;
 const char *verb_go_synonyms[] = {"go"};
 const int verb_take_synonyms_size = 1;
@@ -305,7 +305,67 @@ void getVerb(struct command_line* cl) {
  *********************************************************************/
 
 void getExit(struct command_line* cl) {
-
+	memset(cl->noun1, '\0', sizeof(cl->noun1));
+	int i;
+	int j;
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < exit_northeast_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_northeast_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_northeast_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_northwest_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_northwest_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_northwest_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_southeast_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_southeast_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_southeast_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_southwest_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_southwest_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_southwest_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_north_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_north_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_north_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_west_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_west_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_west_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_east_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_east_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_east_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_south_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_south_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_south_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}	
+	}
 }
 
 /*********************************************************************
