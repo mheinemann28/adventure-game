@@ -14,7 +14,7 @@
 #include <string.h> 
 #include <unistd.h>
 
-/* data  */
+/* data  */ 
 const int stop_words_size = 174;
 // stop word list from https://www.ranks.nl/stopwords
 const char *stop_words[] = {"a","about","above","after","again","against",
@@ -220,8 +220,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_go_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_go_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_go_synonyms[0]);
@@ -229,8 +227,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_take_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_take_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_take_synonyms[0]);
@@ -238,8 +234,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_drop_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_drop_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_drop_synonyms[0]);
@@ -247,8 +241,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_help_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_help_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_help_synonyms[0]);
@@ -256,8 +248,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_inventory_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_inventory_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_inventory_synonyms[0]);
@@ -265,8 +255,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_hit_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_hit_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_hit_synonyms[0]);
@@ -274,8 +262,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_open_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_open_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_open_synonyms[0]);
@@ -283,8 +269,6 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_move_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_move_synonyms[j]) == 0) {
 				strcpy(cl->verb, verb_move_synonyms[0]);
@@ -292,6 +276,7 @@ void getVerb(struct command_line* cl) {
     			return;
     		}
 		}
+		
 	}
 }
 
