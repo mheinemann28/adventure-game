@@ -54,6 +54,22 @@ const int verb_open_synonyms_size = 1;
 const char *verb_open_synonyms[] = {"open"};
 const int verb_move_synonyms_size = 1;
 const char *verb_move_synonyms[] = {"move"};
+const int exit_northeast_synonyms_size = 1;
+const char *exit_northeast_synonyms[] = {"northeast"};
+const int exit_northwest_synonyms_size = 1;
+const char *exit_northwest_synonyms[] = {"northwest"};
+const int exit_southeast_synonyms_size = 1;
+const char *exit_southeast_synonyms[] = {"southeast"};
+const int exit_southwest_synonyms_size = 1;
+const char *exit_southwest_synonyms[] = {"southwest"};
+const int exit_north_synonyms_size = 1;
+const char *exit_north_synonyms[] = {"north"};
+const int exit_west_synonyms_size = 1;
+const char *exit_west_synonyms[] = {"west"};
+const int exit_east_synonyms_size = 1;
+const char *exit_east_synonyms[] = {"east"};
+const int exit_south_synonyms_size = 1;
+const char *exit_south_synonyms[] = {"south"};
 
 /*********************************************************************
  ** Function: struct parsed_command parseCommand(char commandLine[500])
