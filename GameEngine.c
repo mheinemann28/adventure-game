@@ -102,16 +102,9 @@ int main() {
 
 	connectRooms(rooms);
 
-	int i;
-	int j;
-	for (i = 0; i < 15; i++) {
-		printf("Room: %s\n", rooms[i].name);
-		for (j = 0; j < rooms[i].numExits; j++) {
-			printf("     Exit: %s\n", rooms[i].Exits[j]->name);
-		}
-	}
-	//intro();
-	//runGame(rooms);
+
+	intro();
+	runGame(rooms);
 
 	return 0;
 }
@@ -132,15 +125,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Library") == 0) {
 				if (strcmp(rooms[j].name, "Cat Kingdom") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northeast";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Courtyard") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southeast";
 					k++;
+					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Doll Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "south";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -149,16 +146,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Doll Room") == 0) {
 				if (strcmp(rooms[j].name, "Library") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "north";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Courtyard") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Basement") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "south";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -167,16 +167,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Basement") == 0) {
 				if (strcmp(rooms[j].name, "Doll Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Courtyard") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northeast";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Riddle Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -185,11 +188,13 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Cat Kingdom") == 0) {
 				if (strcmp(rooms[j].name, "Library") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -198,21 +203,25 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Courtyard") == 0) {
 				if (strcmp(rooms[j].name, "Library") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Doll Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Basement") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "south";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -221,16 +230,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Tennis Court") == 0) {
 				if (strcmp(rooms[j].name, "Cat Kingdom") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Courtyard") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Cage Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -239,16 +251,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Riddle Room") == 0) {
 				if (strcmp(rooms[j].name, "Basement") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Storage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "north";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Ghost Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -257,21 +272,25 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Cage Room") == 0) {
 				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Storage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "south";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Music Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northeast";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Garage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southeast";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -280,39 +299,46 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Storage Room") == 0) {
 				if (strcmp(rooms[j].name, "Cage Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "north";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Riddle Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Ghost Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southeast";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Garage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
 			}
 			//add exits for Ghost Room
-			if (strcmp(rooms[i].name, "Riddle Room") == 0) {
-				if (strcmp(rooms[j].name, "Tennis Court") == 0) {
+			if (strcmp(rooms[i].name, "Ghost Room") == 0) {
+				if (strcmp(rooms[j].name, "Riddle Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Storage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "north";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Animal Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -321,11 +347,13 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Music Room") == 0) {
 				if (strcmp(rooms[j].name, "Cage Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Bar Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -334,16 +362,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Garage") == 0) {
 				if (strcmp(rooms[j].name, "Cage Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Storage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Bar Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -352,16 +383,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Animal Room") == 0) {
 				if (strcmp(rooms[j].name, "Ghost Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Bar Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "north";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Cafe") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "east";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -370,16 +404,19 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Bar Room") == 0) {
 				if (strcmp(rooms[j].name, "Music Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "northwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Garage") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "southwest";
 					k++;
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Animal Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "south";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -388,6 +425,7 @@ void connectRooms(struct Room *rooms) {
 			if (strcmp(rooms[i].name, "Cafe") == 0) {
 				if (strcmp(rooms[j].name, "Animal Room") == 0) {
 					rooms[i].Exits[k] = &rooms[j];
+					rooms[i].exitDirection[k] = "west";
 					k++;
 					rooms[i].numExits = k;
 				}
@@ -430,59 +468,101 @@ void intro() {
 //All input and output here was used for testing purposes.
 //Function at the moment can move between rooms.
 //will add more functionality in the next week
-/*void runGame(struct Room *rooms) {
+void runGame(struct Room *rooms) {
 	int i, j;
-
+	struct parsed_command pc;
+	char *noun;
+	char *tempRoomName;
 	//buffer to hold keyboard input data
 	char inputBuff[255];
 	memset(inputBuff, '\0', sizeof(inputBuff));
 
-	//room description of start
-	printf("%s%s\n\n", rooms[0].longDescription, rooms[0].name);
+	tempRoomName = rooms[1].name;
 
-	//Loop through and print exits
-	printf("Exits:\n");
-	for (i = 0; i < rooms[0].numExits; i++) {
-		printf("    %s\n", rooms[0].Exit[i]->name);
-	}
 
 	//mark start room as visited
-	rooms[0].visited = 1;
+//	rooms[0].visited = 1;
 
 	while (1) {
+		//begin_loop:
 		//get command from user
-		getInput(inputBuff);
+		if (rooms[1].visited == 1) {
+			getInput(inputBuff);
+			pc = parseCommand(inputBuff);
+			noun = pc.noun1;
+		}
+		//printf("%s\n", noun);
 
 		for (i = 0; i < 10; i++) {
-
-			if (strcmp(inputBuff, rooms[i].name) == 0) {
-				if(strcmp(rooms[i].type, "END") == 0){
-					printf("\n%s%s\n\n", rooms[i].longDescription, rooms[i].name);
-					printf("Made it to END\n");
-					exit(1);
-				}
-				else if (rooms[i].visited == 0) {
-					printf("\n%s%s\n\n", rooms[i].longDescription, rooms[i].name);
-					rooms[i].visited = 1;
-				}
-				else
-					printf("\n%s%s\n\n", rooms[i].shortDescription, rooms[i].name);
-
-				printf("Exits:\n");
-
+			if ((strcmp(rooms[i].type, "START") == 0) && rooms[i].visited == 0) {
+				printf("%s\n\n", rooms[i].longDescription);
+				printf("current room: %s\n", rooms[i].name);
+				rooms[i].visited = 1;
+			}
+			if (strcmp(tempRoomName, rooms[i].name) == 0) {
 				for (j = 0; j < rooms[i].numExits; j++) {
-					printf("    %s\n", rooms[i].Exit[j]->name);
+
+					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0) {
+						if (strcmp(rooms[i].type, "END") == 0) {
+							printf("\n%s\n\n", rooms[i].Exits[j]->longDescription);
+							printf("Made it to END\n");
+							exit(1);
+						}
+						else if (rooms[i].Exits[j]->visited == 0) {
+							printf("\n%s\n\n", rooms[i].Exits[j]->longDescription);
+							tempRoomName = rooms[i].Exits[j]->name;
+							printf("current room: %s\n", tempRoomName);
+							rooms[i].visited = 1;
+						}
+						else {
+							printf("\n%s\n\n", rooms[i].Exits[j]->shortDescription);
+							tempRoomName = rooms[i].Exits[j]->name;
+							printf("current room: %s\n", tempRoomName);
+						}
+						goto continue_game;
+
+					}
 				}
 			}
 		}
+		continue_game:
+		memset(inputBuff, '\0', sizeof(inputBuff));
+		/*	for (i = 0; i < 10; i++) {
+				if (strcmp(rooms[i].type, "START") == 0 && rooms[i].visited == 0) {
+					printf("%s\n\n", rooms[i].longDescription);
+					rooms[i].visited = 1;
+				}
+				for (j = 0; j < rooms[i].numExits; j++) {
+
+					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0) {
+						if (strcmp(rooms[i].type, "END") == 0) {
+							printf("\n%s\n\n", rooms[i].Exits[j]->longDescription);
+							printf("Made it to END\n");
+							exit(1);
+						}
+						else if (rooms[i].visited == 0) {
+							printf("\n%s\n\n", rooms[i].Exits[j]->longDescription);
+							rooms[i].visited = 1;
+						}
+						else
+							printf("\n%s\n\n", rooms[i].Exits[j]->shortDescription);
+						goto begin_loop;
+						//printf("Exits:\n");
+
+		//				for (j = 0; j < rooms[i].numExits; j++) {
+		//					printf("    %s\n", rooms[i].Exit[j]->name);
+		//				}
+					}
+				}
+			}*/
 	}
 }
 
-void getInput(char *inputBuff){
+void getInput(char *inputBuff) {
 	//get command from user
 	memset(inputBuff, '\0', sizeof(inputBuff));
 	printf("\nCommand: ");
 	fgets(inputBuff, 255, stdin);
 	inputBuff[strlen(inputBuff) - 1] = '\0';
-}*/
+}
 

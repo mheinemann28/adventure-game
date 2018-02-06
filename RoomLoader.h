@@ -47,6 +47,7 @@ struct Room {
 	char *exit4name;
 	char *exit4direction;	
 	int numExits;
+	char *exitDirection[MAX_EXITS];
 	struct Room *Exits[MAX_EXITS];
 };
 
