@@ -14,8 +14,9 @@
 #include <string.h> 
 #include <unistd.h>
 
-/* data  */
-const int stop_words_size = 173;
+/* data  */ 
+const int stop_words_size = 174;
+
 // stop word list from https://www.ranks.nl/stopwords
 const char *stop_words[] = {"a","about","above","after","again","against",
 	"all","am","an","and","any","are","arent","as","be","because","been",
@@ -35,25 +36,41 @@ const char *stop_words[] = {"a","about","above","after","again","against",
 	"wed","well","were","weve","were","werent","what","whats","when",
 	"whens","where","wheres","which","while","who","whos","whom","why",
 	"whys","with","wont","would","wouldnt","you","youd","youll",
-	"youre","youve","your","yours","yourself","yourselves"};
-const int verb_look_synonyms_size = 1;
-const char *verb_look_synonyms[] = {"look"};
-const int verb_go_synonyms_size = 1;
-const char *verb_go_synonyms[] = {"go"};
-const int verb_take_synonyms_size = 1;
-const char *verb_take_synonyms[] = {"take"};
-const int verb_drop_synonyms_size = 1;
-const char *verb_drop_synonyms[] = {"drop"};
+	"youre","youve","your","yours","yourself","yourselves","around"};
+const int verb_look_synonyms_size = 2;
+const char *verb_look_synonyms[] = {"look", "see"};
+const int verb_go_synonyms_size = 2;
+const char *verb_go_synonyms[] = {"go","leave"};
+const int verb_take_synonyms_size = 3;
+const char *verb_take_synonyms[] = {"take","grab","pick"};
+const int verb_drop_synonyms_size = 2;
+const char *verb_drop_synonyms[] = {"drop","leave"};
 const int verb_help_synonyms_size = 1;
 const char *verb_help_synonyms[] = {"help"};
 const int verb_inventory_synonyms_size = 1;
 const char *verb_inventory_synonyms[] = {"inventory"};
-const int verb_hit_synonyms_size = 1;
-const char *verb_hit_synonyms[] = {"hit"};
+const int verb_hit_synonyms_size = 2;
+const char *verb_hit_synonyms[] = {"hit","smack"};
 const int verb_open_synonyms_size = 1;
 const char *verb_open_synonyms[] = {"open"};
 const int verb_move_synonyms_size = 1;
 const char *verb_move_synonyms[] = {"move"};
+const int exit_northeast_synonyms_size = 2;
+const char *exit_northeast_synonyms[] = {"northeast","ne"};
+const int exit_northwest_synonyms_size = 2;
+const char *exit_northwest_synonyms[] = {"northwest","nw"};
+const int exit_southeast_synonyms_size = 2;
+const char *exit_southeast_synonyms[] = {"southeast","se"};
+const int exit_southwest_synonyms_size = 2;
+const char *exit_southwest_synonyms[] = {"southwest","sw"};
+const int exit_north_synonyms_size = 2;
+const char *exit_north_synonyms[] = {"north","n"};
+const int exit_west_synonyms_size = 2;
+const char *exit_west_synonyms[] = {"west","w"};
+const int exit_east_synonyms_size = 2;
+const char *exit_east_synonyms[] = {"east","e"};
+const int exit_south_synonyms_size = 2;
+const char *exit_south_synonyms[] = {"south","s"};
 
 /*********************************************************************
  ** Function: struct parsed_command parseCommand(char commandLine[500])
@@ -201,7 +218,88 @@ void removeStopWords(struct command_line* cl) {
  *********************************************************************/
 
 void getVerb(struct command_line* cl) {
+<<<<<<< HEAD
 
+=======
+	memset(cl->verb, '\0', sizeof(cl->verb));
+	int i;
+	int j;
+	if(strstr(cl->processedInput, "look at") != NULL) {
+    	strcpy(cl->verb, "look at");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "at") == 0) {
+    			cl->verbIndex = i;
+    		}
+    	}	
+    	return;
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < verb_look_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_look_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_look_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_go_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_go_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_go_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_take_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_take_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_take_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_drop_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_drop_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_drop_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_help_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_help_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_help_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_inventory_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_inventory_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_inventory_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_hit_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_hit_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_hit_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_open_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_open_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_open_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < verb_move_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], verb_move_synonyms[j]) == 0) {
+				strcpy(cl->verb, verb_move_synonyms[0]);
+    			cl->verbIndex = i;
+    			return;
+    		}
+		}
+		
+	}
+>>>>>>> origin/master
 }
 
 /*********************************************************************
@@ -213,7 +311,67 @@ void getVerb(struct command_line* cl) {
  *********************************************************************/
 
 void getExit(struct command_line* cl) {
-
+	memset(cl->noun1, '\0', sizeof(cl->noun1));
+	int i;
+	int j;
+	for (i = 0; i < cl->inputArraySize; i++) {
+		for (j = 0; j < exit_northeast_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_northeast_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_northeast_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_northwest_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_northwest_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_northwest_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_southeast_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_southeast_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_southeast_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_southwest_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_southwest_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_southwest_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_north_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_north_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_north_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_west_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_west_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_west_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_east_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_east_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_east_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}
+		for (j = 0; j < exit_south_synonyms_size; j++) {
+			if (strcmp(cl->inputArray[i], exit_south_synonyms[j]) == 0) {
+				strcpy(cl->noun1, exit_south_synonyms[0]);
+    			cl->noun1Index = i;
+    			return;
+    		}
+		}	
+	}
 }
 
 /*********************************************************************
