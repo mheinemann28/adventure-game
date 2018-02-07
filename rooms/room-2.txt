@@ -2,7 +2,7 @@ VISITED: 0
 ROOMTYPE: START
 ROOMNAME: Library
 LONGDESCRIPTION: You enter a room with bookshelves that reach the ceiling. There is a slight musty smell to the books. They look old and covered in dust. The lights are dim. There is a skylight on the ceiling, but the sunshine from outside is obscured by years of grime. Off to one side of the room, there is an exhibit featuring a large book. The exhibit’s title is Book of Wallpaper. On the other side of the room sits an old man behind the librarian’s reference desk. He looks nearly as old as the book collection. In the south end of the room, there is an exit with a creepy vibe. In the southeast corner of the room, there is an exit with fresh air blowing through. In the northeast corner, there is an exit covered in animal hair.
-SHORTDESCRIPTION: You’ve entered the library. A special exhibit featuring The Book of Wallpaper is off to one side, on the other sits a librarian behind the reference desk. In the south end of the room, there is an exit with a creepy vibe. In the southwest corner of the room, there is an exit with fresh air blowing through. In the northwest corner, there is an exit covered in animal hair.
+SHORTDESCRIPTION: You’ve entered the library. A special exhibit featuring The Book of Wallpaper is off to one side, on the other sits a librarian behind the reference desk. In the south end of the room, there is an exit with a creepy vibe. In the southeast corner of the room, there is an exit with fresh air blowing through. In the northeast corner, there is an exit covered in animal hair.
 FEATURE1: book of wallpaper
 LOOK1: The Book of Wallpaper is a large book with samples of wallpapers from the 1700 and 1800 hundreds. The patterns are beautiful. The exhibit posted a warning sign because wallpapers during this time period were made with arsenic, a dangerous poison when touched, ingested, or inhaled. Most copies of this rare book were destroyed by their hosting institutions to prevent poisoning their patrons. 
 HIT1: A puff of dust rises in the air. Try not to inhale. Old wallpaper contains arsenic. 
@@ -23,6 +23,12 @@ EXIT1DIRECTION: south
 EXIT2NAME: fresh air
 EXIT2DIRECTION: southeast
 EXIT3NAME: animal hair
-EXIT3DIRECTION: northwest
+EXIT3DIRECTION: northeast
 EXIT4NAME: NA
 EXIT4DIRECTION: NA
+EXIT1ROOM: Doll Room
+EXIT2ROOM: Courtyard
+EXIT3ROOM: Cat Kingdom
+EXIT4ROOM: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
