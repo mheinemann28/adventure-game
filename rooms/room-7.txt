@@ -3,12 +3,12 @@ ROOMTYPE: MID
 ROOMNAME: Music Room
 LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east, you can hear bar music through a door.
 SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano. To the west there is a door with fluttering noise coming from behind it. To the east, you can hear bar music through a door.
-FEATURE1: Piano
+FEATURE1: piano
 LOOK1: A key on the piano has fingerprint blood. The piano’s lid is closed.
 HIT1: Press the key with fingerprint blood. Piano lid opens. Revealing a key (object) inside. 
 OPEN1: Piano lid is locked. 
 MOVE1: Wouldn't you rather pick up the key?
-FEATURE2: Hostile Magical Beast
+FEATURE2: hostile magical beast
 LOOK2: The magical beast is hideous looking. It lunges at you. What do you do?
 HIT2: The magical beast is not harmed by physical attacks.  Maybe the magical beast can only be defeated by magic? What do you do?
 OPEN2: The magical beast is hideous looking. It lunges at you. What do you do?
