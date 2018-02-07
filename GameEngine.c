@@ -102,7 +102,6 @@ int main() {
 
 	connectRooms(rooms);
 
-
 	intro();
 	runGame(rooms);
 
@@ -117,7 +116,7 @@ void connectRooms(struct Room *rooms) {
 	//loop through room to add exits
 	for (i = 0; i < 11; i++) {
 		k = 0;
-		rooms[i].numExits = k;
+		//rooms[i].numExits = k;
 
 		//loop through potential exits
 		for (j = 0; j < 11; j++) {
@@ -127,6 +126,7 @@ void connectRooms(struct Room *rooms) {
 					rooms[i].Exits[k] = &rooms[j];
 					rooms[i].exitDirection[k] = "northeast";
 					k++;
+					printf("setting numexits\n");
 					rooms[i].numExits = k;
 				}
 				if (strcmp(rooms[j].name, "Courtyard") == 0) {
@@ -478,7 +478,9 @@ void runGame(struct Room *rooms) {
 	memset(inputBuff, '\0', sizeof(inputBuff));
 
 	tempRoomName = rooms[1].name;
-
+	
+//	if(strcmp(tempRoomName, rooms[1].name) == 0)
+//		printf("matched here\n");
 
 	//mark start room as visited
 //	rooms[0].visited = 1;
@@ -491,17 +493,17 @@ void runGame(struct Room *rooms) {
 			pc = parseCommand(inputBuff);
 			noun = pc.noun1;
 		}
-		//printf("%s\n", noun);
 
-		for (i = 0; i < 10; i++) {
+		for (i = 0; i < 11; i++) {
 			if ((strcmp(rooms[i].type, "START") == 0) && rooms[i].visited == 0) {
 				printf("%s\n\n", rooms[i].longDescription);
 				printf("current room: %s\n", rooms[i].name);
 				rooms[i].visited = 1;
 			}
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {
+				
 				for (j = 0; j < rooms[i].numExits; j++) {
-
+					
 					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0) {
 						if (strcmp(rooms[i].type, "END") == 0) {
 							printf("\n%s\n\n", rooms[i].Exits[j]->longDescription);
@@ -512,7 +514,7 @@ void runGame(struct Room *rooms) {
 							printf("\n%s\n\n", rooms[i].Exits[j]->longDescription);
 							tempRoomName = rooms[i].Exits[j]->name;
 							printf("current room: %s\n", tempRoomName);
-							rooms[i].visited = 1;
+							rooms[i].Exits[j]->visited = 1;
 						}
 						else {
 							printf("\n%s\n\n", rooms[i].Exits[j]->shortDescription);

@@ -218,9 +218,6 @@ void removeStopWords(struct command_line* cl) {
  *********************************************************************/
 
 void getVerb(struct command_line* cl) {
-<<<<<<< HEAD
-
-=======
 	memset(cl->verb, '\0', sizeof(cl->verb));
 	int i;
 	int j;
@@ -299,7 +296,6 @@ void getVerb(struct command_line* cl) {
 		}
 		
 	}
->>>>>>> origin/master
 }
 
 /*********************************************************************

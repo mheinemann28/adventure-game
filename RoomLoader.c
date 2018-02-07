@@ -44,247 +44,303 @@ void readRooms(Room* array, char newestDirName[256]) {
 		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
-		array[i].visited = atoi(strtok(word, "\n"));
-//		printf("%s\n",array[i].visited);
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].visited = atoi(word);
+		printf("%d\n",array[i].visited);
 		
 
 		fseek(file, 10, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].type = calloc(255, sizeof(char));
-		strcpy(array[i].type, strtok(word, "\n"));
+		strcpy(array[i].type, word);
 //		printf("%s\n",array[i].type);
 		
 
 		fseek(file, 10, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].name = calloc(255, sizeof(char));
-		strcpy(array[i].name, strtok(word, "\n"));
-//		printf("%s\n",array[i].name);
+		strcpy(array[i].name, word);
+	//	printf("%s\n",array[i].name);
 
 
 		fseek(file, 17, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].longDescription = calloc(1000, sizeof(char));
-		strcpy(array[i].longDescription, strtok(word, "\n"));
+		strcpy(array[i].longDescription, word);
 //		printf("%s\n",array[i].longDescription);
 	
 
 		fseek(file, 18, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].shortDescription = calloc(255, sizeof(char));
-		strcpy(array[i].shortDescription, strtok(word, "\n"));
+		strcpy(array[i].shortDescription, word);
 //		printf("%s\n",array[i].shortDescription);
 		
 	
 		fseek(file, 10, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].feature1 = calloc(255, sizeof(char));
-		strcpy(array[i].feature1, strtok(word, "\n"));
+		strcpy(array[i].feature1, word);
 //		printf("%s\n",array[i].feature1);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].look1 = calloc(255, sizeof(char));
-		strcpy(array[i].look1, strtok(word, "\n"));
+		strcpy(array[i].look1, word);
 //		printf("%s\n",array[i].look1);
 		
 		fseek(file, 6, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].hit1 = calloc(255, sizeof(char));
-		strcpy(array[i].hit1, strtok(word, "\n"));
+		strcpy(array[i].hit1, word);
 //		printf("%s\n",array[i].hit1);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].open1 = calloc(255, sizeof(char));
-		strcpy(array[i].open1, strtok(word, "\n"));
+		strcpy(array[i].open1, word);
 //		printf("%s\n",array[i].open1);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].move1 = calloc(255, sizeof(char));
-		strcpy(array[i].move1, strtok(word, "\n"));
+		strcpy(array[i].move1, word);
 //		printf("%s\n",array[i].move1);
 		
 
 		fseek(file, 10, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';	
 		array[i].feature2 = calloc(255, sizeof(char));
-		strcpy(array[i].feature2, strtok(word, "\n"));
+		strcpy(array[i].feature2, word);
 //		printf("%s\n",array[i].feature2);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].look2 = calloc(255, sizeof(char));
-		strcpy(array[i].look2, strtok(word, "\n"));
+		strcpy(array[i].look2, word);
 //		printf("%s\n",array[i].look2);
 		
 
 		fseek(file, 6, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].hit2 = calloc(255, sizeof(char));
-		strcpy(array[i].hit2, strtok(word, "\n"));
+		strcpy(array[i].hit2, word);
 //		printf("%s\n",array[i].hit2);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].open2 = calloc(255, sizeof(char));
-		strcpy(array[i].open2, strtok(word, "\n"));
+		strcpy(array[i].open2, word);
 //		printf("%s\n",array[i].open2);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].move2 = calloc(255, sizeof(char));
-		strcpy(array[i].move2, strtok(word, "\n"));
+		strcpy(array[i].move2, word);
 //		printf("%s\n",array[i].move2);
 		
 
 		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].lookatd2 = calloc(255, sizeof(char));
-		strcpy(array[i].lookatd2, strtok(word, "\n"));
+		strcpy(array[i].lookatd2, word);
 //		printf("%s\n",array[i].lookatd2);
 		
 
 		fseek(file, 7, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].hitd2 = calloc(255, sizeof(char));
-		strcpy(array[i].hitd2, strtok(word, "\n"));
+		strcpy(array[i].hitd2, word);
 //		printf("%s\n",array[i].hitd2);
 		
 
 		fseek(file, 8, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].opend2 = calloc(255, sizeof(char));
-		strcpy(array[i].opend2, strtok(word, "\n"));
+		strcpy(array[i].opend2, word);
 //		printf("%s\n",array[i].opend2);
 		
 
 		fseek(file, 8, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].moved2 = calloc(255, sizeof(char));
-		strcpy(array[i].moved2, strtok(word, "\n"));
+		strcpy(array[i].moved2, word);
 //		printf("%s\n",array[i].moved2);
 		
 
 		fseek(file, 8, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].objectd2 = calloc(255, sizeof(char));
-		strcpy(array[i].objectd2, strtok(word, "\n"));
+		strcpy(array[i].objectd2, word);
 //		printf("%s\n",array[i].objectd2);
 		
 
 		fseek(file, 11, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit1name = calloc(255, sizeof(char));
-		strcpy(array[i].exit1name, strtok(word, "\n"));
+		strcpy(array[i].exit1name, word);
 //		printf("%s\n",array[i].exit1name);
 		
 
 		fseek(file, 16, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit1direction = calloc(255, sizeof(char));
-		strcpy(array[i].exit1direction, strtok(word, "\n"));
+		strcpy(array[i].exit1direction, word);
 //		printf("%s\n",array[i].exit1direction);
 		
 
 		fseek(file, 11, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit2name = calloc(255, sizeof(char));
-		strcpy(array[i].exit2name, strtok(word, "\n"));
+		strcpy(array[i].exit2name, word);
 //		printf("%s\n",array[i].exit2name);
 	
 
 		fseek(file, 16, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit2direction = calloc(255, sizeof(char));
-		strcpy(array[i].exit2direction, strtok(word, "\n"));
+		strcpy(array[i].exit2direction, word);
 //		printf("%s\n",array[i].exit2direction);
 		
 		fseek(file, 11, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit3name = calloc(255, sizeof(char));
-		strcpy(array[i].exit3name, strtok(word, "\n"));
+		strcpy(array[i].exit3name, word);
 //		printf("%s\n",array[i].exit3name);
 
 		fseek(file, 16, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit3direction = calloc(255, sizeof(char));
-		strcpy(array[i].exit3direction, strtok(word, "\n"));
+		strcpy(array[i].exit3direction, word);
 //		printf("%s\n",array[i].exit3direction);
 
 
 		fseek(file, 11, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word) - 2] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit4name = calloc(255, sizeof(char));
-		strcpy(array[i].exit4name, strtok(word, "\n"));
+		strcpy(array[i].exit4name, word);
 //		printf("%s\n",array[i].exit4name);
 
 		fseek(file, 16, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
-		word[strlen(word)] = '\0';
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
 		array[i].exit4direction = calloc(255, sizeof(char));
-		strcpy(array[i].exit4direction, strtok(word, "\n"));
+		strcpy(array[i].exit4direction, word);
 //		printf("%s\n",array[i].exit4direction);
 
 		fclose(file);	
