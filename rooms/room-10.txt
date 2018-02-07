@@ -1,28 +1,34 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Storage Room
-LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it.
-SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it.
+LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it. A large spider is crawling on the shelf. It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. There is a door towards the southwest, but you feel confused looking at it. There is a door with a spooky vibe to the southeast.
+SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. A large spider is crawling on the shelf. There is a door to the north with fluttering noise behind it. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. There is a door towards the southwest, but you feel confused looking at it. There is a door with a spooky vibe to the southeast.
 FEATURE1: shelf
-LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
-HIT1: The tennis racket (object) falls of the shelf. It looks like it can be used as a weapon. 
-OPEN1: NA 
+LOOK1: Shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Amazing how it didn’t fall off the shelf.
+HIT1: Items fall over.
+OPEN1: There is nothing to open.
 MOVE1: Shelf cannot be moved. The base is fixed into the ground.
-FEATURE2: giant spider
-LOOK2: Starts fight sequence – It’s a giant hairy spider.
-HIT2: Starts fight sequence – you successfully stomped the spider to death
-OPEN2: NA
-MOVE2: NA
+FEATURE2: spider
+LOOK2: It’s a giant hairy spider. You can imagine its legs across your face before it reaches you. What do you do?
+HIT2: It’s a giant hairy spider. You can imagine its legs across your face before it reaches you. What do you do?
+OPEN2: It’s a giant hairy spider. You can imagine its legs across your face before it reaches you. What do you do?
+MOVE2: It’s a giant hairy spider. You can imagine its legs across your face before it reaches you. What do you do?
 LOOKAT2: The giant hair spider’s leg shriveled together upon death.
 HITD2: Sticky spider goo is all over the floor and the bottom of you shoes.
-OPEND2: NA.
+OPEND2: Gross.
 MOVED2: the dead spider is too disgusting to move.
 OBJECT: NA
 EXIT1NAME: fluttering noise
 EXIT1DIRECTION: north
 EXIT2NAME: car sign
 EXIT2DIRECTION: east
-EXIT3NAME: NA
-EXIT3DIRECTION: NA
-EXIT4NAME: NA
-EXIT4DIRECTION: NA
+EXIT3NAME: confusion
+EXIT3DIRECTION: southwest
+EXIT4NAME: spooky
+EXIT4DIRECTION: southeast
+EXIT1ROOM: Cage Room
+EXIT2ROOM: Garage
+EXIT3ROOM: Riddle Room
+EXIT4ROOM: Ghost Room
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
