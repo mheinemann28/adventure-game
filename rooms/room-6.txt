@@ -9,10 +9,10 @@ HIT1: You cannot break the cabinet.
 OPEN1: Nothing inside the cabinet. 
 MOVE1: The low cabinet is not too heavy and is moved out of the way to the door with the musical note so you can open the door.
 FEATURE2: bar counter
-LOOK2: On the bar counter is a magical wand.
-HIT2: NA
-OPEN2: NA
-MOVE2: NA
+LOOK2: On the bar counter is an assortment of beers.
+HIT2: You broke a few bottles on the counter and hurt your hand.
+OPEN2: You open a porter and take a sip.
+MOVE2: You are not strong enough to move a bar counter. 
 LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs from provides the perfect shade.
 HITD2: It swings back and forth.
 OPEND2: It doesn’t open.
