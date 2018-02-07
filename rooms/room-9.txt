@@ -13,7 +13,7 @@ LOOK2: The huge dog is angry that you woke him up and is ready to charge at you.
 HIT2: The huge dog is angry that you woke him up and is ready to charge at you. What do you do?
 OPEN2: The huge dog is angry that you woke him up and is ready to charge at you. What do you do?
 MOVE2: The huge dog is angry that you woke him up and is ready to charge at you. What do you do?
-LOOKAT2: The dog is knocked out.
+LOOKD2: The dog is knocked out.
 HITD2: Don’t hit the dog again. It is no longer a threat.
 OPEND2: That doesn't work.
 MOVED2: You moved the dog.
