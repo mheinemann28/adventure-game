@@ -27,7 +27,7 @@ EXIT3DIRECTION: northeast
 EXIT4NAME: car sign
 EXIT4DIRECTION: southeast
 EXIT1ROOM: Tennis Court
-EXIT2ROOM: Storage
+EXIT2ROOM: Storage Room
 EXIT3ROOM: Music Room
 EXIT4ROOM: Garage
 FEATURE1ENEMY?: No
