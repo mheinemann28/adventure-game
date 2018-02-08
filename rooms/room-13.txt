@@ -1,34 +1,34 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: 
-LONGDESCRIPTION: 
-SHORTDESCRIPTION: 
-FEATURE1: 
-LOOK1: 
-HIT1: 
-OPEN1: 
-MOVE1: 
-FEATURE2: 
-LOOK2: 
-HIT2: 
-OPEN2:
-MOVE2: 
-LOOKAT2: 
-HITD2: 
-OPEND2: 
-MOVED2: 
-OBJECT: 
-EXIT1NAME: 
-EXIT1DIRECTION: 
-EXIT2NAME: 
-EXIT2DIRECTION: 
-EXIT3NAME: 
-EXIT3DIRECTION: 
-EXIT4NAME: 
-EXIT4DIRECTION: 
-EXIT1ROOM: 
-EXIT2ROOM: 
-EXIT3ROOM: 
-EXIT4ROOM: 
-FEATURE1ENEMY?: 
-FEATURE2ENEMY?: 
+ROOMNAME: Riddle Room
+LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. An electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky. To the west is a dark and damp door.
+SHORTDESCRIPTION: You've entered the riddle room. There are notes on the table and an electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky. To the west is a dark and damp door. 
+FEATURE1: notes
+LOOK1: It is a riddle. "You buy me to eat, but never eat me. What am I?"
+HIT1: Nothing happens.
+OPEN1: Paper can't open.
+MOVE1: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
+FEATURE2: key pad
+LOOK2: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
+HIT2: Careful don't break it.
+OPEN2: Maybe answer the puzzle.
+MOVE2: You can't move it
+LOOKAT2: NA
+HITD2: NA
+OPEND2: NA
+MOVED2: NA
+OBJECT: NA
+EXIT1NAME: storage sign
+EXIT1DIRECTION: north
+EXIT2NAME: spooky
+EXIT2DIRECTION: east
+EXIT3NAME: dark and damp
+EXIT3DIRECTION: west
+EXIT4NAME: NA
+EXIT4DIRECTION: NA 
+EXIT1ROOM: Storage Room
+EXIT2ROOM: Ghost Room
+EXIT3ROOM: Basement
+EXIT4ROOM: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No
