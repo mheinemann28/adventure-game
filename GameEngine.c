@@ -118,6 +118,8 @@ void runGame(struct Room *rooms) {
 						goto continue_game;
 					}
 				}
+				if (strcmp(inputBuff, rooms[i].exitDirection[j]) != 0)
+					printf("Invalid exit direction. You are still in %s\n", tempRoomName);	
 			}
 		}
 		continue_game:
