@@ -1,34 +1,34 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: 
-LONGDESCRIPTION: 
-SHORTDESCRIPTION: 
-FEATURE1: 
-LOOK1: 
-HIT1: 
-OPEN1: 
-MOVE1: 
-FEATURE2: 
-LOOK2: 
-HIT2: 
-OPEN2:
-MOVE2: 
-LOOKAT2: 
-HITD2: 
-OPEND2: 
-MOVED2: 
-OBJECT: 
-EXIT1NAME: 
-EXIT1DIRECTION: 
-EXIT2NAME: 
-EXIT2DIRECTION: 
-EXIT3NAME: 
-EXIT3DIRECTION: 
-EXIT4NAME: 
-EXIT4DIRECTION: 
-EXIT1ROOM: 
-EXIT2ROOM: 
-EXIT3ROOM: 
-EXIT4ROOM: 
-FEATURE1ENEMY?: 
-FEATURE2ENEMY?: 
+ROOMNAME: Animal Room
+LONGDESCRIPTION: You enter the room and it's as if you've been transported to some kind of farm.  There are cats rubbing up against your legs, Sheep and pigs wandering throughout, the walls made up of fish tanks.  There are bones on the ground beside you. A mean sheep dog stares you down. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit. To the west, you see a spooky door.
+SHORTDESCRIPTION: You've entered the animal room. There are books next to your legs and a mean sheep dog. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit. To the west, you see a spooky door. 
+FEATURE1: bones
+LOOK1: One of the animals must have died here.
+HIT1: It smacks back on the floor.
+OPEN1: It doesn't open.
+MOVE1: You see more bones.
+FEATURE2: dog
+LOOK2: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
+HIT2: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
+OPEN2:The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
+MOVE2: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
+LOOKAT2: The dog looks sweet now.
+HITD2: You wouldn't do that. Not after becoming friends.
+OPEND2: You can't do that.
+MOVED2: He moves happily to one side.
+OBJECT: bones
+EXIT1NAME: bar music
+EXIT1DIRECTION: north
+EXIT2NAME: cookies
+EXIT2DIRECTION: east
+EXIT3NAME: spooky
+EXIT3DIRECTION: west
+EXIT4NAME: NA
+EXIT4DIRECTION: NA 
+EXIT1ROOM: Bar Room
+EXIT2ROOM: Cafe
+EXIT3ROOM: Ghost Room
+EXIT4ROOM: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
