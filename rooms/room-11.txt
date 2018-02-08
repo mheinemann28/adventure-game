@@ -1,28 +1,34 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: 
-LONGDESCRIPTION: 
-SHORTDESCRIPTION: 
-FEATURE1: 
-LOOK1: 
-HIT1: 
-OPEN1: 
-MOVE1: 
-FEATURE2: 
-LOOK2: 
-HIT2: 
-OPEN2:
-MOVE2: 
-LOOKAT2: 
-HITD2: 
-OPEND2: 
-MOVED2: 
-OBJECT: 
-EXIT1NAME: 
-EXIT1DIRECTION: 
-EXIT2NAME: 
-EXIT2DIRECTION: 
-EXIT3NAME: 
-EXIT3DIRECTION: 
-EXIT4NAME: 
-EXIT4DIRECTION: 
+ROOMNAME: Basement
+LONGDESCRIPTION: You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.  There are stairs leading down.  The only lightsource is from the high window in the corner.  You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike, moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a cabinet on the opposite west wall.  You should examine the rooms further and figure out what to do next. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
+SHORTDESCRIPTION: You've entered a basement. There is a chest along the east wall and a cabinet on the opposite west wall. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
+FEATURE1: cabinet
+LOOK1: Just an old beat up cabinet, maybe there is something inside.
+HIT1: Nothing happened
+OPEN1: There is a crowbar inside.
+MOVE1: There is nothing behind it.
+FEATURE2: chest
+LOOK2: This chest is padlocked, Maybe I can find something to open it.
+HIT2: You've broken the padlock.
+OPEN2: There is a key inside.
+MOVE2: It was too heavy for you.
+LOOKAT2: NA
+HITD2: NA
+OPEND2: NA
+MOVED2: NA
+OBJECT: NA
+EXIT1NAME: creepy
+EXIT1DIRECTION: northwest
+EXIT2NAME: fresh air
+EXIT2DIRECTION: northeast
+EXIT3NAME: confusion
+EXIT3DIRECTION: east
+EXIT4NAME: NA
+EXIT4DIRECTION: NA
+EXIT1ROOM: Doll Room
+EXIT2ROOM: Courtyard
+EXIT3ROOM: Riddle Room
+EXIT4ROOM: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No
