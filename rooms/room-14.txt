@@ -1,34 +1,34 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: 
-LONGDESCRIPTION: 
-SHORTDESCRIPTION: 
-FEATURE1: 
-LOOK1: 
-HIT1: 
-OPEN1: 
-MOVE1: 
-FEATURE2: 
-LOOK2: 
-HIT2: 
-OPEN2:
-MOVE2: 
-LOOKAT2: 
-HITD2: 
-OPEND2: 
-MOVED2: 
-OBJECT: 
-EXIT1NAME: 
-EXIT1DIRECTION: 
-EXIT2NAME: 
-EXIT2DIRECTION: 
-EXIT3NAME: 
-EXIT3DIRECTION: 
-EXIT4NAME: 
-EXIT4DIRECTION: 
-EXIT1ROOM: 
-EXIT2ROOM: 
-EXIT3ROOM: 
-EXIT4ROOM: 
-FEATURE1ENEMY?: 
-FEATURE2ENEMY?: 
+ROOMNAME: Ghost Room
+LONGDESCRIPTION: As you walk in you notice a chill in the air. You get an eerie feeling as if you are being watched. The moonlight illuminates the room from the window and lights up a desk. You notice a rocking chair in the center of the room that seems to be moving on its own. As you creep closer you begin to see it, the ghost of an old man sitting in the chair. To the north, there is a door with a storage sign on it. To the east, there is a door with a live pig staring back at you. To the west, there is another door, but you feel confusion looking at it.
+SHORTDESCRIPTION: You've entered the ghost room. There is a ghost sitting in a rocking chair next to a desk. To the north, there is a door with a storage sign on it. To the east, there is a door with a live pig staring back at you. To the west, there is another door, but you feel confusion looking at it.
+FEATURE1: desk
+LOOK1: An old desk. There is an old letter on it addressed to a Harold Smith.
+HIT1: Nothing happens.
+OPEN1: You see more paperwork in the desk.
+MOVE1: There is nothing behind it.
+FEATURE2: ghost
+LOOK2: He moves towards you. Can a ghost hurt you? What do you do?
+HIT2: He moves towards you. Can a ghost hurt you? What do you do?
+OPEN2: He moves towards you. Can a ghost hurt you? What do you do?
+MOVE2: He moves towards you. Can a ghost hurt you? What do you do?
+LOOKAT2: It disappears.
+HITD2: It disappears.
+OPEND2: It disappears.
+MOVED2: It disappears. 
+OBJECT: NA
+EXIT1NAME: storage sign
+EXIT1DIRECTION: north
+EXIT2NAME: pig
+EXIT2DIRECTION: east 
+EXIT3NAME: confusion
+EXIT3DIRECTION: west
+EXIT4NAME: NA
+EXIT4DIRECTION:NA 
+EXIT1ROOM: Storage Room
+EXIT2ROOM: Animal Room
+EXIT3ROOM: Riddle Room
+EXIT4ROOM: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
