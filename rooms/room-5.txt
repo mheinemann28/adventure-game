@@ -9,10 +9,10 @@ HIT1: It was made with cement. You hurt your hand.
 OPEN1: It doesn’t open. You can already see the bottom. 
 MOVE1: It was too heavy. You rub your back and wonder why you would try that. 
 FEATURE2:  hammock
-LOOK2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-HIT2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-OPEN2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-MOVE2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
+LOOK2: As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
+HIT2: As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
+OPEN2: As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
+MOVE2: As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
 LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs from provides the perfect shade.
 HITD2: It swings back and forth.
 OPEND2: It doesn’t open.
