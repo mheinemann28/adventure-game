@@ -3,12 +3,12 @@ ROOMTYPE: MID
 ROOMNAME: Tennis Court
 LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. A tennis ball rolls towards you and stops at your feet. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. Towards the east, there is an exit with a fluttering noise.
 SHORTDESCRIPTION: You’ve entered the tennis court. A tennis ball rests at your feet. Serena Williams stands on the opposite side of the court. In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. Towards the east, there is an exit with a fluttering noise.
-FEATURE1: TENNIS BALL
+FEATURE1: tennis ball
 LOOK1: A Wilson brand tennis ball. Yellow and very fuzzy
 HIT1: It moves to the other side of the court.
 OPEN1: It doesn’t open.
 MOVE1: It rolls across the floor. Be careful not to roll your ankle.
-FEATURE2: SERENA WILLIAMS
+FEATURE2: serena williams
 LOOK2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
 HIT2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
 OPEN2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
