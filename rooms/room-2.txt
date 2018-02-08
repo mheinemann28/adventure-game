@@ -9,10 +9,10 @@ HIT1: A puff of dust rises in the air. Try not to inhale. Old wallpaper contains
 OPEN1: You scroll through a few pages. Remember not to rub your eyes. Old wallpaper was made with arsenic. 
 MOVE1: You move the book leaving a dust outline where it use to sit. Don’t forget to wash your hands before you eat. Old wallpaper still has arsenic residue. 
 FEATURE2: librarian
-LOOK2: Starts fight sequence – He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
-HIT2: Starts fight sequence – He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
-OPEN2: Starts fight sequence – He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
-MOVE2: Starts fight sequence – He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
+LOOK2: He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
+HIT2: He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
+OPEN2: He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
+MOVE2: He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
 LOOKAT2: An old man dressed in a worn-out tweed suit. He is sorting library cards at the reference desk.
 HITD2: He falls to the ground. Why would you do that? He’s like 200 years old.
 OPEND2: He doesn’t like that.
