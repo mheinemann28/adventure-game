@@ -18,9 +18,8 @@
 struct Room rooms[15];
 
 void intro();
-void runGame(struct Room *rooms);
 void getInput(char *inputBuff);
-void connectRooms(struct Room *rooms);
+void runGame(struct Room *rooms);
 
 #endif
 

@@ -16,6 +16,7 @@
 
 /* data  */ 
 const int stop_words_size = 174;
+
 // stop word list from https://www.ranks.nl/stopwords
 const char *stop_words[] = {"a","about","above","after","again","against",
 	"all","am","an","and","any","are","arent","as","be","because","been",
@@ -102,12 +103,10 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	/* save original user input into command_line struct  */ 
 	strcpy(cl.userInput, commandLine);
 	strcpy(cl.processedInput, commandLine);
-	cl.verbIndex = -1;
-	cl.noun1Index = -1; 
-	cl.noun2Index = -1;
 	
 	/* parse command  */  
-	stripPunctuationLowercase(&cl);
+	lowercaseCommand(&cl);
+	stripPunctuation(&cl);
 	splitCommandIntoArray(&cl);
 	removeStopWords(&cl);
 	getVerb(&cl);
@@ -123,28 +122,43 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	//printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
 	
 	/* return parsed_command struct with verb and nouns  */ 
-	strcpy(pc.verb, cl.verb); 
-	strcpy(pc.noun1, cl.noun1); 
-	strcpy(pc.noun2, cl.noun2);
+	strcpy(pc.verb, cl.inputArray[0]); 
+	strcpy(pc.noun1, cl.inputArray[1]); 
+	strcpy(pc.noun2, cl.inputArray[2]);
 	return pc;
 	
 }
 
 /*********************************************************************
- ** Function: void stripPunctuationLowercase(struct command_line* cl)
- ** Description: strip punctuation from user input and lowercase
+ ** Function: void lowercaseCommand(struct command_line* cl)
+ ** Description: lowercase the user input
+ ** Parameters: struct command_line* cl
+ ** Pre-Conditions: none
+ ** Post-Conditions: cl.processedInput contains lowercase version
+ ** 	of cl.userInput
+ *********************************************************************/
+
+void lowercaseCommand(struct command_line* cl) {
+	int i;
+	for (i = 0; i < 2000; i++) {
+		cl->processedInput[i] = tolower(cl->processedInput[i]);
+  	}
+}
+
+/*********************************************************************
+ ** Function: void stripPunctuation(struct command_line* cl)
+ ** Description: strip punctuation from user input
  ** Parameters: struct command_line* cl
  ** Pre-Conditions: none
  ** Post-Conditions: cl.processedInput has all punctuation removed
- ** 	and is lowercased
  *********************************************************************/
 
-void stripPunctuationLowercase(struct command_line* cl) { 
+void stripPunctuation(struct command_line* cl) { 
 	int i = 0;
     int p = 0;
     for (i = 0; i < 2000; i++) {
         if (! ispunct(cl->processedInput[i])) {
-            cl->processedInput[p] = tolower(cl->processedInput[i]);
+            cl->processedInput[p] = cl->processedInput[i];
             p++; 
         }  
     }    
@@ -186,24 +200,12 @@ void removeStopWords(struct command_line* cl) {
 	int i;
 	int j;
 	int k;
-	for (i = 0; i < cl->inputArraySize; i++) {
-		for (j = 0; j < stop_words_size; j++) {
-			if (strcmp(cl->inputArray[i], stop_words[j]) == 0) {
-				for (k = i; k < cl->inputArraySize; k++) {
-					strcpy(cl->inputArray[k], cl->inputArray[k+1]);
-				}
-				cl->inputArraySize--;
-				i--;
-				break;
-			}
-		}
-	}
 
 	/* after removing stop words from array, put array back into the processed string */
 	memset(cl->processedInput, '\0', sizeof(cl->processedInput));
 	for (i = 0; i < cl->inputArraySize; i++) {
 		strcat(cl->processedInput, cl->inputArray[i]);
-		strcat(cl->processedInput, " ");  
+		strcat(cl->processedInput, " ");
 	}
 }
 
@@ -391,24 +393,5 @@ void getFeature(struct command_line* cl) {
  *********************************************************************/
 
 void getOtherNouns(struct command_line* cl) {
-	if (cl->noun1Index == -1) {
-		cl->noun1Index = cl->verbIndex + 1;
-		if (cl->noun1Index < cl->inputArraySize) {
-			memset(cl->noun1, '\0', sizeof(cl->noun1));
-			strcpy(cl->noun1, cl->inputArray[cl->noun1Index]);
-		}
-		else {
-			memset(cl->noun1, '\0', sizeof(cl->noun1));
-		}
-	}
-	if (cl->noun2Index == -1) {
-		cl->noun2Index = cl->noun1Index + 1;
-		if (cl->noun2Index < cl->inputArraySize) {
-			memset(cl->noun2, '\0', sizeof(cl->noun2));
-			strcpy(cl->noun2, cl->inputArray[cl->noun2Index]);
-		}
-		else {
-			memset(cl->noun2, '\0', sizeof(cl->noun2));
-		}
-	}
+
 }

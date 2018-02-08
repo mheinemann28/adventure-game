@@ -1,34 +1,29 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Music Room
-LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east, you can hear bar music through a door.
-SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano. To the west there is a door with fluttering noise coming from behind it. To the east, you can hear bar music through a door.
-FEATURE1: piano
+LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it.
+SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it.
+FEATURE1: Piano
 LOOK1: A key on the piano has fingerprint blood. The piano’s lid is closed.
 HIT1: Press the key with fingerprint blood. Piano lid opens. Revealing a key (object) inside. 
 OPEN1: Piano lid is locked. 
-MOVE1: Wouldn't you rather pick up the key?
-FEATURE2: hostile magical beast
-LOOK2: The magical beast is hideous looking. It lunges at you. What do you do?
-HIT2: The magical beast is not harmed by physical attacks.  Maybe the magical beast can only be defeated by magic? What do you do?
-OPEN2: The magical beast is hideous looking. It lunges at you. What do you do?
-MOVE2: The magical beast is hideous looking. It lunges at you. What do you do?
+MOVE1: Takes the key from the piano to put into the player’s inventory.
+FEATURE2: Hostile Magical Beast
+LOOK2: Starts fight sequence – The magical beast is hideous looking...
+HIT2: Starts fight sequence – The magical beast is not harmed by physical attacks.  Maybe the magical beast can only be defeated by magic?
+OPEN2: NA
+MOVE2: NA
 LOOKAT2: The magical beast lays lifelessly on the ground.
 HITD2: Hitting the magical beast still doesn’t harm the magical beast.
-OPEND2: How would that work?
+OPEND2: NA.
 MOVED2: The magical beast is too heavy to move.
-OBJECT: magical wand
-EXIT1NAME: fluttering noise
-EXIT1DIRECTION: west
-EXIT2NAME: bar music
-EXIT2DIRECTION: east
-EXIT3NAME: NA
+OBJECT: Magical wand
+NUMEXITS: 2
+EXIT1DIRECTION: east
+EXIT2DIRECTION: west
 EXIT3DIRECTION: NA
-EXIT4NAME: NA
 EXIT4DIRECTION: NA
-EXIT1ROOM: Cage Room
-EXIT2ROOM: Bar Room
-EXIT3ROOM: NA
-EXIT4ROOM: NA
-FEATURE1ENEMY?: No
-FEATURE2ENEMY?: Yes
+EXIT1NAME: Bar
+EXIT2NAME: Cage Room
+EXIT3NAME: NA
+EXIT4NAME: NA
