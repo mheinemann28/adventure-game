@@ -67,7 +67,7 @@ void getInput(char *inputBuff) {
 	printf("\nCommand: ");
 	fgets(inputBuff, 255, stdin);
 	inputBuff[strlen(inputBuff) - 1] = '\0';
-	printf("inputBuff: %s\n", inputBuff);
+	///printf("inputBuff: %s\n", inputBuff);
 }
 
 /*********************************************************************
@@ -90,25 +90,31 @@ void runGame(struct Room *rooms) {
 	memset(inputBuff, '\0', sizeof(inputBuff));
 
 	tempRoomName = rooms[0].name;
-	printf("current room: %s\n", rooms[0].name);
-	getInput(inputBuff);
 	
 	while (1) {
-		//printf("entered while loop. \n");
 		for (i = 0; i < 15; i++) {
-			printf("tempRoomName: %s\n", tempRoomName);
-			printf("rooms[%d].name: %s\n", i, rooms[i].name);
+			///printf("Current room: %s\n", tempRoomName);
+			///printf("rooms[%d].name: %s\n", i, rooms[i].name);
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {	
-				printf("entered if (strcmp(tempRoomName, rooms[%d].name) == 0). \n", i);
+				///printf("entered if (strcmp(tempRoomName, rooms[%d].name) == 0). \n", i);
+				if(rooms[i].visited == 0)
+				{
+					printf("Current room: %s\n", tempRoomName);
+					printf("%s\n", rooms[i].longDescription);		
+				}	
+				else
+				{
+					printf("Current room: %s\n", tempRoomName);
+					printf("%s\n", rooms[i].shortDescription);	
+				}
 				rooms[i].visited = 1;
-				printf("room: %s visited changed to %d\n", rooms[i].name, rooms[i].visited);	
+				getInput(inputBuff);
 				for (j = 0; j < rooms[i].numExits; j++) {	
-					//printf("inputBuff: %s\n", inputBuff);
-					printf("rooms[i].exitDirection[j]: %s\n", rooms[i].exitDirection[j]);				
+					///printf("rooms[i].exitDirection[j]: %s\n", rooms[i].exitDirection[j]);				
 					if (strcmp(inputBuff, rooms[i].exitDirection[j]) == 0) {
-						printf("entered if (strcmp(inputBuff, rooms[i].exitDirection[j]) == 0). \n");
+						///printf("entered if (strcmp(inputBuff, rooms[i].exitDirection[j]) == 0). \n");
 						tempRoomName = rooms[i].Exits[j];
-						printf("current room: %s\n", tempRoomName);	
+						///printf("current room: %s\n", tempRoomName);	
 						goto continue_game;
 					}
 				}
@@ -120,8 +126,6 @@ void runGame(struct Room *rooms) {
 			printf("Reached the end. \n");
 			exit(0);
 		}
-		//printf("got to continue_game. \n");
-		getInput(inputBuff);
 	}
 }
 
