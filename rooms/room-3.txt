@@ -9,10 +9,10 @@ HIT1: It bounces in the crib. You didn’t cause any visible damage. The toy is 
 OPEN1: There isn’t a way to open it. 
 MOVE1: You move it to the side. Did its eyes follow you? 
 FEATURE2: life size barbie
-LOOK2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
-HIT2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
-OPEN2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
-MOVE2: Starts fight sequence – You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+LOOK2: You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+HIT2: You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+OPEN2: You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
+MOVE2: You weren’t imagining things! Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
 LOOKAT2: She stands at your height, with blonde hair wearing a bathing suit.
 HITD2: You knock her over. Did her eyes follow you?
 OPEND2: There isn’t a way to open it.
