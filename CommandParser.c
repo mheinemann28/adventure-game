@@ -113,6 +113,7 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	getVerb(&cl);
 	getExit(&cl);
 	getFeature(&cl);
+	getObject(&cl);
 	getOtherNouns(&cl);
 	
 	/* return parsed_command struct with verb and nouns  */ 
@@ -536,10 +537,10 @@ void getExit(struct command_line* cl) {
 
 /*********************************************************************
  ** Function: void getFeature(struct command_line* cl)
- ** Description: gets feature from user input if exits
+ ** Description: gets feature from user input if exists
  ** Parameters: struct command_line* cl
  ** Pre-Conditions: none
- ** Post-Conditions: cl.noun1 or cl.noun2 (if there was an exit) 
+ ** Post-Conditions: cl.noun1 or cl.noun2 (if there was a feature) 
  ** 	contains feature if exists in user input
  *********************************************************************/
  
@@ -548,8 +549,21 @@ void getFeature(struct command_line* cl) {
 }
 
 /*********************************************************************
+ ** Function: void getObject(struct command_line* cl)
+ ** Description: gets object from user input if exists
+ ** Parameters: struct command_line* cl
+ ** Pre-Conditions: none
+ ** Post-Conditions: cl.noun1 or cl.noun2 (if there was an object) 
+ ** 	contains object if exists in user input
+ *********************************************************************/
+ 
+void getObject(struct command_line* cl) {
+
+}
+
+/*********************************************************************
  ** Function: void getOtherNouns(struct command_line* cl)
- ** Description: gets other nouns from user input if exits
+ ** Description: gets other nouns from user input if exists
  ** Parameters: struct command_line* cl
  ** Pre-Conditions: none
  ** Post-Conditions: cl.noun1 or cl.noun2 if those were not already
