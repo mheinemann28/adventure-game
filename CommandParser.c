@@ -40,14 +40,14 @@ const int verb_look_synonyms_size = 2;
 const char *verb_look_synonyms[] = {"look", "see"};
 const int verb_go_synonyms_size = 3;
 const char *verb_go_synonyms[] = {"go","depart","exit"};
-const int verb_take_synonyms_size = 4;
-const char *verb_take_synonyms[] = {"take","grab","pick","put"};
-const int verb_drop_synonyms_size = 3;
-const char *verb_drop_synonyms[] = {"drop","leave","use"};
+const int verb_take_synonyms_size = 3;
+const char *verb_take_synonyms[] = {"take","grab","pick"};
+const int verb_drop_synonyms_size = 5;
+const char *verb_drop_synonyms[] = {"drop","leave","use","place","put"};
 const int verb_help_synonyms_size = 2;
 const char *verb_help_synonyms[] = {"help","actions"};
-const int verb_inventory_synonyms_size = 3;
-const char *verb_inventory_synonyms[] = {"inventory","items","bag"};
+const int verb_inventory_synonyms_size = 4;
+const char *verb_inventory_synonyms[] = {"inventory","items","bag","objects"};
 const int verb_hit_synonyms_size = 9;
 const char *verb_hit_synonyms[] = {"hit","smack","fight","attack","charge","punch","kick","hurt","swing"};
 const int verb_open_synonyms_size = 1;
@@ -114,13 +114,6 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	getExit(&cl);
 	getFeature(&cl);
 	getOtherNouns(&cl);
-	
-	
-	
-	
-	/* comments for debugging  */ 
-	//printf("\nFOR DEBUGGING - Parser received: %s", cl.userInput);
-	//printf("FOR DEBUGGING - Processed string: %s\n", cl.processedInput);
 	
 	/* return parsed_command struct with verb and nouns  */ 
 	strcpy(pc.verb, cl.verb); 
@@ -300,8 +293,7 @@ void getVerb(struct command_line* cl) {
     			cl->verbIndex = i;
     			return;
     		}
-		}
-		
+		}		
 	}
 }
 
@@ -317,6 +309,96 @@ void getExit(struct command_line* cl) {
 	memset(cl->noun1, '\0', sizeof(cl->noun1));
 	int i;
 	int j;
+	if(strstr(cl->processedInput, "bright lights") != NULL) {
+    	strcpy(cl->noun1, "bright lights");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "lights") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "animal hair") != NULL) {
+    	strcpy(cl->noun1, "animal hair");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "hair") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "fresh air") != NULL) {
+    	strcpy(cl->noun1, "fresh air");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "air") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "bar music") != NULL) {
+    	strcpy(cl->noun1, "bar music");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "music") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "music note") != NULL) {
+    	strcpy(cl->noun1, "music note");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "note") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "fluttering noise") != NULL) {
+    	strcpy(cl->noun1, "fluttering noise");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "noise") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "car sign") != NULL) {
+    	strcpy(cl->noun1, "car sign");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "sign") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "storage sign") != NULL) {
+    	strcpy(cl->noun1, "storage sign");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "sign") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "dark and damp") != NULL) {
+    	strcpy(cl->noun1, "dark and damp");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "damp") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "smell cookies") != NULL) {
+    	strcpy(cl->noun1, "smell cookies");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "cookies") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
 	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < exit_northeast_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], exit_northeast_synonyms[j]) == 0) {
@@ -373,7 +455,82 @@ void getExit(struct command_line* cl) {
     			cl->noun1Index = i;
     			return;
     		}
-		}	
+		}			
+		if (strcmp(cl->inputArray[i], "musty") == 0) {
+			strcpy(cl->noun1, "musty");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "bright") == 0) {
+			strcpy(cl->noun1, "bright lights");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "lights") == 0) {
+			strcpy(cl->noun1, "bright lights");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "creepy") == 0) {
+			strcpy(cl->noun1, "creepy");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "hair") == 0) {
+			strcpy(cl->noun1, "animal hair");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "fresh") == 0) {
+			strcpy(cl->noun1, "fresh air");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "air") == 0) {
+			strcpy(cl->noun1, "fresh air");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "noise") == 0) {
+			strcpy(cl->noun1, "fluttering noise");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "fluttering") == 0) {
+			strcpy(cl->noun1, "fluttering noise");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "pig") == 0) {
+			strcpy(cl->noun1, "pig");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "confusion") == 0) {
+			strcpy(cl->noun1, "confusing");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "confusing") == 0) {
+			strcpy(cl->noun1, "confusing");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "spooky") == 0) {
+			strcpy(cl->noun1, "spooky");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "cookie") == 0) {
+			strcpy(cl->noun1, "smell cookies");
+    		cl->noun1Index = i;
+    		return;
+    	}
+    	if (strcmp(cl->inputArray[i], "cookies") == 0) {
+			strcpy(cl->noun1, "smell cookies");
+    		cl->noun1Index = i;
+    		return;
+    	}
 	}
 }
 
