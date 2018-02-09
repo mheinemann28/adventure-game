@@ -38,38 +38,38 @@ const char *stop_words[] = {"a","about","above","after","again","against",
 	"youre","youve","your","yours","yourself","yourselves","around"};
 const int verb_look_synonyms_size = 2;
 const char *verb_look_synonyms[] = {"look", "see"};
-const int verb_go_synonyms_size = 2;
-const char *verb_go_synonyms[] = {"go","leave"};
-const int verb_take_synonyms_size = 3;
-const char *verb_take_synonyms[] = {"take","grab","pick"};
-const int verb_drop_synonyms_size = 2;
-const char *verb_drop_synonyms[] = {"drop","leave"};
-const int verb_help_synonyms_size = 1;
-const char *verb_help_synonyms[] = {"help"};
-const int verb_inventory_synonyms_size = 1;
-const char *verb_inventory_synonyms[] = {"inventory"};
-const int verb_hit_synonyms_size = 2;
-const char *verb_hit_synonyms[] = {"hit","smack"};
+const int verb_go_synonyms_size = 3;
+const char *verb_go_synonyms[] = {"go","depart","exit"};
+const int verb_take_synonyms_size = 4;
+const char *verb_take_synonyms[] = {"take","grab","pick","put"};
+const int verb_drop_synonyms_size = 3;
+const char *verb_drop_synonyms[] = {"drop","leave","use"};
+const int verb_help_synonyms_size = 2;
+const char *verb_help_synonyms[] = {"help","actions"};
+const int verb_inventory_synonyms_size = 3;
+const char *verb_inventory_synonyms[] = {"inventory","items","bag"};
+const int verb_hit_synonyms_size = 9;
+const char *verb_hit_synonyms[] = {"hit","smack","fight","attack","charge","punch","kick","hurt","swing"};
 const int verb_open_synonyms_size = 1;
 const char *verb_open_synonyms[] = {"open"};
-const int verb_move_synonyms_size = 1;
-const char *verb_move_synonyms[] = {"move"};
-const int exit_northeast_synonyms_size = 2;
-const char *exit_northeast_synonyms[] = {"northeast","ne"};
-const int exit_northwest_synonyms_size = 2;
-const char *exit_northwest_synonyms[] = {"northwest","nw"};
-const int exit_southeast_synonyms_size = 2;
-const char *exit_southeast_synonyms[] = {"southeast","se"};
-const int exit_southwest_synonyms_size = 2;
-const char *exit_southwest_synonyms[] = {"southwest","sw"};
-const int exit_north_synonyms_size = 2;
-const char *exit_north_synonyms[] = {"north","n"};
-const int exit_west_synonyms_size = 2;
-const char *exit_west_synonyms[] = {"west","w"};
-const int exit_east_synonyms_size = 2;
-const char *exit_east_synonyms[] = {"east","e"};
-const int exit_south_synonyms_size = 2;
-const char *exit_south_synonyms[] = {"south","s"};
+const int verb_move_synonyms_size = 2;
+const char *verb_move_synonyms[] = {"move","push"};
+const int exit_northeast_synonyms_size = 3;
+const char *exit_northeast_synonyms[] = {"northeast","ne","northeastern"};
+const int exit_northwest_synonyms_size = 3;
+const char *exit_northwest_synonyms[] = {"northwest","nw","northwestern"};
+const int exit_southeast_synonyms_size = 3;
+const char *exit_southeast_synonyms[] = {"southeast","se","southeastern"};
+const int exit_southwest_synonyms_size = 3;
+const char *exit_southwest_synonyms[] = {"southwest","sw","southwestern"};
+const int exit_north_synonyms_size = 3;
+const char *exit_north_synonyms[] = {"north","n","northern"};
+const int exit_west_synonyms_size = 3;
+const char *exit_west_synonyms[] = {"west","w","western"};
+const int exit_east_synonyms_size = 3;
+const char *exit_east_synonyms[] = {"east","e","eastern"};
+const int exit_south_synonyms_size = 3;
+const char *exit_south_synonyms[] = {"south","s","southern"};
 
 /*********************************************************************
  ** Function: struct parsed_command parseCommand(char commandLine[500])
@@ -223,6 +223,15 @@ void getVerb(struct command_line* cl) {
     	strcpy(cl->verb, "look at");	
     	for (i = 0; i < cl->inputArraySize; i++) {
     		if (strcmp(cl->inputArray[i], "at") == 0) {
+    			cl->verbIndex = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "describe") != NULL) {
+    	strcpy(cl->verb, "look at");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "describe") == 0) {
     			cl->verbIndex = i;
     		}
     	}	
