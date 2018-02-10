@@ -109,9 +109,11 @@ void runGame(struct Room *rooms) {
 				}
 				rooms[i].visited = 1;
 				getInput(inputBuff);
+				pc = parseCommand(inputBuff);
+				noun = pc.noun1;
 				for (j = 0; j < rooms[i].numExits; j++) {	
 					///printf("rooms[i].exitDirection[j]: %s\n", rooms[i].exitDirection[j]);				
-					if (strcmp(inputBuff, rooms[i].exitDirection[j]) == 0) {
+					if (strcmp(noun, rooms[i].exitDirection[j]) == 0) {
 						///printf("entered if (strcmp(inputBuff, rooms[i].exitDirection[j]) == 0). \n");
 						tempRoomName = rooms[i].Exits[j];
 						///printf("current room: %s\n", tempRoomName);	
