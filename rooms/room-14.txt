@@ -1,15 +1,15 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Animal Room
-LONGDESCRIPTION: Change
-SHORTDESCRIPTION: Change
-FEATURE1: Change
-LOOK1: Change
+LONGDESCRIPTION: You enter the room and it’s as if you’ve been transported to some kind of farm.  There are cats rubbing up against your legs, Sheep and pigs wandering throughout, the walls made up of fish tanks.  There are bones on the ground beside me and . There is one door on the opposite end with a dog laying beside it. To the north there is a door with bar music playing behind it. To the east there is a door with coffee aroma behind it. To the west there is a door with a chill aura around it.  
+SHORTDESCRIPTION: You are back in the animal room. To the north there is a door with bar music playing behind it. To the east there is a door with coffee aroma behind it. To the west there is a door with a chill aura around it.
+FEATURE1: Bones
+LOOK1: One of the animals must have died here.
 HIT1: Change
 OPEN1: Change 
 MOVE1: Change
-FEATURE2: Change
-LOOK2: Change
+FEATURE2: Guard Dog
+LOOK2: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Going to have to distract it with something.
 HIT2: Change
 OPEN2: Change
 MOVE2: Change
@@ -27,3 +27,5 @@ EXIT1NAME: Bar
 EXIT2NAME: Cafe
 EXIT3NAME: Ghost Room
 EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No

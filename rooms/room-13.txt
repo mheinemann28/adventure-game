@@ -1,21 +1,21 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Ghost Room
-LONGDESCRIPTION: Change
-SHORTDESCRIPTION: Change
-FEATURE1: Change
+LONGDESCRIPTION: As you walk in you notice a chill in the air. You get an eerie feeling as if you are being watched. The moonlight illuminates the room from the window. You notice a rocking chair in the center of the room that seems to be moving on its own.  As you creep closer you begin to see it, the ghost of an old man sitting in the chair.  He tells you he is looking for a locket his late wife had left for him before he died and he cannot move on without it.  He tasks you with finding the locket, and then he will allow you to pass through the room. To the north there is a door with a storage sign on it. To the east, there is a door with various animal sounds behind it. To the west there is a colorful door.
+SHORTDESCRIPTION: This room is where the ghost of the old man was. To the north there is a door with a storage sign on it. To the east, there is a door with various animal sounds behind it. To the west there is a colorful door.
+FEATURE1: Rocking Chair, with ghost
 LOOK1: Change
 HIT1: Change
 OPEN1: Change 
 MOVE1: Change
-FEATURE2: Change
-LOOK2: Change
+FEATURE2: Desk
+LOOK2: The desktop is empty, maybe there is something inside
 HIT2: Change
 OPEN2: Change
 MOVE2: Change
 LOOKAT2: Change
 HITD2: Change
-OPEND2: Change
+OPEND2: You found ____ in desk” or “The desk is empty
 MOVED2: Change
 OBJECT: Change
 NUMEXITS: 3
@@ -27,3 +27,5 @@ EXIT1NAME: Storage
 EXIT2NAME: Animal Room
 EXIT3NAME: Riddle Room
 EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No

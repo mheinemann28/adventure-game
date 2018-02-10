@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Music Room
-LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it.
-SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it.
+LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
+SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
 FEATURE1: Piano
 LOOK1: A key on the piano has fingerprint blood. The piano’s lid is closed.
 HIT1: Press the key with fingerprint blood. Piano lid opens. Revealing a key (object) inside. 
@@ -27,3 +27,5 @@ EXIT1NAME: Bar
 EXIT2NAME: Cage Room
 EXIT3NAME: NA
 EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes

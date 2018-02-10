@@ -1,14 +1,14 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Riddle Room
-LONGDESCRIPTION: Change
-SHORTDESCRIPTION: Change
-FEATURE1: Change
+LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room.  It is almost blinding, taking your eyes some time to adjust.  Besides the colorful walls, the room is strangely bare.  No furniture, just a tye dye rug on the floor. All the doors locked up upon you entering. To the north there is a door with a storage sign on it. To the east there is a door with a chill aura surround it. To the west there is a door with a moldy smell behind it. There are notes on each door, and some kind of electronic key pad on the walls beside them. You’re going to have to get a closer look to figure out what to do next. 
+SHORTDESCRIPTION: You are in the riddle room again.  Going to have to put your thinking cap back on to get out of here… To the north there is a door with a storage sign on it. To the east there is a door with a chill aura surround it. To the west there is a door with a moldy smell behind it. There are notes on each door, and some kind of electronic key pad on the walls beside them. You’re going to have to get a closer look to figure out what to do next.
+FEATURE1: Riddle 1
 LOOK1: Change
 HIT1: Change
 OPEN1: Change 
 MOVE1: Change
-FEATURE2: Change
+FEATURE2: Riddle 1
 LOOK2: Change
 HIT2: Change
 OPEN2: Change
@@ -27,3 +27,5 @@ EXIT1NAME: Storage
 EXIT2NAME: Ghost Room
 EXIT3NAME: Basement
 EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No

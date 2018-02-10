@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Courtyard
-LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northeast corner, there is a musty exit. In the southeast corner, there is a creepy exit. To the west, there is an exit with bright lights.
-SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northeast corner, there is a musty exit. In the southeast corner, there is a creepy exit. To the west, there is an exit with bright lights.
+LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
+SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
 FEATURE1: fountain
 LOOK1: Large and circular. There are pennies, nickels, and dimes resting in the water. Remnants of someone’s wish? A sparkly fish statue spits water in the air.
 HIT1: It was made with cement. You hurt your hand. 
@@ -27,3 +27,5 @@ EXIT1NAME: Tennis Court
 EXIT2NAME: Basement
 EXIT3NAME: Doll Room
 EXIT4NAME: Library
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes

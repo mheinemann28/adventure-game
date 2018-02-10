@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Bar
-LONGDESCRIPTION: You enter a bar with bar music playing in the back. There is a bar counter with numerous alcohol behind but no sign of bartender and all the stools in front of the bar counter is empty.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it.
-SHORTDESCRIPTION: You entered a bar with a bar counter and stools, but no one is around.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a car on it.
+LONGDESCRIPTION: You enter a bar with bar music playing in the back. There is a bar counter with numerous alcohol behind but no sign of bartender and all the stools in front of the bar counter is empty.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
+SHORTDESCRIPTION: You entered a bar with a bar counter and stools, but no one is around.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
 FEATURE1: low cabinet
 LOOK1: The low cabinet doesn’t look too heavy.
 HIT1: You cannot break the cabinet. 
@@ -27,3 +27,5 @@ EXIT1NAME: Garage
 EXIT2NAME: Music Room
 EXIT3NAME: Animal Room
 EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No

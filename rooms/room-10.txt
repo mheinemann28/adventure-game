@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Storage
-LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it.
-SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it.
+LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
+SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
 FEATURE1: shelf
 LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
 HIT1: The tennis racket (object) falls of the shelf. It looks like it can be used as a weapon. 
@@ -27,3 +27,5 @@ EXIT1NAME: Cage Room
 EXIT2NAME: Garage
 EXIT3NAME: Ghost Room
 EXIT4NAME: Riddle Room
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes

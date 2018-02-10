@@ -1,23 +1,23 @@
 VISITED: 0
 ROOMTYPE: END
 ROOMNAME: Cafe
-LONGDESCRIPTION: Change
-SHORTDESCRIPTION: Change
-FEATURE1: Change
-LOOK1: Change
-HIT1: Change
-OPEN1: Change 
-MOVE1: Change
-FEATURE2: Change
-LOOK2: Change
-HIT2: Change
-OPEN2: Change
-MOVE2: Change
-LOOKAT2: Change
-HITD2: Change
-OPEND2: Change
-MOVED2: Change
-OBJECT: Change
+LONGDESCRIPTION: Congratulations! You reached the end of the adventure. Please have a cup of cofee on the house.
+SHORTDESCRIPTION: Congratulations! You reached the end of the adventure. Free coffee!
+FEATURE1: NA
+LOOK1: NA
+HIT1: NA
+OPEN1: NA 
+MOVE1: NA
+FEATURE2: NA
+LOOK2: NA
+HIT2: NA
+OPEN2: NA
+MOVE2: NA
+LOOKAT2: NA
+HITD2: NA
+OPEND2: NA
+MOVED2: NA
+OBJECT: NA
 NUMEXITS: 1
 EXIT1DIRECTION: west
 EXIT2DIRECTION: NA
@@ -27,3 +27,5 @@ EXIT1NAME: Animal Room
 EXIT2NAME: NA
 EXIT3NAME: NA
 EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: No

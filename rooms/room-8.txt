@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cage Room
-LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the west with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the north east that has a musical note on it.  There is a door to the south east that has a car sign on it.
-SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the west with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the north east that has a musical note on it.  There is a door to the south east that has a car sign on it.
+LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the northwest with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
+SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the northwest with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
 FEATURE1: cage
 LOOK1: The cage hanging from the ceiling is broken. No way to cage the bat anymore.
 HIT1: Hitting the cage makes it swing back and forth. 
@@ -27,3 +27,5 @@ EXIT1NAME: Music Room
 EXIT2NAME: Garage
 EXIT3NAME: Storage
 EXIT4NAME: Tennis Court
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
