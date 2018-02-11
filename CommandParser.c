@@ -40,8 +40,8 @@ const int verb_look_synonyms_size = 2;
 const char *verb_look_synonyms[] = {"look", "see"};
 const int verb_go_synonyms_size = 3;
 const char *verb_go_synonyms[] = {"go","depart","exit"};
-const int verb_take_synonyms_size = 3;
-const char *verb_take_synonyms[] = {"take","grab","pick"};
+const int verb_take_synonyms_size = 4;
+const char *verb_take_synonyms[] = {"take","grab","pick","get"};
 const int verb_drop_synonyms_size = 5;
 const char *verb_drop_synonyms[] = {"drop","leave","use","place","put"};
 const int verb_help_synonyms_size = 2;
@@ -752,6 +752,356 @@ void getFeature(struct command_line* cl) {
 				return;
 			}
     	}
+    	if (strcmp(cl->inputArray[i], "ball") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "tennis ball");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tennis ball") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "tennis ball");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "doll") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "baby doll");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "baby doll") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "baby doll");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "barbie") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "life size barbie");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "life size barbie") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "life size barbie");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "cat") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "tabby cat");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tabby cat") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "tabby cat");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "beast") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "hostile magical beast");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "hostile magical beast") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "hostile magical beast");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "counter") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "bar counter");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bar counter") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "bar counter");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "keypad") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "keypad");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "keypad") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "keypad");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "lion") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "lion");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "lion") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "lion");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "fountain") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "fountain");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "fountain") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "fountain");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "hammock") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "hammock");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "hammock") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "hammock");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "piano") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "piano");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "piano") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "piano");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "cage") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "cage");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "cage") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "cage");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "bat") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "bat");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bat") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "bat");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "car") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "car");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "car") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "car");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "shelf") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "shelf");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "shelf") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "shelf");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "spider") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "spider");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "spider") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "spider");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "cabinet") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "cabinet");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "cabinet") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "cabinet");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "chest") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "chest");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "chest") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "chest");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "dog") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "dog");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "dog") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "dog");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "notes") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "notes");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "notes") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "notes");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "desk") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "desk");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "desk") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "desk");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "ghost") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "ghost");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "ghost") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "ghost");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "fountain") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "fountain");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "fountain") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "fountain");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "hammock") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "hammock");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "hammock") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "hammock");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+    	if (strcmp(cl->inputArray[i], "librarian") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "librarian");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "librarian") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "librarian");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 	
 	}
 }
 

@@ -8,7 +8,7 @@ LOOK1: It is a riddle. "You buy me to eat, but never eat me. What am I?"
 HIT1: Nothing happens.
 OPEN1: Paper can't open.
 MOVE1: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
-FEATURE2: key pad
+FEATURE2: keypad
 LOOK2: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
 HIT2: Careful don't break it.
 OPEN2: Maybe answer the puzzle.
