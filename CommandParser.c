@@ -112,8 +112,8 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	removeStopWords(&cl);
 	getVerb(&cl);
 	getExit(&cl);
-	getFeature(&cl);
 	getObject(&cl);
+	getFeature(&cl);
 	getOtherNouns(&cl);
 	
 	/* return parsed_command struct with verb and nouns  */ 
@@ -536,19 +536,6 @@ void getExit(struct command_line* cl) {
 }
 
 /*********************************************************************
- ** Function: void getFeature(struct command_line* cl)
- ** Description: gets feature from user input if exists
- ** Parameters: struct command_line* cl
- ** Pre-Conditions: none
- ** Post-Conditions: cl.noun1 or cl.noun2 (if there was a feature) 
- ** 	contains feature if exists in user input
- *********************************************************************/
- 
-void getFeature(struct command_line* cl) {
-
-}
-
-/*********************************************************************
  ** Function: void getObject(struct command_line* cl)
  ** Description: gets object from user input if exists
  ** Parameters: struct command_line* cl
@@ -558,7 +545,116 @@ void getFeature(struct command_line* cl) {
  *********************************************************************/
  
 void getObject(struct command_line* cl) {
+	int i;
+	int j;
+	if(strstr(cl->processedInput, "tennis racket") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "tennis racket");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "racket") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "tennis racket") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "tennis racket");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "racket") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {			
+		if (strcmp(cl->inputArray[i], "racket") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "tennis racket");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tennis racket") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "tennis racket");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+	}
+}
 
+/*********************************************************************
+ ** Function: void getFeature(struct command_line* cl)
+ ** Description: gets feature from user input if exists
+ ** Parameters: struct command_line* cl
+ ** Pre-Conditions: none
+ ** Post-Conditions: cl.noun1 or cl.noun2 (if there was a feature) 
+ ** 	contains feature if exists in user input
+ *********************************************************************/
+ 
+void getFeature(struct command_line* cl) {
+	int i;
+	int j;
+	if(strstr(cl->processedInput, "serena williams") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "serena williams");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "williams") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "serena williams") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "serena williams");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "williams") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {			
+		if (strcmp(cl->inputArray[i], "serena") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "serena williams");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "serena williams") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "serena williams");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+	}
+	for (i = 0; i < cl->inputArraySize; i++) {			
+		if (strcmp(cl->inputArray[i], "williams") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "serena williams");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "serena williams") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "serena williams");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
+	}
 }
 
 /*********************************************************************
