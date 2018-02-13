@@ -38,17 +38,9 @@ struct Room {
 	char *opend2;
 	char *moved2;
 	char *objectd2;
-	char *exit1name;
-	char *exit1direction;
-	char *exit2name;
-	char *exit2direction;
-	char *exit3name;
-	char *exit3direction;
-	char *exit4name;
-	char *exit4direction;	
 	int numExits;
 	char *exitDirection[MAX_EXITS];
-	struct Room *Exits[MAX_EXITS];
+	char *Exits[MAX_EXITS];
 };
 
 void readRooms(Room* array, char newestDirName[256]);
