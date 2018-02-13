@@ -16,11 +16,11 @@
 #include "RoomLoader.h"
 
 struct Room rooms[15];
+struct parsed_command pc;
 
 void intro();
-void runGame(struct Room *rooms);
 void getInput(char *inputBuff);
-void connectRooms(struct Room *rooms);
+void runGame(struct Room *rooms);
+int examineRoom(struct Room room, struct parsed_command pc);
 
 #endif
-
