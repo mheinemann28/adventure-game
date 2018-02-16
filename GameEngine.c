@@ -46,7 +46,7 @@ int main() {
 
 void intro() {
 	char *intro = "Welcome to the Adventure escape game. The goal of this game is to make it safely through all rooms\n"
-	              "and obstacles. You will guide yourself through the maze of locations, defeating any enimies in your path\n"
+	              "and obstacles. You will guide yourself through the maze of locations, defeating any enemies in your path\n"
 	              "until you have found the final destination.\n\n";
 
 	char *instructions = "You will navigate the game typing commands into the prompt. You will use natural language\n"
