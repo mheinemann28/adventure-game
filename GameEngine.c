@@ -65,14 +65,13 @@ void intro() {
 	fgets(input, 25, stdin);
 }
 
-/////////
+
 void getInput(char *inputBuff) {
 	//get command from user
 	memset(inputBuff, '\0', sizeof(inputBuff));
 	printf("\nCommand: ");
 	fgets(inputBuff, 255, stdin);
 	inputBuff[strlen(inputBuff) - 1] = '\0';
-	///printf("inputBuff: %s\n", inputBuff);
 }
 
 /*********************************************************************
@@ -82,9 +81,6 @@ void getInput(char *inputBuff) {
  ** Pre-Conditions: rooms must be created and connected
  ** Post-Conditions: game ends
  *********************************************************************/
-//All input and output here was used for testing purposes.
-//Function at the moment can move between rooms.
-//will add more functionality in the next week
 void runGame(struct Room *rooms) {
 	int i, j, m;
 
@@ -98,23 +94,16 @@ void runGame(struct Room *rooms) {
 	
 	while (1) {
 		for (i = 0; i < 15; i++) {
-			///printf("Current room: %s\n", tempRoomName);
-			///printf("rooms[%d].name: %s\n", i, rooms[i].name);
+
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {
-				///printf("entered if (strcmp(tempRoomName, rooms[%d].name) == 0). \n", i);
+
 				if (rooms[i].visited == 0)
 				{
 					printf("\n%s\n", rooms[i].longDescription);
-	//				printf("\nCurrent room: %s\n", tempRoomName);
-	//				printf("Features:\n");
-	//				printf("\t1. %s\n\t2. %s\n", rooms[i].feature1, rooms[i].feature2);
 				}
 				else
 				{
 					printf("\n%s\n", rooms[i].shortDescription);
-	//				printf("\nCurrent room: %s\n", tempRoomName);
-	//				printf("Features:\n");
-	//				printf("\t1. %s\n\t2. %s\n", rooms[i].feature1, rooms[i].feature2);
 				}
 				printf("\nCurrent room: %s\n", tempRoomName);
 
@@ -134,11 +123,11 @@ void runGame(struct Room *rooms) {
 				} while (m == 0);
 
 				for (j = 0; j < rooms[i].numExits; j++) {
-					///printf("rooms[i].exitDirection[j]: %s\n", rooms[i].exitDirection[j]);
+
 					if (strcmp(noun, rooms[i].exitDirection[j]) == 0) {
-						///printf("entered if (strcmp(inputBuff, rooms[i].exitDirection[j]) == 0). \n");
+
 						tempRoomName = rooms[i].Exits[j];
-						///printf("current room: %s\n", tempRoomName);
+
 						goto continue_game;
 					}
 				}
@@ -167,12 +156,6 @@ int examineRoom(struct Room room, struct parsed_command pc) {
 				printf("%s\n", room.look[i]);
 			}
 		}
-//		if (strcmp(tempString, room.feature1) == 0) {
-//			printf("%s\n", room.look1);
-//		}
-//		else if (strcmp(tempString, room.feature2) == 0) {
-//			printf("%s\n", room.look2);
-//		}
 	}
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
