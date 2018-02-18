@@ -95,7 +95,7 @@ void runGame(struct Room *rooms) {
 	memset(inputBuff, '\0', sizeof(inputBuff));
 
 	tempRoomName = rooms[0].name;
-
+	
 	while (1) {
 		for (i = 0; i < 15; i++) {
 			///printf("Current room: %s\n", tempRoomName);
@@ -105,17 +105,24 @@ void runGame(struct Room *rooms) {
 				if (rooms[i].visited == 0)
 				{
 					printf("\n%s\n", rooms[i].longDescription);
-					printf("\nCurrent room: %s\n", tempRoomName);
-					printf("Features:\n");
-					printf("\t1. %s\n\t2. %s\n", rooms[i].feature1, rooms[i].feature2);
+	//				printf("\nCurrent room: %s\n", tempRoomName);
+	//				printf("Features:\n");
+	//				printf("\t1. %s\n\t2. %s\n", rooms[i].feature1, rooms[i].feature2);
 				}
 				else
 				{
 					printf("\n%s\n", rooms[i].shortDescription);
-					printf("\nCurrent room: %s\n", tempRoomName);
-					printf("Features:\n");
-					printf("\t1. %s\n\t2. %s\n", rooms[i].feature1, rooms[i].feature2);
+	//				printf("\nCurrent room: %s\n", tempRoomName);
+	//				printf("Features:\n");
+	//				printf("\t1. %s\n\t2. %s\n", rooms[i].feature1, rooms[i].feature2);
 				}
+				printf("\nCurrent room: %s\n", tempRoomName);
+
+				printf("Features:\n");
+				for (j = 0; j < MAX_FEATURES; j++) {
+					printf("\t%d. %s\n", j + 1, rooms[i].feature[j]);
+				}
+
 				rooms[i].visited = 1;
 
 				do {
@@ -150,16 +157,22 @@ continue_game:
 
 
 int examineRoom(struct Room room, struct parsed_command pc) {
+	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
 	if (strcmp(pc.verb, "look at") == 0) {
 		strcat(tempString, pc.noun1);
-		if (strcmp(tempString, room.feature1) == 0) {
-			printf("%s\n", room.look1);
+		for (i = 0; i < MAX_FEATURES; i++) {
+			if (strcmp(tempString, room.feature[i]) == 0) {
+				printf("%s\n", room.look[i]);
+			}
 		}
-		else if (strcmp(tempString, room.feature2) == 0) {
-			printf("%s\n", room.look2);
-		}
+//		if (strcmp(tempString, room.feature1) == 0) {
+//			printf("%s\n", room.look1);
+//		}
+//		else if (strcmp(tempString, room.feature2) == 0) {
+//			printf("%s\n", room.look2);
+//		}
 	}
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
