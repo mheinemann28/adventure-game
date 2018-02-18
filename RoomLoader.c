@@ -90,7 +90,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].shortDescription = calloc(255, sizeof(char));
+		array[i].shortDescription = calloc(1000, sizeof(char));
 		strcpy(array[i].shortDescription, word);
 //		printf("%s\n",array[i].shortDescription);
 		
@@ -101,8 +101,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].feature1 = calloc(255, sizeof(char));
-		strcpy(array[i].feature1, word);
+		array[i].feature[0] = calloc(255, sizeof(char));
+		strcpy(array[i].feature[0], word);
 //		printf("%s\n",array[i].feature1);
 		
 
@@ -112,8 +112,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].look1 = calloc(255, sizeof(char));
-		strcpy(array[i].look1, word);
+		array[i].look[0] = calloc(255, sizeof(char));
+		strcpy(array[i].look[0], word);
 //		printf("%s\n",array[i].look1);
 		
 		fseek(file, 6, SEEK_CUR);
@@ -122,8 +122,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].hit1 = calloc(255, sizeof(char));
-		strcpy(array[i].hit1, word);
+		array[i].hit[0] = calloc(255, sizeof(char));
+		strcpy(array[i].hit[0], word);
 //		printf("%s\n",array[i].hit1);
 		
 
@@ -133,8 +133,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].open1 = calloc(255, sizeof(char));
-		strcpy(array[i].open1, word);
+		array[i].open[0] = calloc(255, sizeof(char));
+		strcpy(array[i].open[0], word);
 //		printf("%s\n",array[i].open1);
 		
 
@@ -144,8 +144,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].move1 = calloc(255, sizeof(char));
-		strcpy(array[i].move1, word);
+		array[i].move[0] = calloc(255, sizeof(char));
+		strcpy(array[i].move[0], word);
 //		printf("%s\n",array[i].move1);
 		
 
@@ -155,8 +155,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';	
-		array[i].feature2 = calloc(255, sizeof(char));
-		strcpy(array[i].feature2, word);
+		array[i].feature[1] = calloc(255, sizeof(char));
+		strcpy(array[i].feature[1], word);
 //		printf("%s\n",array[i].feature2);
 		
 
@@ -166,8 +166,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].look2 = calloc(255, sizeof(char));
-		strcpy(array[i].look2, word);
+		array[i].look[1] = calloc(255, sizeof(char));
+		strcpy(array[i].look[1], word);
 //		printf("%s\n",array[i].look2);
 		
 
@@ -177,8 +177,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].hit2 = calloc(255, sizeof(char));
-		strcpy(array[i].hit2, word);
+		array[i].hit[1] = calloc(255, sizeof(char));
+		strcpy(array[i].hit[1], word);
 //		printf("%s\n",array[i].hit2);
 		
 
@@ -188,8 +188,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].open2 = calloc(255, sizeof(char));
-		strcpy(array[i].open2, word);
+		array[i].open[1] = calloc(255, sizeof(char));
+		strcpy(array[i].open[1], word);
 //		printf("%s\n",array[i].open2);
 		
 
@@ -199,8 +199,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].move2 = calloc(255, sizeof(char));
-		strcpy(array[i].move2, word);
+		array[i].move[1] = calloc(255, sizeof(char));
+		strcpy(array[i].move[1], word);
 //		printf("%s\n",array[i].move2);
 		
 
@@ -210,8 +210,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].lookatd2 = calloc(255, sizeof(char));
-		strcpy(array[i].lookatd2, word);
+		array[i].look[2] = calloc(255, sizeof(char));
+		strcpy(array[i].look[2], word);
 //		printf("%s\n",array[i].lookatd2);
 		
 
@@ -221,8 +221,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].hitd2 = calloc(255, sizeof(char));
-		strcpy(array[i].hitd2, word);
+		array[i].hit[2] = calloc(255, sizeof(char));
+		strcpy(array[i].hit[2], word);
 //		printf("%s\n",array[i].hitd2);
 		
 
@@ -232,8 +232,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].opend2 = calloc(255, sizeof(char));
-		strcpy(array[i].opend2, word);
+		array[i].open[2] = calloc(255, sizeof(char));
+		strcpy(array[i].open[2], word);
 //		printf("%s\n",array[i].opend2);
 		
 
@@ -243,8 +243,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].moved2 = calloc(255, sizeof(char));
-		strcpy(array[i].moved2, word);
+		array[i].move[2] = calloc(255, sizeof(char));
+		strcpy(array[i].move[2], word);
 //		printf("%s\n",array[i].moved2);
 		
 
@@ -254,8 +254,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].objectd2 = calloc(255, sizeof(char));
-		strcpy(array[i].objectd2, word);
+		array[i].object = calloc(255, sizeof(char));
+		strcpy(array[i].object, word);
 //		printf("%s\n",array[i].objectd2);
 
 		fseek(file, 10, SEEK_CUR);

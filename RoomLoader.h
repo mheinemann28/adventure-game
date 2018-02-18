@@ -13,6 +13,7 @@
 
 #define LENGTH 50
 #define MAX_EXITS 4
+#define MAX_FEATURES 2
 
 typedef struct Room Room;
 
@@ -23,21 +24,12 @@ struct Room {
 	char *name;		// room name
 	char *longDescription;
 	char *shortDescription;
-	char *feature1;
-	char *look1;
-	char *hit1;
-	char *open1;
-	char *move1;
-	char *feature2;
-	char *look2;
-	char *hit2;
-	char *open2;
-	char *move2;
-	char *lookatd2;
-	char *hitd2;
-	char *opend2;
-	char *moved2;
-	char *objectd2;
+	char *feature[MAX_FEATURES];
+	char *look[MAX_FEATURES + 1];
+	char *hit[MAX_FEATURES + 1];
+	char *open[MAX_FEATURES + 1];
+	char *move[MAX_FEATURES + 1];
+	char *object;
 	int numExits;
 	char *exitDirection[MAX_EXITS];
 	char *Exits[MAX_EXITS];
