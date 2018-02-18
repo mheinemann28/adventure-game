@@ -9,26 +9,23 @@ HIT1: You missed and the cat turned around and scratched you.
 OPEN1: You can’t catch her and the cat scratched you. 
 MOVE1: She moves without your aid, revealing yet another cat. 
 FEATURE2: lion
-LOOK2: The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
-HIT2: The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
-OPEN2: The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
-MOVE2: The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+LOOK2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+HIT2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+OPEN2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+MOVE2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
 LOOKAT2: Impressive. There is a reason why lions are referred to as the king of the jungle, or in this case, the king of cat kingdom. Although subdued, you are still very nervous in his presence.
 HITD2: The lion roars and you chicken out.
 OPEND2: You can’t catch him. It’s for the best, he would maul you.
 MOVED2: You can’t catch him. It’s for the best, he would maul you.
 OBJECT: catnip
-EXIT1NAME: musty
-EXIT1DIRECTION: west
-EXIT2NAME: bright lights
-EXIT2DIRECTION: east
-EXIT3NAME: NA
+NUMEXITS: 2
+EXIT1DIRECTION: east
+EXIT2DIRECTION: west
 EXIT3DIRECTION: NA
-EXIT4NAME: NA
 EXIT4DIRECTION: NA
-EXIT1ROOM: Library
-EXIT2ROOM: Tennis Court
-EXIT3ROOM: NA
-EXIT4ROOM: NA
+EXIT1NAME: Tennis Court
+EXIT2NAME: Library
+EXIT3NAME: NA
+EXIT4NAME: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

@@ -1,34 +1,31 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cage Room
-LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the west with bright lights coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
-SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the west with bright lights coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
+LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the northwest with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
+SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the northwest with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
 FEATURE1: cage
 LOOK1: The cage hanging from the ceiling is broken. No way to cage the bat anymore.
 HIT1: Hitting the cage makes it swing back and forth. 
 OPEN1: You can open the cage but what is the point when it is broken. 
 MOVE1: Moving the cage just leads to the cage to swing back since it is hanging from the ceiling.
 FEATURE2: bat
-LOOK2: The bat is flying around the room at lightening speed. It swoops at your head. What do you do?
-HIT2: You cannot hit the bat as it flies all around. Only if you had a long object that you can swing around to hit the bat. What do you do?
-OPEN2: The bat is flying around the room at lightening speed. It swoops at your head. What do you do?
-MOVE2: The bat is flying around the room at lightening speed. It swoops at your head. What do you do?
+LOOK2: Starts fight sequence –  The bat is flying around the room at lightening speed.
+HIT2: Starts fight sequence – You cannot hit the bat as it flies all around. Only if you had a long object that you can swing around to hit the bat
+OPEN2: NA
+MOVE2: NA
 LOOKAT2: bat lays lifelessly on the ground.
 HITD2: Blood pool forms around the bat. That is enough hitting.
-OPEND2: Open a dead bat? Gross. 
+OPEND2: NA.
 MOVED2: You moved the bat’s carcass.
 OBJECT: tennis racket
-EXIT1NAME: bright lights
-EXIT1DIRECTION: west
-EXIT2NAME: storage sign
-EXIT2DIRECTION: south
-EXIT3NAME: musical note
-EXIT3DIRECTION: northeast
-EXIT4NAME: car sign
-EXIT4DIRECTION: southeast
-EXIT1ROOM: Tennis Court
-EXIT2ROOM: Storage Room
-EXIT3ROOM: Music Room
-EXIT4ROOM: Garage
+NUMEXITS: 4
+EXIT1DIRECTION: northeast
+EXIT2DIRECTION: southeast
+EXIT3DIRECTION: south
+EXIT4DIRECTION: northwest
+EXIT1NAME: Music Room
+EXIT2NAME: Garage
+EXIT3NAME: Storage
+EXIT4NAME: Tennis Court
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

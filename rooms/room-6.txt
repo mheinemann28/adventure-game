@@ -1,34 +1,31 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Bar Room
-LONGDESCRIPTION: You enter a bar with bar music playing in the back. There is a bar counter with numerous alcohol behind but no sign of bartender and all the stools in front of the bar counter is empty.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. Towards the south end of the room, there is a doorway with a live pig looking at you.
-SHORTDESCRIPTION: You entered a bar with a bar counter and stools, but no one is around.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a car on it. Towards the south end of the room, there is a doorway with a live pig looking at you.
-FEATURE1: cabinet
+ROOMNAME: Bar
+LONGDESCRIPTION: You enter a bar with bar music playing in the back. There is a bar counter with numerous alcohol behind but no sign of bartender and all the stools in front of the bar counter is empty.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
+SHORTDESCRIPTION: You entered a bar with a bar counter and stools, but no one is around.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
+FEATURE1: low cabinet
 LOOK1: The low cabinet doesn’t look too heavy.
 HIT1: You cannot break the cabinet. 
 OPEN1: Nothing inside the cabinet. 
 MOVE1: The low cabinet is not too heavy and is moved out of the way to the door with the musical note so you can open the door.
 FEATURE2: bar counter
-LOOK2: On the bar counter is an assortment of beers.
-HIT2: You broke a few bottles on the counter and hurt your hand.
-OPEN2: You open a porter and take a sip.
-MOVE2: You are not strong enough to move a bar counter. 
+LOOK2: On the bar counter is a magical wand.
+HIT2: NA
+OPEN2: NA
+MOVE2: NA
 LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs from provides the perfect shade.
 HITD2: It swings back and forth.
 OPEND2: It doesn’t open.
 MOVED2: Take the magical wand from the bar counter to put into player’s inventory.
-OBJECT: NA
-EXIT1NAME: music note
-EXIT1DIRECTION: northwest
-EXIT2NAME: car sign
-EXIT2DIRECTION: southeast
-EXIT3NAME: pig
+OBJECT: NA 
+NUMEXITS: 3
+EXIT1DIRECTION: southwest
+EXIT2DIRECTION: northwest
 EXIT3DIRECTION: south
-EXIT4NAME: NA
 EXIT4DIRECTION: NA
-EXIT1ROOM: Music Room
-EXIT2ROOM: Garage
-EXIT3ROOM: Animal Room
-EXIT4ROOM: NA
+EXIT1NAME: Garage
+EXIT2NAME: Music Room
+EXIT3NAME: Animal Room
+EXIT4NAME: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: No
