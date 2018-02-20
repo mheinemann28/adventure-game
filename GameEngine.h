@@ -18,11 +18,12 @@
 
 struct Room rooms[15];
 struct Object objArray[8];
+struct Inventory invArray[8];
 struct parsed_command pc;
 
 void intro();
 void getInput(char *inputBuff);
-void runGame(struct Room *rooms, struct Object *objArray);
+void runGame(struct Room *rooms, struct Object *objArray, struct Inventory *invArray);
 int examineRoom(struct Room room, struct parsed_command pc);
 
 #endif

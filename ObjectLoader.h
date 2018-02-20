@@ -18,7 +18,15 @@ struct Object {
 	char *description;		
 };
 
+struct Inventory {
+	char *name;		
+	char *room;
+	char *description;		
+};
+
 void readObjects(struct Object* array, char newestDirName[256]);
+
+void initInventory(struct Inventory* invArray);
 
 /* Place at end of file - End of header conditional */
 #endif

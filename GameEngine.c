@@ -31,7 +31,7 @@ int main() {
 	readRooms(rooms, "rooms");
 	readObjects(objArray, "rooms");
 	intro();
-	runGame(rooms, objArray);
+	runGame(rooms, objArray, invArray);
 	int j;
 	
 	/*
@@ -102,8 +102,8 @@ void getInput(char *inputBuff) {
  ** Post-Conditions: game ends
  *********************************************************************/
 
-void runGame(struct Room *rooms, struct Object *objArray) {
-	char* invArray[8] = { NULL };
+void runGame(struct Room *rooms, struct Object *objArray, struct Inventory *invArray) {
+	//char* invArray[8] = { NULL };
 	int i, j, m, n;
 	char *noun;
 	char *tempRoomName;
@@ -152,6 +152,7 @@ void runGame(struct Room *rooms, struct Object *objArray) {
 						{
 							printf("Confirmed that you got %s\n", objArray[j].name);
 							n=0;
+							/*
 							do{
 								if(invArray[n] == NULL)
 								{
@@ -162,7 +163,27 @@ void runGame(struct Room *rooms, struct Object *objArray) {
 								else
 									n++;
 							}while(n!=0);
-							
+							*/
+							do{
+								if(invArray[n].name == NULL)
+								{
+									invArray[n].name = objArray[j].name;
+									invArray[n].room = objArray[j].room;
+									invArray[n].description = objArray[j].description;
+									printf("invArray[%d].name: %s\n", n, invArray[n].name);
+									printf("invArray[%d].room: %s\n", n, invArray[n].room);
+									printf("invArray[%d].description: %s\n", n, invArray[n].description);
+									//put \0 into objArray[j].name;
+									//put \0 into objArray[j].room;
+									//put \0 into objArray[j].description;
+									//printf("objArray[%d].name: %s\n", j, objArray[j].name);
+									//printf("objArray[%d].room: %s\n", j, objArray[j].room);
+									//printf("objArray[%d].description: %s\n", j, objArray[j].description);
+									n=0;
+								}
+								else
+									n++;
+							}while(n!=0);
 
 							/*
 							printf("rooms[%d].name: %s objArray[%d].room: %s\n", i, rooms[i].name, j, objArray[j].room);

@@ -71,6 +71,34 @@ void readObjects(struct Object* array, char newestDirName[256])
 	fclose(file);
 }
 
+void initInventory(struct Inventory* invArray)
+{
+	invArray[0].name = NULL;
+	invArray[0].room = NULL; 
+	invArray[0].description = NULL;	
+	invArray[1].name = NULL;
+	invArray[1].room = NULL; 
+	invArray[1].description = NULL;
+	invArray[2].name = NULL;
+	invArray[2].room = NULL; 
+	invArray[2].description = NULL;	
+	invArray[3].name = NULL;
+	invArray[3].room = NULL; 
+	invArray[3].description = NULL;	
+	invArray[4].name = NULL;
+	invArray[4].room = NULL; 
+	invArray[4].description = NULL;	
+	invArray[5].name = NULL;
+	invArray[5].room = NULL; 
+	invArray[5].description = NULL;	
+	invArray[6].name = NULL;
+	invArray[6].room = NULL; 
+	invArray[6].description = NULL;	
+	invArray[7].name = NULL;
+	invArray[7].room = NULL; 
+	invArray[7].description = NULL;		
+}
+
 /*
 int main()
 {
