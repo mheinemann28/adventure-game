@@ -28,13 +28,13 @@
  *********************************************************************/
 
 int main() {
-	//readRooms(rooms, "rooms");
+	readRooms(rooms, "rooms");
 	readObjects(objArray, "rooms");
-	//intro();
-	//runGame(rooms, objArray);
+	intro();
+	runGame(rooms, objArray);
 	int j;
 	
-	
+	/*
 	for(j=0; j<8; j++)
 	{
 		printf("OBJECT%dNAME: %s\n", j+1, objArray[j].name);
@@ -43,12 +43,13 @@ int main() {
 	}
 	
 	
-	/*
+	
 	for(j=0; j<15; j++)
 	{
 		printf("%s\n",rooms[j].name);
 	}
 	*/
+	
 	
 	return 0;
 }
@@ -102,8 +103,8 @@ void getInput(char *inputBuff) {
  *********************************************************************/
 
 void runGame(struct Room *rooms, struct Object *objArray) {
-	int i, j, m;
-
+	char* invArray[8] = { NULL };
+	int i, j, m, n;
 	char *noun;
 	char *tempRoomName;
 	//buffer to hold keyboard input data
@@ -137,28 +138,49 @@ void runGame(struct Room *rooms, struct Object *objArray) {
 				do {
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
-					noun = pc.noun1;
-
+					//noun = pc.noun1;
+					printf("You said %s %s in %s\n", pc.verb, pc.noun1, rooms[i].name);
 					m = examineRoom(rooms[i], pc);
 				} while (m == 0);
 
-				/*
+				
 				if(m == 2)
 				{
 					for(j = 0; j < 8; j++)
 					{
-						if(noun == objArray[j].name && rooms[i].name == objArray[j].room)
-							//put object in inventory
-							//update object room to be NA
-							printf("You said get %s in %s\n", noun, rooms[i].name);
-							printf("Confirmed that you got %s in %s\n\n", objArray[j].name, objArray[j].room);
+						if(strcmp(pc.noun1, objArray[j].name) == 0)
+						{
+							printf("Confirmed that you got %s\n", objArray[j].name);
+							n=0;
+							do{
+								if(invArray[n] == NULL)
+								{
+									invArray[n] = objArray[j].name;
+									printf("invArray[%d]: %s\n", n, invArray[n]);
+									n=0;
+								}
+								else
+									n++;
+							}while(n!=0);
+							
+
+							/*
+							printf("rooms[%d].name: %s objArray[%d].room: %s\n", i, rooms[i].name, j, objArray[j].room);
+							if(strcmp(rooms[i].name, objArray[j].room) != 0)
+							{
+								//put object in inventory
+								//update object room to be NA
+								printf("Confirmed that you got %s in %s\n\n", objArray[j].name, objArray[j].room);
+							}
+							*/
+						}
 					}
 				}
-				*/
-				//else{
+				
+				else{
 					for (j = 0; j < rooms[i].numExits; j++) {
 
-						if (strcmp(noun, rooms[i].exitDirection[j]) == 0) {
+						if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0) {
 
 							tempRoomName = rooms[i].Exits[j];
 
@@ -167,7 +189,7 @@ void runGame(struct Room *rooms, struct Object *objArray) {
 					}
 					if (strcmp(inputBuff, rooms[i].exitDirection[j]) != 0)
 						printf("Invalid exit direction. You are still in %s\n", tempRoomName);
-				//}
+				}
 			}
 		}
 continue_game:
@@ -185,6 +207,8 @@ int examineRoom(struct Room room, struct parsed_command pc)
 	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
+	printf("pc.verb: %s\n", pc.verb);
+	printf("pc.noun1: %s\n", pc.noun1);
 	if (strcmp(pc.verb, "look at") == 0) 
 	{
 		strcat(tempString, pc.noun1);
@@ -196,8 +220,8 @@ int examineRoom(struct Room room, struct parsed_command pc)
 			}
 		}
 	}
-	//else if (strcmp(pc.verb, "get") == 0)
-	//	return 2;
+	else if (strcmp(pc.verb, "take") == 0)
+		return 2;
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
 	else
