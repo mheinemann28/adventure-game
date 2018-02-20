@@ -13,6 +13,7 @@
 #include "GameEngine_helpers.h"
 #include "GameStateLoader.h"
 #include "RoomLoader.h"
+#include "ObjectLoader.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,10 +28,28 @@
  *********************************************************************/
 
 int main() {
-	readRooms(rooms, "rooms");
-	intro();
-	runGame(rooms);
-
+	//readRooms(rooms, "rooms");
+	readObjects(objArray, "rooms");
+	//intro();
+	//runGame(rooms, objArray);
+	int j;
+	
+	
+	for(j=0; j<8; j++)
+	{
+		printf("OBJECT%dNAME: %s\n", j+1, objArray[j].name);
+		printf("OBJECT%dSTARTROOM: %s\n", j+1, objArray[j].room);
+		printf("OBJECT%dDESCRIPTION: %s\n", j+1, objArray[j].description);
+	}
+	
+	
+	/*
+	for(j=0; j<15; j++)
+	{
+		printf("%s\n",rooms[j].name);
+	}
+	*/
+	
 	return 0;
 }
 
@@ -81,7 +100,8 @@ void getInput(char *inputBuff) {
  ** Pre-Conditions: rooms must be created and connected
  ** Post-Conditions: game ends
  *********************************************************************/
-void runGame(struct Room *rooms) {
+
+void runGame(struct Room *rooms, struct Object *objArray) {
 	int i, j, m;
 
 	char *noun;
@@ -122,17 +142,32 @@ void runGame(struct Room *rooms) {
 					m = examineRoom(rooms[i], pc);
 				} while (m == 0);
 
-				for (j = 0; j < rooms[i].numExits; j++) {
-
-					if (strcmp(noun, rooms[i].exitDirection[j]) == 0) {
-
-						tempRoomName = rooms[i].Exits[j];
-
-						goto continue_game;
+				/*
+				if(m == 2)
+				{
+					for(j = 0; j < 8; j++)
+					{
+						if(noun == objArray[j].name && rooms[i].name == objArray[j].room)
+							//put object in inventory
+							//update object room to be NA
+							printf("You said get %s in %s\n", noun, rooms[i].name);
+							printf("Confirmed that you got %s in %s\n\n", objArray[j].name, objArray[j].room);
 					}
 				}
-				if (strcmp(inputBuff, rooms[i].exitDirection[j]) != 0)
-					printf("Invalid exit direction. You are still in %s\n", tempRoomName);
+				*/
+				//else{
+					for (j = 0; j < rooms[i].numExits; j++) {
+
+						if (strcmp(noun, rooms[i].exitDirection[j]) == 0) {
+
+							tempRoomName = rooms[i].Exits[j];
+
+							goto continue_game;
+						}
+					}
+					if (strcmp(inputBuff, rooms[i].exitDirection[j]) != 0)
+						printf("Invalid exit direction. You are still in %s\n", tempRoomName);
+				//}
 			}
 		}
 continue_game:
@@ -145,22 +180,27 @@ continue_game:
 }
 
 
-int examineRoom(struct Room room, struct parsed_command pc) {
+int examineRoom(struct Room room, struct parsed_command pc) 
+{
 	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
-	if (strcmp(pc.verb, "look at") == 0) {
+	if (strcmp(pc.verb, "look at") == 0) 
+	{
 		strcat(tempString, pc.noun1);
-		for (i = 0; i < MAX_FEATURES; i++) {
-			if (strcmp(tempString, room.feature[i]) == 0) {
+		for (i = 0; i < MAX_FEATURES; i++) 
+		{
+			if (strcmp(tempString, room.feature[i]) == 0) 
+			{
 				printf("%s\n", room.look[i]);
 			}
 		}
 	}
+	//else if (strcmp(pc.verb, "get") == 0)
+	//	return 2;
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
 	else
 		printf("your command is not recognized\n");
-
 	return 0;
 }

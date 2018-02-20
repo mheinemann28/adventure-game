@@ -29,9 +29,11 @@ struct Room {
 */
 //**Note to team
 //Not sure if this is necessary. Have not tried implementing with yet -- Mike
+/*
 struct Object{
 	int id;
 	char *objectName;
 };
+*/
 
 #endif

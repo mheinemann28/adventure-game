@@ -14,13 +14,15 @@
 #include "GameEngine_helpers.h"
 #include "GameStateLoader.h"
 #include "RoomLoader.h"
+#include "ObjectLoader.h"
 
 struct Room rooms[15];
+struct Object objArray[8];
 struct parsed_command pc;
 
 void intro();
 void getInput(char *inputBuff);
-void runGame(struct Room *rooms);
+void runGame(struct Room *rooms, struct Object *objArray);
 int examineRoom(struct Room room, struct parsed_command pc);
 
 #endif
