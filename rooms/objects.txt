@@ -1,0 +1,24 @@
+OBJECT1NAME: key
+OBJECT1STARTROOM: Basement 
+OBJECT1DESCRIPTION: Large cool looking key sits snuggly up next to the wall.
+OBJECT2NAME: crowbar
+OBJECT2STARTROOM: Basement 
+OBJECT2DESCRIPTION: A heavy crowbar sits on the floor.
+OBJECT3NAME: bones
+OBJECT3STARTROOM: Animal Room
+OBJECT3DESCRIPTION: So many bones line the floor. You stet on a few.
+OBJECT4NAME: tennis racket
+OBJECT4STARTROOM: Tennis Court
+OBJECT4DESCRIPTION: A Wilson brand tennis racket sits on the shelf. 
+OBJECT5NAME: book
+OBJECT5STARTROOM: Library
+OBJECT5DESCRIPTION: A cat sits on a copy of The Hobbit.
+OBJECT6NAME: catnip
+OBJECT6STARTROOM: Riddle Room
+OBJECT6DESCRIPTION: Is that catnip on the floor?
+OBJECT7NAME: magical wand
+OBJECT7STARTROOM: Bar Room
+OBJECT7DESCRIPTION: A stick, or maybe a wand sits on a bar stool. Could it be magical or would that be silly?
+OBJECT8NAME: key1
+OBJECT8STARTROOM: Music Room
+OBJECT8DESCRIPTION: A small silver key sits on a trumpet case.

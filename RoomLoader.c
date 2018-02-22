@@ -112,7 +112,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].look[0] = calloc(255, sizeof(char));
+		array[i].look[0] = calloc(500, sizeof(char));
 		strcpy(array[i].look[0], word);
 //		printf("%s\n",array[i].look1);
 		

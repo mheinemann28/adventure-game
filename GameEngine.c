@@ -13,6 +13,7 @@
 #include "GameEngine_helpers.h"
 #include "GameStateLoader.h"
 #include "RoomLoader.h"
+#include "ObjectLoader.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,8 +29,27 @@
 
 int main() {
 	readRooms(rooms, "rooms");
+	readObjects(objArray, "rooms");
 	intro();
-	runGame(rooms);
+	runGame(rooms, objArray, invArray);
+	int j;
+
+	/*
+	for(j=0; j<8; j++)
+	{
+		printf("OBJECT%dNAME: %s\n", j+1, objArray[j].name);
+		printf("OBJECT%dSTARTROOM: %s\n", j+1, objArray[j].room);
+		printf("OBJECT%dDESCRIPTION: %s\n", j+1, objArray[j].description);
+	}
+
+
+
+	for(j=0; j<15; j++)
+	{
+		printf("%s\n",rooms[j].name);
+	}
+	*/
+
 
 	return 0;
 }
@@ -81,9 +101,10 @@ void getInput(char *inputBuff) {
  ** Pre-Conditions: rooms must be created and connected
  ** Post-Conditions: game ends
  *********************************************************************/
-void runGame(struct Room *rooms) {
-	int i, j, m;
 
+void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invArray) {
+	//char* invArray[8] = { NULL };
+	int i, j, m, n;
 	char *noun;
 	char *tempRoomName;
 	//buffer to hold keyboard input data
@@ -91,7 +112,8 @@ void runGame(struct Room *rooms) {
 	memset(inputBuff, '\0', sizeof(inputBuff));
 
 	tempRoomName = rooms[0].name;
-	
+	invArray.invCount = 0;
+
 	while (1) {
 		for (i = 0; i < 15; i++) {
 
@@ -117,14 +139,15 @@ void runGame(struct Room *rooms) {
 				do {
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
-					noun = pc.noun1;
-
+					//noun = pc.noun1;
+					printf("You said %s %s in %s\n", pc.verb, pc.noun1, rooms[i].name);
 					m = examineRoom(rooms[i], pc);
 				} while (m == 0);
 
+
 				for (j = 0; j < rooms[i].numExits; j++) {
 
-					if (strcmp(noun, rooms[i].exitDirection[j]) == 0) {
+					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0) {
 
 						tempRoomName = rooms[i].Exits[j];
 
@@ -133,6 +156,7 @@ void runGame(struct Room *rooms) {
 				}
 				if (strcmp(inputBuff, rooms[i].exitDirection[j]) != 0)
 					printf("Invalid exit direction. You are still in %s\n", tempRoomName);
+
 			}
 		}
 continue_game:
@@ -145,22 +169,71 @@ continue_game:
 }
 
 
-int examineRoom(struct Room room, struct parsed_command pc) {
+int examineRoom(struct Room room, struct parsed_command pc)
+{
 	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
-	if (strcmp(pc.verb, "look at") == 0) {
+	printf("pc.verb: %s\n", pc.verb);
+	printf("pc.noun1: %s\n", pc.noun1);
+	if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") != 0))
+	{
 		strcat(tempString, pc.noun1);
-		for (i = 0; i < MAX_FEATURES; i++) {
-			if (strcmp(tempString, room.feature[i]) == 0) {
+		for (i = 0; i < MAX_FEATURES; i++)
+		{
+			if (strcmp(tempString, room.feature[i]) == 0)
+			{
 				printf("%s\n", room.look[i]);
 			}
 		}
 	}
+	else if((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") == 0))
+		checkInventory(pc);
+	else if (strcmp(pc.verb, "take") == 0)
+		takeObject(pc);
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
 	else
 		printf("your command is not recognized\n");
-
 	return 0;
+}
+
+void takeObject(struct parsed_command pc) {
+	int j, n;
+	for (j = 0; j < 8; j++)
+	{
+		if (strcmp(pc.noun1, objArray[j].name) == 0)
+		{
+			printf("Confirmed that you got %s\n", objArray[j].name);
+			n = 0;
+
+			do {
+				if (invArray.name[n] == '\0')
+				{
+					invArray.name[n] = calloc(255, sizeof(char));
+					invArray.room[n] = calloc(255, sizeof(char));
+					invArray.description[n] = calloc(255, sizeof(char));
+					strcpy(invArray.name[n], objArray[j].name);
+					strcpy(invArray.room[n], objArray[j].room);
+					strcpy(invArray.description[n], objArray[j].description);
+					invArray.invCount++;
+					printf("invArray[%d].name: %s\n", n, invArray.name[n]);
+					printf("invArray[%d].room: %s\n", n, invArray.room[n]);
+					printf("invArray[%d].description: %s\n", n, invArray.description[n]);
+
+					n = 0;
+				}
+				else
+					n++;
+			} while (n != 0);
+		}
+	}
+}
+
+void checkInventory(struct parsed_command pc){
+	int i;
+	printf("Inventory:\n");
+	for( i = 0; i < invArray.invCount; i++){
+		printf("\t%s\n", invArray.name[i]);
+	}
 }
