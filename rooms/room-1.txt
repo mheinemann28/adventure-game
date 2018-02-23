@@ -17,6 +17,7 @@ LOOKAT2: An old man dressed in a worn-out tweed suit. He is sorting library card
 HITD2: He falls to the ground. Why would you do that? He’s like 200 years old.
 OPEND2: He doesn’t like that.
 MOVED2: He gets shoved to the side. Why would you do that? He’s like 200 years old.
+NUMOBJ: 1
 OBJECT: book
 NUMEXITS: 3
 EXIT1DIRECTION: northeast

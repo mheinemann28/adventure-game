@@ -17,6 +17,7 @@ LOOKAT2: Impressive. There is a reason why lions are referred to as the king of 
 HITD2: The lion roars and you chicken out.
 OPEND2: You can’t catch him. It’s for the best, he would maul you.
 MOVED2: You can’t catch him. It’s for the best, he would maul you.
+NUMOBJ: 1
 OBJECT: catnip
 NUMEXITS: 2
 EXIT1DIRECTION: east

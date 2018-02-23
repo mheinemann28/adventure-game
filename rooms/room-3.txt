@@ -17,6 +17,7 @@ LOOKAT2: She stands at your height, with blonde hair wearing a bathing suit.
 HITD2: You knock her over. Did her eyes follow you?
 OPEND2: There isn’t a way to open it.
 MOVED2: You move her a few feet to the side. Did her eyes follow you?
+NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 3
 EXIT1DIRECTION: north

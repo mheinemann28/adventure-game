@@ -17,6 +17,7 @@ LOOKAT2: The dog looks sweet now.
 HITD2: You wouldn't do that. Not after becoming friends.
 OPEND2: You can't do that.
 MOVED2: He moves happily to one side.
+NUMOBJ: 1
 OBJECT: Bone
 EXIT1DIRECTION: north
 EXIT2DIRECTION: east

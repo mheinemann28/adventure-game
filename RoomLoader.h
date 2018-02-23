@@ -29,7 +29,8 @@ struct Room {
 	char *hit[MAX_FEATURES + 1];
 	char *open[MAX_FEATURES + 1];
 	char *move[MAX_FEATURES + 1];
-	char *object;
+	int numObjects;
+	char *object[LENGTH];
 	int numExits;
 	char *exitDirection[MAX_EXITS];
 	char *Exits[MAX_EXITS];

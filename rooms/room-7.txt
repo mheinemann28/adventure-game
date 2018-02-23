@@ -17,6 +17,7 @@ LOOKAT2: The magical beast lays lifelessly on the ground.
 HITD2: Hitting the magical beast still doesn’t harm the magical beast.
 OPEND2: NA.
 MOVED2: The magical beast is too heavy to move.
+NUMOBJ: 1
 OBJECT: Magical wand
 NUMEXITS: 2
 EXIT1DIRECTION: east

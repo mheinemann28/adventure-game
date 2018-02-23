@@ -17,6 +17,7 @@ LOOKAT2: bat lays lifelessly on the ground.
 HITD2: Blood pool forms around the bat. That is enough hitting.
 OPEND2: NA.
 MOVED2: You moved the bat’s carcass.
+NUMOBJ: 1
 OBJECT: tennis racket
 NUMEXITS: 4
 EXIT1DIRECTION: northeast

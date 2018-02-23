@@ -17,6 +17,7 @@ LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs fr
 HITD2: It swings back and forth.
 OPEND2: It doesn’t open.
 MOVED2: You move it away from the tree. It looks less enticing now.
+NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 4
 EXIT1DIRECTION: east

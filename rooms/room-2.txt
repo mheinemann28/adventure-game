@@ -17,6 +17,7 @@ LOOKAT2: She is the number one tennis player in the world. She is concentrating 
 HITD2: Stop that. It’s creepy.
 OPEND2: Stop that. It’s creepy.
 MOVED2: Stop that. It’s creepy.
+NUMOBJ: 1
 OBJECT: tennis racket
 NUMEXITS: 3
 EXIT1DIRECTION: northeast

@@ -17,6 +17,7 @@ LOOKAT2: The giant hair spider’s leg shriveled together upon death.
 HITD2: Sticky spider goo is all over the floor and the bottom of you shoes.
 OPEND2: NA.
 MOVED2: the dead spider is too disgusting to move.
+NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 4
 EXIT1DIRECTION: north

@@ -16,7 +16,8 @@ MOVE2: He moves towards you. Can a ghost hurt you? What do you do?
 LOOKAT2: It disappears.
 HITD2: It disappears.
 OPEND2: It disappears.
-MOVED2: It disappears. 
+MOVED2: It disappears.
+NUMOBJ: 0 
 OBJECT: NA
 EXIT1DIRECTION: north
 EXIT2DIRECTION: east

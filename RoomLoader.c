@@ -247,6 +247,13 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strcpy(array[i].move[2], word);
 //		printf("%s\n",array[i].moved2);
 		
+		fseek(file, 8, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if(isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].numObjects = atoi(word);
 
 		fseek(file, 8, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -254,8 +261,8 @@ void readRooms(Room* array, char newestDirName[256]) {
 		strtok(word, "\n");
 		if(isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].object = calloc(255, sizeof(char));
-		strcpy(array[i].object, word);
+		array[i].object[0] = calloc(255, sizeof(char));
+		strcpy(array[i].object[0], word);
 //		printf("%s\n",array[i].objectd2);
 
 		fseek(file, 10, SEEK_CUR);
