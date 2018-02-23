@@ -31,30 +31,7 @@ int main() {
 	readRooms(rooms, "rooms");
 	readObjects(objArray, "rooms");
 	intro();
-	int j;
-	for(j = 0; j < 15; j++)
-		printf("room: %s object: %s\n", rooms[j].name, rooms[j].object[0]);
 	runGame(rooms, objArray, invArray);
-	
-
-	//for(j = 0; j < 15; j++)
-	//	printf("room: %s object: %s\n", rooms[j].name, rooms[j].object[0]);
-	/*
-	for(j=0; j<8; j++)
-	{
-		printf("OBJECT%dNAME: %s\n", j+1, objArray[j].name);
-		printf("OBJECT%dSTARTROOM: %s\n", j+1, objArray[j].room);
-		printf("OBJECT%dDESCRIPTION: %s\n", j+1, objArray[j].description);
-	}
-
-
-
-	for(j=0; j<15; j++)
-	{
-		printf("%s\n",rooms[j].name);
-	}
-	*/
-
 
 	return 0;
 }
@@ -222,9 +199,6 @@ void takeObject(struct parsed_command pc, struct Room room) {
 					strcpy(invArray.room[n], objArray[j].room);
 					strcpy(invArray.description[n], objArray[j].description);
 					invArray.invCount++;
-					printf("invArray[%d].name: %s\n", n, invArray.name[n]);
-					printf("invArray[%d].room: %s\n", n, invArray.room[n]);
-					printf("invArray[%d].description: %s\n", n, invArray.description[n]);
 
 					for(i = 0; i < room.numObjects; i++){
 						if(strcmp(invArray.name[n], room.object[i]) == 0){
@@ -240,8 +214,11 @@ void takeObject(struct parsed_command pc, struct Room room) {
 			} while (n != 0);
 		}
 	}
-	for(j = 0; j < 15; j++)
-		printf("room: %s object: %s\n", rooms[j].name, rooms[j].object[0]);
+
+}
+
+void dropObject(struct parsed_command pc, struct Room room){
+
 }
 
 void checkInventory(struct parsed_command pc){
