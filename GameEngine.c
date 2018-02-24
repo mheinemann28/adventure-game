@@ -169,10 +169,12 @@ int examineRoom(struct Room room, struct parsed_command pc)
 			}
 		}
 	}
-	else if((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") == 0))
+	else if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") == 0))
 		checkInventory(pc);
 	else if (strcmp(pc.verb, "take") == 0)
 		takeObject(pc, room);
+	else if(strcmp(pc.verb, "drop") == 0)
+		dropObject(pc, room);
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
 	else
@@ -200,8 +202,8 @@ void takeObject(struct parsed_command pc, struct Room room) {
 					strcpy(invArray.description[n], objArray[j].description);
 					invArray.invCount++;
 
-					for(i = 0; i < room.numObjects; i++){
-						if(strcmp(invArray.name[n], room.object[i]) == 0){
+					for (i = 0; i < room.numObjects; i++) {
+						if (strcmp(invArray.name[n], room.object[i]) == 0) {
 							strcpy(room.object[i], "NA");
 							room.numObjects--;
 						}
@@ -217,14 +219,33 @@ void takeObject(struct parsed_command pc, struct Room room) {
 
 }
 
-void dropObject(struct parsed_command pc, struct Room room){
-
+void dropObject(struct parsed_command pc, struct Room room) {
+	int i, j;
+	for (i = 0; i < invArray.invCount; i++) {
+		if (strcmp(pc.noun1, invArray.name[i]) == 0) {
+			for (j = i; j < invArray.invCount; j++) {
+				if (j == invArray.invCount - 1) {
+					invArray.name[j] = '\0';
+					invArray.room[j] = '\0';
+					invArray.description[j] = '\0';
+					invArray.invCount--;
+					break;
+				}
+				else {
+					invArray.name[j] = invArray.name[j + 1];
+					invArray.room[j] = invArray.room[j + 1];
+					invArray.description[j] = invArray.description[j + 1];
+				}
+			}
+		}
+	}
 }
 
-void checkInventory(struct parsed_command pc){
+
+void checkInventory(struct parsed_command pc) {
 	int i;
 	printf("Inventory:\n");
-	for( i = 0; i < invArray.invCount; i++){
+	for ( i = 0; i < invArray.invCount; i++) {
 		printf("\t%s\n", invArray.name[i]);
 	}
 }
