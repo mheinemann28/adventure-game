@@ -25,8 +25,8 @@ depending on the room.
 
 #### Instructions to Run Game
 * git clone https://github.com/endtoendpaper/adventure-game.git
-* make
-* adventure-game
+* make gameEngine
+* gameEngine
 
 #### Instructions to Run Testing Program for Command Line Parser 
 * make test-CommandParser
