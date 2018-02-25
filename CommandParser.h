@@ -40,8 +40,8 @@ void removeStopWords(struct command_line* cl);
 void splitCommandIntoArray(struct command_line* cl);
 void getVerb(struct command_line* cl);
 void getExit(struct command_line* cl);
-void getObject(struct command_line* cl);
-void getFeature(struct command_line* cl);
+void getObjectFeaturePhrase(struct command_line* cl);
+void getObjectFeatureWord(struct command_line* cl);
 void getOtherNouns(struct command_line* cl);
 
 /* Place at end of file - End of header conditional */

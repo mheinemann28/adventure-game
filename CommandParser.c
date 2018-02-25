@@ -85,7 +85,7 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	struct parsed_command pc;
 	
 	/* initialize new command_line  */
-	struct command_line cl;
+	struct command_line cl; 
 	
 	/* clear memory  */ 
  	memset(pc.verb, '\0', sizeof(pc.verb));
@@ -112,8 +112,8 @@ struct parsed_command parseCommand(char commandLine[2000]) {
 	removeStopWords(&cl);
 	getVerb(&cl);
 	getExit(&cl);
-	getObject(&cl);
-	getFeature(&cl);
+	getObjectFeaturePhrase(&cl);
+	getObjectFeatureWord(&cl);
 	getOtherNouns(&cl);
 	
 	/* return parsed_command struct with verb and nouns  */ 
@@ -536,15 +536,17 @@ void getExit(struct command_line* cl) {
 }
 
 /*********************************************************************
- ** Function: void getObject(struct command_line* cl)
- ** Description: gets object from user input if exists
+ ** Function: getObjectFeaturePhrase(struct command_line* cl)
+ ** Description: gets object or feature from user input if exists
+ ** 	only focuses on the features and objects that are whole
+ ** 	phrases so they won't be missed when catching single nouns
  ** Parameters: struct command_line* cl
  ** Pre-Conditions: none
- ** Post-Conditions: cl.noun1 or cl.noun2 (if there was an object) 
- ** 	contains object if exists in user input
+ ** Post-Conditions: cl.noun1 or cl.noun2 (if there was a phrase) 
+ ** 	contains object/feature if exists in user input
  *********************************************************************/
  
-void getObject(struct command_line* cl) {
+void getObjectFeaturePhrase(struct command_line* cl) {
 	int i;
 	int j;
 	if(strstr(cl->processedInput, "tennis racket") != NULL) {
@@ -570,134 +572,6 @@ void getObject(struct command_line* cl) {
 			return;
 		}
 	}
-	for (i = 0; i < cl->inputArraySize; i++) {			
-		if (strcmp(cl->inputArray[i], "racket") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "tennis racket");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tennis racket") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "tennis racket");	
- 				cl->noun2Index = i;
-			} else { 
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "key") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "key");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "key") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "key");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "crowbar") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "crowbar");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "crowbar") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "crowbar");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "bones") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "bones");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bones") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "bones");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "bone") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "bone");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bone") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "bone");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "book") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "book");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "book") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "book");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "capnip") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "capnip");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "capnip") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "capnip");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}
-    	if (strcmp(cl->inputArray[i], "wand") == 0) {
-			if (cl->noun1Index == -1) {
-				//add to noun1
-				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "magical wand");	
-				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "magical wand") != 0)) {
-				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "magical wand");	
- 				cl->noun2Index = i;
-			} else {
-				return;
-			}
-    	}	
-	}
-}
-
-/*********************************************************************
- ** Function: void getFeature(struct command_line* cl)
- ** Description: gets feature from user input if exists
- ** Parameters: struct command_line* cl
- ** Pre-Conditions: none
- ** Post-Conditions: cl.noun1 or cl.noun2 (if there was a feature) 
- ** 	contains feature if exists in user input
- *********************************************************************/
- 
-void getFeature(struct command_line* cl) {
-	int i;
-	int j;
 	if(strstr(cl->processedInput, "serena williams") != NULL) {
 		if (cl->noun1Index == -1) {
 			//add to noun1
@@ -721,7 +595,251 @@ void getFeature(struct command_line* cl) {
 			return;
 		}
 	}
-	for (i = 0; i < cl->inputArraySize; i++) {			
+	if(strstr(cl->processedInput, "book wallpaper") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "book of wallpaper");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "wallpaper") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "book of wallpaper") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "book of wallpaper");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "wallpaper") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "tennis ball") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "tennis ball");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "ball") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "tennis ball") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "tennis ball");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "ball") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "life size barbie") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "life size barbie");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "barbie") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "life size barbie") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "life size barbie");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "barbie") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "baby doll") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "baby doll");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "doll") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "baby doll") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "baby doll");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "doll") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "bar counter") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "bar counter");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "counter") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "bar counter") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "bar counter");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "counter") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "low cabinet") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "low cabinet");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "cabinet") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "low cabinet") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "low cabinet");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "cabinet") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "magical wand") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "magical wand");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "wand") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "magical wand") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "magical wand");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "wand") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "awaken dog") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "awaken dog");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "dog") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "awaken dog") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "awaken dog");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "dog") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "giant spider") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "giant spider");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "spider") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "giant spider") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "giant spider");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "spider") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+	if(strstr(cl->processedInput, "hostile magical beast") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "hostile magical beast");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "beast") == 0) {
+    				cl->noun1Index = i;
+    			}
+    		}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "hostile magical beast") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "hostile magical beast");	
+    		for (i = 0; i < cl->inputArraySize; i++) {
+    			if (strcmp(cl->inputArray[i], "beast") == 0) {
+    				cl->noun1Index = 1;
+    			}
+    		}
+		} else {
+			return;
+		}
+	}
+}
+
+/*********************************************************************
+ ** Function: void getObjectFeatureWord(struct command_line* cl)
+ ** Description: gets feature/object from user input if exists
+ ** Parameters: struct command_line* cl
+ ** Pre-Conditions: none
+ ** Post-Conditions: cl.noun1 or cl.noun2 (if there was a feature/object) 
+ ** 	contains feature/object if exists in user input
+ *********************************************************************/
+ 
+void getObjectFeatureWord(struct command_line* cl) {
+	int i;
+	int j;
+	for (i = 0; i < cl->inputArraySize; i++) {	
 		if (strcmp(cl->inputArray[i], "serena") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
@@ -735,9 +853,7 @@ void getFeature(struct command_line* cl) {
 			} else {
 				return;
 			}
-    	}
-	}
-	for (i = 0; i < cl->inputArraySize; i++) {			
+    	}		
 		if (strcmp(cl->inputArray[i], "williams") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
@@ -966,11 +1082,11 @@ void getFeature(struct command_line* cl) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
 				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "spider");	
+				strcpy(cl->noun1, "giant spider");	
 				cl->noun1Index = i;
 			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "spider") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "spider");	
+				strcpy(cl->noun2, "giant spider");	
  				cl->noun2Index = i;
 			} else {
 				return;
@@ -1084,7 +1200,6 @@ void getFeature(struct command_line* cl) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
 				strcpy(cl->noun2, "hammock");	
  				cl->noun2Index = i;
-			} else {
 				return;
 			}
     	}
@@ -1102,6 +1217,104 @@ void getFeature(struct command_line* cl) {
 				return;
 			}
     	} 	
+    	if (strcmp(cl->inputArray[i], "bones") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "bones");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bones") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "bones");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
+    	if (strcmp(cl->inputArray[i], "catnip") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "catnip");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "catnip") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "catnip");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
+    	if (strcmp(cl->inputArray[i], "key") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "key");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "key") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "key");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
+    	if (strcmp(cl->inputArray[i], "crowbar") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "crowbar");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "crowbar") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "crowbar");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
+    	if (strcmp(cl->inputArray[i], "book") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "book");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "book") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "book");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
+    	if (strcmp(cl->inputArray[i], "catnip") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "catnip");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "catnip") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "catnip");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
+    	if (strcmp(cl->inputArray[i], "key1") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "key1");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "key1") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "key1");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
 	}
 }
 
