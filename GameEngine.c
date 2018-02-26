@@ -32,7 +32,15 @@ int main() {
 	readObjects(objArray, "rooms");
 	intro();
 	runGame(rooms, objArray, invArray);
-
+	/*
+	int a;
+	for(a=0; a<invArray.invcount; a++)
+	{
+		free(invArray->name[a]);
+		free(invArray->room[a]);
+		free(invArray->description[a]);
+	}
+	*/
 	return 0;
 }
 
@@ -186,8 +194,10 @@ void takeObject(struct parsed_command pc, struct Room room) {
 	int i, j, n;
 	for (j = 0; j < 8; j++)
 	{
-		if (strcmp(pc.noun1, objArray[j].name) == 0)
+		if (strcmp(pc.noun1, objArray[j].name) == 0 && strcmp(room.name, objArray[j].room) == 0)
 		{
+			printf("Object can only be picked up in this room if room.name: %s = objArray[j].room: %s\n", room.name, objArray[j].room);
+			printf("strcmp(room.name, objArray[j].room): %d\n", strcmp(room.name, objArray[j].room)); 
 			printf("Confirmed that you got %s\n", objArray[j].name);
 			n = 0;
 
@@ -220,7 +230,7 @@ void takeObject(struct parsed_command pc, struct Room room) {
 }
 
 void dropObject(struct parsed_command pc, struct Room room) {
-	int i, j;
+	int i, j, k;
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(pc.noun1, invArray.name[i]) == 0) {
 			for (j = i; j < invArray.invCount; j++) {
@@ -229,6 +239,14 @@ void dropObject(struct parsed_command pc, struct Room room) {
 					invArray.room[j] = '\0';
 					invArray.description[j] = '\0';
 					invArray.invCount--;
+					for(k = 0; k < 8; k++)
+					{
+						if(strcmp(objArray[k].name, pc.noun1) == 0)
+						{
+							strcpy(objArray[k].room, room.name);
+							printf("%s is now in %s\n", pc.noun1, room.name);
+						}
+					}	
 					break;
 				}
 				else {

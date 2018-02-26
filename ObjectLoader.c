@@ -77,6 +77,10 @@ void initInventory(struct Inventory* invArray)
 	for (i = 0; i < 8; i++) {
 		//invArray->name[i] = calloc(255, sizeof(char));
 		//strcpy(invArray->name[i], '\0');
+		//invArray->room[i] = calloc(255, sizeof(char));
+		//strcpy(invArray->name[i], '\0');
+		//invArray->description[i] = calloc(255, sizeof(char));
+		//strcpy(invArray->name[i], '\0');
 
 	//	memset(invArray->name[i], '\0', sizeof(char));
 	//	memset(invArray->room[i], '\0', sizeof(char));
