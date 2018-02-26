@@ -8,13 +8,13 @@ OBJECT3NAME: bones
 OBJECT3STARTROOM: Animal Room
 OBJECT3DESCRIPTION: So many bones line the floor. You stet on a few.
 OBJECT4NAME: tennis racket
-OBJECT4STARTROOM: Tennis Court
+OBJECT4STARTROOM: Storage
 OBJECT4DESCRIPTION: A Wilson brand tennis racket sits on the shelf. 
 OBJECT5NAME: book
 OBJECT5STARTROOM: Library
 OBJECT5DESCRIPTION: A cat sits on a copy of The Hobbit.
 OBJECT6NAME: catnip
-OBJECT6STARTROOM: Riddle Room
+OBJECT6STARTROOM: Garage
 OBJECT6DESCRIPTION: Is that catnip on the floor?
 OBJECT7NAME: magical wand
 OBJECT7STARTROOM: Bar Room
