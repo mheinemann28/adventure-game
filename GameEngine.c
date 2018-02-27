@@ -31,7 +31,7 @@ int main() {
 	readRooms(rooms, "rooms");
 	readObjects(objArray, "rooms");
 	intro();
-	runGame(rooms, objArray, invArray);
+	runGame(rooms, objArray, invArray, hand);
 	/*
 	int a;
 	for(a=0; a<invArray.invcount; a++)
@@ -92,11 +92,13 @@ void getInput(char *inputBuff) {
  ** Post-Conditions: game ends
  *********************************************************************/
 
-void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invArray) {
+void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invArray, char *hand) {
 	//char* invArray[8] = { NULL };
 	int i, j, m, n;
 	char *noun;
 	char *tempRoomName;
+	
+
 	//buffer to hold keyboard input data
 	char inputBuff[255];
 	memset(inputBuff, '\0', sizeof(inputBuff));
@@ -130,8 +132,8 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
 					//noun = pc.noun1;
-					printf("You said %s %s in %s\n", pc.verb, pc.noun1, rooms[i].name);
-					m = examineRoom(rooms[i], pc);
+					//printf("You said %s %s in %s\n", pc.verb, pc.noun1, rooms[i].name);
+					m = examineRoom(rooms[i], pc, hand);
 				} while (m == 0);
 
 
@@ -159,13 +161,13 @@ continue_game:
 }
 
 
-int examineRoom(struct Room room, struct parsed_command pc)
+int examineRoom(struct Room room, struct parsed_command pc, char *hand)
 {
 	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
-	printf("pc.verb: %s\n", pc.verb);
-	printf("pc.noun1: %s\n", pc.noun1);
+	//printf("pc.verb: %s\n", pc.verb);
+	//printf("pc.noun1: %s\n", pc.noun1);
 	if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") != 0))
 	{
 		strcat(tempString, pc.noun1);
@@ -181,14 +183,55 @@ int examineRoom(struct Room room, struct parsed_command pc)
 		checkInventory(pc);
 	else if (strcmp(pc.verb, "take") == 0)
 		takeObject(pc, room);
+	else if (strcmp(pc.verb, "use") == 0)
+		useObject(pc, room, hand);
 	else if(strcmp(pc.verb, "drop") == 0)
 		dropObject(pc, room);
+	else if (strcmp(pc.verb, "help") == 0)
+		list();
+	//else if (strcmp(pc.verb, "hit") == 0)
+	//	hit(pc, room, hand);
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
 	else
 		printf("your command is not recognized\n");
 	return 0;
 }
+
+void list()
+{
+	printf("Set of verbs the game understands:\n");
+	printf("look\n");
+	printf("open\n");
+	printf("move\n");
+	printf("hit\n");
+	printf("go\n");
+	printf("take\n");
+}
+
+void useObject(struct parsed_command pc, struct Room room, char *hand) 
+{
+	int i;
+	for ( i = 0; i < invArray.invCount; i++) 
+	{
+		if(strcmp(pc.noun1, invArray.name[i])==0)
+		{
+			hand = calloc(255, sizeof(char));
+			strcpy(hand, pc.noun1);
+			printf("hand: %s should be the same as pc.noun1: %s\n", hand, pc.noun1);
+		}
+	}
+}
+
+/*
+void hit(struct parsed_command pc, struct Room room, char *hand)
+{
+	if(strcmp(hand, room.object)==0)
+	{
+		printf("You defeated the enemy \n");
+	}
+}
+*/
 
 void takeObject(struct parsed_command pc, struct Room room) {
 	int i, j, n;
