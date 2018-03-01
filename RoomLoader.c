@@ -31,7 +31,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 	char word[BUFFER_SIZE];
 	memset(word, '\0', sizeof(word));
 
-	for (i = 0; i < 1; i++)
+	for (i = 0; i < 2; i++)
 	{
 		sprintf(filename, "%s/room-%d.txt", dirname, i + 1);
 //		printf("filename: %s\n", filename);
@@ -104,8 +104,23 @@ void readRooms(Room* array, char newestDirName[256]) {
 		array[i].feature[0].name = calloc(255, sizeof(char));
 		strcpy(array[i].feature[0].name, word);
 		array[i].feature[0].firstLook = 0;
-		array[i].feature[0].containObject = 0;
 //		printf("%s\n",array[i].feature1);
+
+		fseek(file, 12, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].feature[0].obstacle = atoi(word);
+
+		fseek(file, 17, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].feature[0].containObject = atoi(word);
 
 
 		fseek(file, 9, SEEK_CUR);
@@ -201,9 +216,23 @@ void readRooms(Room* array, char newestDirName[256]) {
 		array[i].feature[1].name = calloc(255, sizeof(char));
 		strcpy(array[i].feature[1].name, word);
 		array[i].feature[1].firstLook = 0;
-		array[i].feature[1].containObject = 1;
 //		printf("%s\n",array[i].feature2);
 
+		fseek(file, 12, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].feature[1].obstacle = atoi(word);
+
+		fseek(file, 17, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].feature[1].containObject = atoi(word);
 
 		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -403,6 +432,38 @@ void readRooms(Room* array, char newestDirName[256]) {
 		array[i].Exits[3] = calloc(255, sizeof(char));
 		strcpy(array[i].Exits[3], word);
 //		printf("%s\n",array[i].exit4direction);
+
+		fseek(file, 12, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].isBlocked[0] = atoi(word);
+
+		fseek(file, 12, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].isBlocked[1] = atoi(word);
+
+		fseek(file, 12, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].isBlocked[2] = atoi(word);
+
+		fseek(file, 12, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].isBlocked[3] = atoi(word);
 
 		fclose(file);
 	}

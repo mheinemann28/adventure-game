@@ -1,0 +1,32 @@
+VISITED: 0
+ROOMTYPE: MID
+ROOMNAME: Cat Kingdom
+LONGDESCRIPTION: You start sneezing when you enter this room. It’s not very big, yet there are at least 25 felines wandering around the room, climbing on the cat castle, or napping adorably in this cat kingdom. A tabby cat saunters over to you and looks up expectantly. She starts to purr. But you are distracted by a roar. Not ten feet from you stands a male lion. You start to tremble with fear. Good kitty? To the west, there is a musty exit. To the east, there is an exit with bright lights.
+SHORTDESCRIPTION: You’ve entered the cat kingdom. A tabby cat purrs at your feet and a lion paces ten feet from where you stand. To the west, there is a musty exit. To the east, there is an exit with bright lights.
+FEATURE1: tabby cat
+LOOK1: A beautiful cat, spotted with orange, black, and yellow.
+HIT1: You missed and the cat turned around and scratched you. 
+OPEN1: You can’t catch her and the cat scratched you. 
+MOVE1: She moves without your aid, revealing yet another cat. 
+FEATURE2: lion
+LOOK2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+HIT2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+OPEN2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+MOVE2: Starts fight sequence – The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+LOOKAT2: Impressive. There is a reason why lions are referred to as the king of the jungle, or in this case, the king of cat kingdom. Although subdued, you are still very nervous in his presence.
+HITD2: The lion roars and you chicken out.
+OPEND2: You can’t catch him. It’s for the best, he would maul you.
+MOVED2: You can’t catch him. It’s for the best, he would maul you.
+NUMOBJ: 1
+OBJECT: catnip
+NUMEXITS: 2
+EXIT1DIRECTION: east
+EXIT2DIRECTION: west
+EXIT3DIRECTION: NA
+EXIT4DIRECTION: NA
+EXIT1NAME: Tennis Court
+EXIT2NAME: Library
+EXIT3NAME: NA
+EXIT4NAME: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes

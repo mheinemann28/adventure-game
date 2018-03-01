@@ -4,6 +4,8 @@ ROOMNAME: Bar
 LONGDESCRIPTION: You enter a bar with bar music playing in the back. There is a bar counter with numerous alcohol behind but no sign of bartender and all the stools in front of the bar counter is empty.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
 SHORTDESCRIPTION: You entered a bar with a bar counter and stools, but no one is around.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
 FEATURENAME1: low cabinet
+F1OBSTACLE: 1
+F2CONTAINOBJECT: 0
 F1LOOK1: The low cabinet doesn’t look too heavy.
 F1LOOK2: The low cabinet doesn’t look too heavy.
 F1HIT1: You cannot break the cabinet.
@@ -13,6 +15,8 @@ F1OPEN2: Nothing inside the cabinet.
 F1MOVE1: The low cabinet is not too heavy and is moved out of the way to the door with the musical note so you can open the door.
 F1MOVE2: You already moved this.
 FEATURENAME2: bar counter
+F2OBSTACLE: 0
+F2CONTAINOBJECT: 1
 F2LOOK1: On the bar counter is a magical wand.
 F2LOOK2: The bar counter is now empty.
 F2HIT1: That did nothing.
@@ -32,5 +36,9 @@ EXIT1NAME: Garage
 EXIT2NAME: Music Room
 EXIT3NAME: NA
 EXIT4NAME: NA
+EXIT1BLOCK: 0
+EXIT2BLOCK: 1
+EXIT3BLOCK: 0
+EXIT4BLOCK: 0
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: No

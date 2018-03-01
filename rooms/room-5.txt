@@ -1,32 +1,32 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Courtyard
-LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
-SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
-FEATURE1: fountain
-LOOK1: Large and circular. There are pennies, nickels, and dimes resting in the water. Remnants of someone’s wish? A sparkly fish statue spits water in the air.
-HIT1: It was made with cement. You hurt your hand. 
-OPEN1: It doesn’t open. You can already see the bottom. 
-MOVE1: It was too heavy. You rub your back and wonder why you would try that. 
-FEATURE2:  hammock
-LOOK2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-HIT2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-OPEN2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-MOVE2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs from provides the perfect shade.
-HITD2: It swings back and forth.
-OPEND2: It doesn’t open.
-MOVED2: You move it away from the tree. It looks less enticing now.
+ROOMNAME: Storage
+LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
+SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
+FEATURE1: shelf
+LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
+HIT1: The tennis racket (object) falls of the shelf. It looks like it can be used as a weapon. 
+OPEN1: NA 
+MOVE1: Shelf cannot be moved. The base is fixed into the ground.
+FEATURE2: giant spider
+LOOK2: Starts fight sequence – It’s a giant hairy spider.
+HIT2: Starts fight sequence – you successfully stomped the spider to death
+OPEN2: NA
+MOVE2: NA
+LOOKAT2: The giant hair spider’s leg shriveled together upon death.
+HITD2: Sticky spider goo is all over the floor and the bottom of you shoes.
+OPEND2: NA.
+MOVED2: the dead spider is too disgusting to move.
 NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 4
-EXIT1DIRECTION: east
-EXIT2DIRECTION: south
-EXIT3DIRECTION: southwest
-EXIT4DIRECTION: northwest
-EXIT1NAME: Tennis Court
-EXIT2NAME: Basement
-EXIT3NAME: Doll Room
-EXIT4NAME: Library
+EXIT1DIRECTION: north
+EXIT2DIRECTION: east
+EXIT3DIRECTION: NA
+EXIT4DIRECTION: NA
+EXIT1NAME: Cage Room
+EXIT2NAME: Garage
+EXIT3NAME: NA
+EXIT4NAME: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

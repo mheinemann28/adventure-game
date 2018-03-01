@@ -28,5 +28,7 @@ int examineRoom(struct Room *room, struct parsed_command pc);
 void takeObject(struct parsed_command pc, struct Room *room);
 void dropObject(struct parsed_command pc, struct Room *room);
 void checkInventory(struct parsed_command pc);
+void moveFeature(struct parsed_command pc, struct Room *room);
+void hitFeature(struct parsed_command pc, struct Room *room);
 
 #endif

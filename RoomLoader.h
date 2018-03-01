@@ -22,6 +22,7 @@ struct Feature {
 	char *name;
 	int firstLook;	// if has not been looked at yet set to 0, else 1
 	int containObject;	// if object is located on or in feature set to 1, else 0
+	int obstacle; // 1 if yes, 0 if no
 	char *description1;	// prints if first time looking at feature
 	char *description2;	// prints if feature has already been looked at
 	char *hit1;
@@ -45,6 +46,7 @@ struct Room {
 	int numExits;
 	char *exitDirection[MAX_EXITS];
 	char *Exits[MAX_EXITS];
+	int isBlocked[MAX_EXITS]; // if set to one, exit is blocked, 0 if not 
 };
 
 
