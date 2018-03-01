@@ -29,6 +29,9 @@
 
 int main() {
 	readRooms(rooms, "rooms");
+
+	int i;
+
 	readObjects(objArray, "rooms");
 	intro();
 	runGame(rooms, objArray, invArray);
@@ -97,10 +100,11 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 	invArray.invCount = 0;
 
 	while (1) {
-		for (i = 0; i < 15; i++) {
+	
+		for (i = 0; i < 1; i++) {
 
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {
-
+				printf("--------------------------------------------------------------------------------------------\n");
 				if (rooms[i].visited == 0)
 				{
 					printf("\n%s\n", rooms[i].longDescription);
@@ -113,7 +117,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 
 				printf("Features:\n");
 				for (j = 0; j < MAX_FEATURES; j++) {
-					printf("\t%d. %s\n", j + 1, rooms[i].feature[j]);
+					printf("\t%d. %s\n", j + 1, rooms[i].feature[j].name);
 				}
 
 				rooms[i].visited = 1;
@@ -122,8 +126,8 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
 					//noun = pc.noun1;
-					printf("You said %s %s in %s\n", pc.verb, pc.noun1, rooms[i].name);
-					m = examineRoom(rooms[i], pc);
+
+					m = examineRoom(&rooms[i], pc);
 				} while (m == 0);
 
 
@@ -136,12 +140,13 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 						goto continue_game;
 					}
 				}
-				if (strcmp(inputBuff, rooms[i].exitDirection[j]) != 0)
-					printf("Invalid exit direction. You are still in %s\n", tempRoomName);
+				if (strcmp(pc.noun1, rooms[i].exitDirection[j]) != 0)
+					printf("\nInvalid exit direction. You are still in %s\n", tempRoomName);
 
 			}
 		}
 continue_game:
+		//	printf("i: %d\n", i);
 		if (strcmp(tempRoomName, "Cafe") == 0)
 		{
 			printf("Reached the end. \n");
@@ -151,29 +156,36 @@ continue_game:
 }
 
 
-int examineRoom(struct Room room, struct parsed_command pc)
+int examineRoom(struct Room *room, struct parsed_command pc)
 {
 	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
-	printf("pc.verb: %s\n", pc.verb);
-	printf("pc.noun1: %s\n", pc.noun1);
+//	printf("pc.verb: %s\n", pc.verb);
+//	printf("pc.noun1: %s\n", pc.noun1);
 	if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") != 0))
 	{
 		strcat(tempString, pc.noun1);
 		for (i = 0; i < MAX_FEATURES; i++)
 		{
-			if (strcmp(tempString, room.feature[i]) == 0)
+			if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 1)
 			{
-				printf("%s\n", room.look[i]);
+				printf("%s\n", room->feature[i].description1);
+				room->feature[i].firstLook = 1;
+			}
+			else if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 0) {
+				printf("%s\n", room->feature[i].description2);
 			}
 		}
 	}
 	else if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") == 0))
 		checkInventory(pc);
+	else if ((strcmp(pc.verb, "look") == 0) && (strcmp(pc.noun1, "room") == 0)) {
+
+	}
 	else if (strcmp(pc.verb, "take") == 0)
 		takeObject(pc, room);
-	else if(strcmp(pc.verb, "drop") == 0)
+	else if (strcmp(pc.verb, "drop") == 0)
 		dropObject(pc, room);
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
@@ -182,13 +194,13 @@ int examineRoom(struct Room room, struct parsed_command pc)
 	return 0;
 }
 
-void takeObject(struct parsed_command pc, struct Room room) {
+void takeObject(struct parsed_command pc, struct Room *room) {
 	int i, j, n;
 	for (j = 0; j < 8; j++)
 	{
-		if (strcmp(pc.noun1, objArray[j].name) == 0)
+		if (strcmp(pc.noun1, objArray[j].name) == 0 && strcmp(room->name, objArray[j].room) == 0)
 		{
-			printf("Confirmed that you got %s\n", objArray[j].name);
+			//printf("Confirmed that you got %s\n", objArray[j].name);
 			n = 0;
 
 			do {
@@ -202,10 +214,18 @@ void takeObject(struct parsed_command pc, struct Room room) {
 					strcpy(invArray.description[n], objArray[j].description);
 					invArray.invCount++;
 
-					for (i = 0; i < room.numObjects; i++) {
-						if (strcmp(invArray.name[n], room.object[i]) == 0) {
-							strcpy(room.object[i], "NA");
-							room.numObjects--;
+					for (i = 0; i < room->numObjects; i++) {
+						if (strcmp(invArray.name[n], room->object[i]) == 0) {
+							strcpy(room->object[i], "NA");
+							room->numObjects--;
+						}
+					}
+
+					printf("%s was added to your inventory.\n", invArray.name[n]);
+
+					for (i = 0; i < MAX_FEATURES; i++){
+						if(room->feature[i].containObject == 1){
+							room->feature[i].containObject = 0;
 						}
 					}
 
@@ -219,8 +239,8 @@ void takeObject(struct parsed_command pc, struct Room room) {
 
 }
 
-void dropObject(struct parsed_command pc, struct Room room) {
-	int i, j;
+void dropObject(struct parsed_command pc, struct Room *room) {
+	int i, j, k;
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(pc.noun1, invArray.name[i]) == 0) {
 			for (j = i; j < invArray.invCount; j++) {
@@ -229,6 +249,14 @@ void dropObject(struct parsed_command pc, struct Room room) {
 					invArray.room[j] = '\0';
 					invArray.description[j] = '\0';
 					invArray.invCount--;
+					for (k = 0; k < 8; k++)
+					{
+						if (strcmp(objArray[k].name, pc.noun1) == 0)
+						{
+							strcpy(objArray[k].room, room->name);
+							printf("%s is now in %s\n", pc.noun1, room->name);
+						}
+					}
 					break;
 				}
 				else {

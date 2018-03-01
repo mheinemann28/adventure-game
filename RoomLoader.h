@@ -16,6 +16,21 @@
 #define MAX_FEATURES 2
 
 typedef struct Room Room;
+typedef struct Feature Feature;
+
+struct Feature {
+	char *name;
+	int firstLook;	// if has not been looked at yet set to 0, else 1
+	int containObject;	// if object is located on or in feature set to 1, else 0
+	char *description1;	// prints if first time looking at feature
+	char *description2;	// prints if feature has already been looked at
+	char *hit1;
+	char *hit2;
+	char *open1;
+	char *open2;
+	char *move1;
+	char *move2;
+};
 
 /* Room struct */
 struct Room {
@@ -24,11 +39,7 @@ struct Room {
 	char *name;		// room name
 	char *longDescription;
 	char *shortDescription;
-	char *feature[MAX_FEATURES];
-	char *look[MAX_FEATURES + 1];
-	char *hit[MAX_FEATURES + 1];
-	char *open[MAX_FEATURES + 1];
-	char *move[MAX_FEATURES + 1];
+	struct Feature feature[MAX_FEATURES];
 	int numObjects;
 	char *object[LENGTH];
 	int numExits;
@@ -36,7 +47,10 @@ struct Room {
 	char *Exits[MAX_EXITS];
 };
 
+
+
 void readRooms(Room* array, char newestDirName[256]);
+//void loadFeatures(Feature *f);
 
 /* Place at end of file - End of header conditional */
 #endif
