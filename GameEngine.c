@@ -99,7 +99,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 
 	while (1) {
 
-		for (i = 0; i < 2; i++) {
+		for (i = 0; i < 3; i++) {
 
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {
 				printf("--------------------------------------------------------------------------------------------\n");
@@ -174,6 +174,9 @@ int examineRoom(struct Room *room, struct parsed_command pc)
 	int i;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
+//	printf("pc.verb: %s\n", pc.verb);
+//	printf("noun1: %s\n", pc.noun1);
+//	printf("noun2: %s\n", pc.noun2);
 
 	if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") != 0))
 	{
@@ -275,27 +278,39 @@ void takeObject(struct parsed_command pc, struct Room *room) {
 void dropObject(struct parsed_command pc, struct Room *room) {
 	int i, j, k;
 	for (i = 0; i < invArray.invCount; i++) {
-		if (strcmp(pc.noun1, invArray.name[i]) == 0) {
-			for (j = i; j < invArray.invCount; j++) {
-				if (j == invArray.invCount - 1) {
-					invArray.name[j] = '\0';
-					invArray.room[j] = '\0';
-					invArray.usedFor[j] = '\0';
-					invArray.invCount--;
-					for (k = 0; k < 8; k++)
-					{
-						if (strcmp(objArray[k].name, pc.noun1) == 0)
-						{
-							strcpy(objArray[k].room, room->name);
-							printf("%s is now in %s\n", pc.noun1, room->name);
-						}
+		if (strcmp(pc.noun1, invArray.name[i]) == 0 || strcmp(pc.noun2, invArray.name[i]) == 0) {
+			if (strcmp(invArray.name[i], "key") == 0) {
+				for (j = 0; j < room->numExits; j++) {
+					if (strcmp(room->exitDirection[j], invArray.usedFor[i]) == 0) {
+						printf("%s door is now unlocked\n", room->exitDirection[j]);
+						strcpy(room->blockedBy[j], "NA");
+						return;
 					}
-					break;
 				}
-				else {
-					invArray.name[j] = invArray.name[j + 1];
-					invArray.room[j] = invArray.room[j + 1];
-					invArray.usedFor[j] = invArray.usedFor[j + 1];
+				printf("wrong key for this door.\n");
+			}
+			else {
+				for (j = i; j < invArray.invCount; j++) {
+					if (j == invArray.invCount - 1) {
+						invArray.name[j] = '\0';
+						invArray.room[j] = '\0';
+						invArray.usedFor[j] = '\0';
+						invArray.invCount--;
+						for (k = 0; k < 8; k++)
+						{
+							if (strcmp(objArray[k].name, pc.noun1) == 0)
+							{
+								strcpy(objArray[k].room, room->name);
+								printf("%s is now in %s\n", pc.noun1, room->name);
+							}
+						}
+						break;
+					}
+					else {
+						invArray.name[j] = invArray.name[j + 1];
+						invArray.room[j] = invArray.room[j + 1];
+						invArray.usedFor[j] = invArray.usedFor[j + 1];
+					}
 				}
 			}
 		}
