@@ -4,7 +4,6 @@ ROOMNAME: Music Room
 LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
 SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
 FEATURENAME1: piano
-F1OBSTACLE: 0
 F2CONTAINOBJECT: 1
 F1LOOK1: The pianos lid is closed.
 F1LOOK2: The pianos lid is closed
@@ -15,7 +14,6 @@ F1OPEN2: The piano is empty.
 F1MOVE1: The piano is too heavy to move.
 F1MOVE2: The piano is too heavy to move.
 FEATURENAME2: hostile magical beast
-F2OBSTACLE: 1
 F2CONTAINOBJECT: 0
 F2LOOK1: The magical beast is hideous looking... You'll have to kill it to reach the piano.
 F2LOOK2: The magical beast lays lifelessly on the floor.
@@ -26,7 +24,7 @@ F2OPEN2: Why would you want to do that?
 F2MOVE1: The beast is too heavy to move.
 F2MOVE2: The beast is too heavy to move.
 NUMOBJ: 1
-OBJECT: Magical wand
+OBJECT: key
 NUMEXITS: 2
 EXIT1DIRECTION: east
 EXIT2DIRECTION: west
@@ -36,9 +34,9 @@ EXIT1NAME: Bar
 EXIT2NAME: Cage Room
 EXIT3NAME: NA
 EXIT4NAME: NA
-EXIT1BLOCK: 0
-EXIT2BLOCK: 1
-EXIT3BLOCK: 0
-EXIT4BLOCK: 0
+EXIT1BLOCK: NA
+EXIT2BLOCK: key
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

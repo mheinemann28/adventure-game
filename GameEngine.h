@@ -30,5 +30,6 @@ void dropObject(struct parsed_command pc, struct Room *room);
 void checkInventory(struct parsed_command pc);
 void moveFeature(struct parsed_command pc, struct Room *room);
 void hitFeature(struct parsed_command pc, struct Room *room);
+void openFeature(struct parsed_command pc, struct Room *room);
 
 #endif
