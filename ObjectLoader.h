@@ -17,14 +17,14 @@
 struct Object {
 	char *name;		
 	char *room;
-	char *description;		
+	char *usedFor;		
 };
 
 struct Inventory {
 	int invCount;
 	char *name[MAX_INV];		
 	char *room[MAX_INV];
-	char *description[MAX_INV];		
+	char *usedFor[MAX_INV];		
 };
 
 void readObjects(struct Object* array, char newestDirName[256]);

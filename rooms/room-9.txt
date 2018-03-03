@@ -18,7 +18,7 @@ HITD2: Don’t hit the dog again. It is no longer a threat.
 OPEND2: NA.
 MOVED2: You moved the dog.
 NUMOBJ: 0
-OBJECT: key1
+OBJECT: NA
 NUMEXITS: 3
 EXIT1DIRECTION: east
 EXIT2DIRECTION: southwest

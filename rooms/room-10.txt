@@ -5,7 +5,7 @@ LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves exc
 SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
 FEATURE1: shelf
 LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
-HIT1: The tennis racket (object) falls off the shelf. It looks like it can be used as a weapon. 
+HIT1: The tennis racket (object) falls of the shelf. It looks like it can be used as a weapon. 
 OPEN1: NA 
 MOVE1: Shelf cannot be moved. The base is fixed into the ground.
 FEATURE2: giant spider

@@ -1,32 +1,32 @@
 VISITED: 0
-ROOMTYPE: MID
-ROOMNAME: Bar
-LONGDESCRIPTION: You enter a bar with bar music playing in the back. There is a bar counter with numerous alcohol behind but no sign of bartender and all the stools in front of the bar counter is empty.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
-SHORTDESCRIPTION: You entered a bar with a bar counter and stools, but no one is around.  There is a door to the northwest with a musical note on it blocked by a low cabinet and a door to the southwest with a sign that says car on it. To the south there is a door with sounds of different animals behind it.
-FEATURE1: low cabinet
-LOOK1: The low cabinet doesn’t look too heavy.
-HIT1: You cannot break the cabinet. 
-OPEN1: Nothing inside the cabinet. 
-MOVE1: The low cabinet is not too heavy and is moved out of the way to the door with the musical note so you can open the door.
-FEATURE2: bar counter
-LOOK2: On the bar counter is a magical wand.
-HIT2: NA
-OPEN2: NA
-MOVE2: NA
-LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs from provides the perfect shade.
-HITD2: It swings back and forth.
-OPEND2: It doesn’t open.
-MOVED2: Take the magical wand from the bar counter to put into player’s inventory.
-NUMOBJ: 0
-OBJECT: NA 
+ROOMTYPE: END
+ROOMNAME: Tennis Court
+LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. A tennis ball rolls towards you and stops at your feet. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. In the northeast corner, there is an exit with fluttering noise behind the exit door.
+SHORTDESCRIPTION: You’ve entered the tennis court. A tennis ball rests at your feet. Serena Williams stands on the opposite side of the court. In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. In the northeast corner, there is an exit with fluttering noise behind the exit door.
+FEATURE1: TENNIS BALL
+LOOK1: A Wilson brand tennis ball. Yellow and very fuzzy
+HIT1: It moves to the other side of the court.
+OPEN1: It doesn’t open.
+MOVE1: It rolls across the floor. Be careful not to roll your ankle.
+FEATURE2: SERENA WILLIAMS
+LOOK2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
+HIT2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
+OPEN2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
+MOVE2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
+LOOKAT2: She is the number one tennis player in the world. She is concentrating on her form, possibly thinking about her next match.
+HITD2: Stop that. It’s creepy.
+OPEND2: Stop that. It’s creepy.
+MOVED2: Stop that. It’s creepy.
+NUMOBJ: 1
+OBJECT: tennis racket
 NUMEXITS: 3
-EXIT1DIRECTION: southwest
-EXIT2DIRECTION: northwest
-EXIT3DIRECTION: south
+EXIT1DIRECTION: northeast
+EXIT2DIRECTION: southwest
+EXIT3DIRECTION: northwest
 EXIT4DIRECTION: NA
-EXIT1NAME: Garage
-EXIT2NAME: Music Room
-EXIT3NAME: Animal Room
+EXIT1NAME: Cage Room
+EXIT2NAME: Courtyard
+EXIT3NAME: Cat Kingdom
 EXIT4NAME: NA
 FEATURE1ENEMY?: No
-FEATURE2ENEMY?: No
+FEATURE2ENEMY?: Yes

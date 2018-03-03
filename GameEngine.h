@@ -20,16 +20,16 @@ struct Room rooms[15];
 struct Object objArray[8];
 struct Inventory invArray;
 struct parsed_command pc;
-char *hand;
 
 void intro();
 void getInput(char *inputBuff);
-void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invArray, char *hand);
-int examineRoom(struct Room room, struct parsed_command pc, char *hand);
-void list();
-void useObject(struct parsed_command pc, struct Room room, char *hand) 
-void takeObject(struct parsed_command pc, struct Room room);
-void dropObject(struct parsed_command pc, struct Room room);
+void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invArray);
+int examineRoom(struct Room *room, struct parsed_command pc);
+void takeObject(struct parsed_command pc, struct Room *room);
+void dropObject(struct parsed_command pc, struct Room *room);
 void checkInventory(struct parsed_command pc);
+void moveFeature(struct parsed_command pc, struct Room *room);
+void hitFeature(struct parsed_command pc, struct Room *room);
+void openFeature(struct parsed_command pc, struct Room *room);
 
 #endif

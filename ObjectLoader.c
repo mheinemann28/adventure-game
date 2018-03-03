@@ -58,15 +58,15 @@ void readObjects(struct Object* array, char newestDirName[256])
 		strcpy(array[i].room, word);
 		//printf("OBJECT%dSTARTROOM: %s\n", i+1, array[i].room);
 
-		fseek(file, 20, SEEK_CUR);
+		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
 		strtok(word, "\n");
 		if (isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].description = calloc(255, sizeof(char));
-		strcpy(array[i].description, word);
-		//printf("OBJECT%dDESCRIPTION: %s\n", i+1, array[i].description);
+		array[i].usedFor = calloc(255, sizeof(char));
+		strcpy(array[i].usedFor, word);
+		//printf("OBJECT%dDESCRIPTION: %s\n", i+1, array[i].usedFor);
 	}
 	fclose(file);
 }
@@ -76,10 +76,6 @@ void initInventory(struct Inventory* invArray)
 	int i;
 	for (i = 0; i < 8; i++) {
 		//invArray->name[i] = calloc(255, sizeof(char));
-		//strcpy(invArray->name[i], '\0');
-		//invArray->room[i] = calloc(255, sizeof(char));
-		//strcpy(invArray->name[i], '\0');
-		//invArray->description[i] = calloc(255, sizeof(char));
 		//strcpy(invArray->name[i], '\0');
 
 	//	memset(invArray->name[i], '\0', sizeof(char));
