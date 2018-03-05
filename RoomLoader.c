@@ -31,7 +31,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 	char word[BUFFER_SIZE];
 	memset(word, '\0', sizeof(word));
 
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 6; i++)
 	{
 		sprintf(filename, "%s/room-%d.txt", dirname, i + 1);
 //		printf("filename: %s\n", filename);

@@ -4,7 +4,7 @@ ROOMNAME: Music Room
 LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
 SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
 FEATURENAME1: piano
-F2CONTAINOBJECT: 1
+F1CONTAINOBJECT: 1
 F1LOOK1: The pianos lid is closed.
 F1LOOK2: The pianos lid is closed
 F1HIT1: Why would you want to do that?

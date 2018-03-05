@@ -99,7 +99,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 
 	while (1) {
 
-		for (i = 0; i < 4; i++) {
+		for (i = 0; i < 6; i++) {
 
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {
 				printf("--------------------------------------------------------------------------------------------\n");
@@ -232,22 +232,27 @@ int examineRoom(struct Room *room, struct parsed_command pc)
 
 void takeObject(struct parsed_command pc, struct Room *room) {
 	int i, j, n;
-	for (j = 0; j < 7; j++)
+	for (j = 0; j < 8; j++)
 	{
+		printf("objArray[%d]: %s\n", j, objArray[j].name);
 		if (strcmp(pc.noun1, objArray[j].name) == 0 && strcmp(room->name, objArray[j].room) == 0)
 		{
-			//printf("Confirmed that you got %s\n", objArray[j].name);
+			printf("Confirmed that you got %s\n", objArray[j].name);
 			n = 0;
 
 			do {
 				if (invArray.name[n] == '\0')
 				{
+					printf("invArray.name[%d]: %s\n", n, invArray.name[n]);
 					invArray.name[n] = calloc(255, sizeof(char));
 					invArray.room[n] = calloc(255, sizeof(char));
 					invArray.usedFor[n] = calloc(255, sizeof(char));
 					strcpy(invArray.name[n], objArray[j].name);
 					strcpy(invArray.room[n], objArray[j].room);
 					strcpy(invArray.usedFor[n], objArray[j].usedFor);
+					printf("invArray.name[%d]: %s\n", n, invArray.name[n]);
+					printf("invArray.room[%d]: %s\n", n, invArray.room[n]);
+					printf("invArray.usedFor[%d]: %s\n", n, invArray.usedFor[n]);
 					invArray.invCount++;
 
 					for (i = 0; i < room->numObjects; i++) {
@@ -347,6 +352,8 @@ void moveFeature(struct parsed_command pc, struct Room *room) {
 
 void hitFeature(struct parsed_command pc, struct Room *room) {
 	int i, j;
+	printf("pc.noun1: %s\n", pc.noun1);
+	printf("pc.noun2: %s\n", pc.noun2);
 	for (i = 0; i < MAX_FEATURES; i++) {
 		if (strcmp(pc.noun2, room->feature[i].name) == 0) {
 			for (j = 0; j < invArray.invCount; j++) {
@@ -365,7 +372,10 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 				printf("You inventory is empty!\n");
 		}
 		else if (strcmp(pc.noun1, room->feature[i].name) == 0)
+		{
 			printf("%s\n", room->feature[i].hit1);
+			strcpy(room->feature[i].enemy, "No");
+		}
 	}
 }
 

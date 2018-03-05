@@ -9,22 +9,22 @@ F1LOOK1: It’s a beat up ford mustang.
 F1LOOK2: It’s a beat up ford mustang.
 F1HIT1: Hitting the car only hurts your hand.
 F1HIT2: Hitting the car only hurts your hand.
-F1OPEN1: Open trunk with key. To reveal catnip.
-F1OPEN2: Open trunk with key. To reveal catnip.
-F1MOVE1: Takes the catnip from the car to put into player’s inventory.
-F1MOVE2: Takes the catnip from the car to put into player’s inventory.
-FEATURENAME2: Awaken Dog
+F1OPEN1: Open trunk to reveal catnip.
+F1OPEN2: Open trunk to reveal catnip.
+F1MOVE1: NA
+F1MOVE2: NA
+FEATURENAME2: dog
 F2CONTAINOBJECT: 0
 F2LOOK1: The huge dog is angry that you woke him up and is ready to charge at you.
 F2LOOK2: The huge dog is angry that you woke him up and is ready to charge at you.
-F2HIT1: Hit the dog.
-F2HIT2: Hit the dog.
+F2HIT1: You defeated the dog by knocking it unconscious.
+F2HIT2: You defeated the dog by knocking it unconscious.
 F2OPEN1: NA
 F2OPEN2: NA
 F2MOVE1: NA
 F2MOVE2: You moved the dog.
-NUMOBJ: 0
-OBJECT: NA
+NUMOBJ: 1
+OBJECT: catnip
 NUMEXITS: 3
 EXIT1DIRECTION: east
 EXIT2DIRECTION: southwest
