@@ -33,7 +33,7 @@ void readObjects(struct Object* array, char newestDirName[256])
 	/* Open file */
 	file = fopen(filename, "r");
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 8; i++)
 	{
 		/*change the file position of the stream by x bytes to get info after :
 		  And remove the newline character read by fgets()

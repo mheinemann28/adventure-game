@@ -1,32 +1,40 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Storage
-LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
-SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the north with fluttering noise behind it. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
-FEATURE1: shelf
-LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
-HIT1: The tennis racket (object) falls of the shelf. It looks like it can be used as a weapon. 
-OPEN1: NA 
-MOVE1: Shelf cannot be moved. The base is fixed into the ground.
-FEATURE2: giant spider
-LOOK2: Starts fight sequence – It’s a giant hairy spider.
-HIT2: Starts fight sequence – you successfully stomped the spider to death
-OPEN2: NA
-MOVE2: NA
-LOOKAT2: The giant hair spider’s leg shriveled together upon death.
-HITD2: Sticky spider goo is all over the floor and the bottom of you shoes.
-OPEND2: NA.
-MOVED2: the dead spider is too disgusting to move.
+ROOMNAME: Tennis Court
+LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. A tennis ball rolls towards you and stops at your feet. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. In the northeast corner, there is an exit with fluttering noise behind the exit door.
+SHORTDESCRIPTION: You’ve entered the tennis court. A tennis ball rests at your feet. Serena Williams stands on the opposite side of the court. In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. In the northeast corner, there is an exit with fluttering noise behind the exit door.
+FEATURENAME1: tennis ball
+F1CONTAINOBJECT: 0
+F1LOOK1: A Wilson brand tennis ball. Yellow and very fuzzy
+F1LOOK2: A Wilson brand tennis ball. Yellow and very fuzzy
+F1HIT1: It moves to the other side of the court.
+F1HIT2: It moves to the other side of the court.
+F1OPEN1: It doesn’t open.
+F2OPEN2: It doesn't open.
+F1MOVE1: It rolls across the floor. Be careful not to roll your ankle.
+FEATURENAME2: serena williams
+F2CONTAINOBJECT: 0
+F2LOOK1: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
+F2HIT1: You return the serve back, but serena is quick to volley. You have to hit again.
+F2HIT2: You hit a nice shot to the corner of court, serena cannot make it to the ball. You have beat her at her own game.
+F2OPEN1: You can't do that.
+F2OPEN2: You can't do that.
+F2MOVE1: Serena holds her ground.
+F2MOVE2: Don't push Serena!
 NUMOBJ: 0
 OBJECT: NA
-NUMEXITS: 4
-EXIT1DIRECTION: north
-EXIT2DIRECTION: east
-EXIT3DIRECTION: southeast
-EXIT4DIRECTION: southwest
+NUMEXITS: 3
+EXIT1DIRECTION: northeast
+EXIT2DIRECTION: southwest
+EXIT3DIRECTION: northwest
+EXIT4DIRECTION: NA
 EXIT1NAME: Cage Room
-EXIT2NAME: Garage
-EXIT3NAME: Ghost Room
-EXIT4NAME: Riddle Room
+EXIT2NAME: Courtyard
+EXIT3NAME: Cat Kingdom
+EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

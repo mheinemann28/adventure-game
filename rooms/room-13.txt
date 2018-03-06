@@ -1,32 +1,40 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Riddle Room
-LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. An electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky. To the west is a dark and damp door.
-SHORTDESCRIPTION: You've entered the riddle room. There are notes on the table and an electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky. To the west is a dark and damp door. 
-FEATURE1: notes
-LOOK1: It is a riddle. "You buy me to eat, but never eat me. What am I?"
-HIT1: Nothing happens.
-OPEN1: Paper can't open.
-MOVE1: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
-FEATURE2: keypad
-LOOK2: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
-HIT2: Careful don't break it.
-OPEN2: Maybe answer the puzzle.
-MOVE2: You can't move it
-LOOKAT2: NA
-HITD2: NA
-OPEND2: NA
-MOVED2: NA
+ROOMNAME: Cat Kingdom
+LONGDESCRIPTION: You start sneezing when you enter this room. It’s not very big, yet there are at least 25 felines wandering around the room, climbing on the cat castle, or napping adorably in this cat kingdom. A tabby cat saunters over to you and looks up expectantly. She starts to purr. But you are distracted by a roar. Not ten feet from you stands a male lion. You start to tremble with fear. Good kitty? To the west, there is a musty exit. To the east, there is an exit with bright lights.
+SHORTDESCRIPTION: You’ve entered the cat kingdom. A tabby cat purrs at your feet and a lion paces ten feet from where you stand. To the west, there is a musty exit. To the east, there is an exit with bright lights.
+FEATURENAME1: tabby cat
+F1CONTAINOBJECT: 0
+F1LOOK1: A beautiful cat, spotted with orange, black, and yellow.
+F1LOOK2: A beautiful cat, spotted with orange, black, and yellow.
+F1HIT1: Nice try, this cat's too quick for you.
+F1HIT2: Nice try, this cat's too quick for you.
+F1OPEN1: Not ure why you would want to do that...
+F1OPEN2: Not ure why you would want to do that...
+FEATURENAME2: lion
+F2CONTAINOBJECT: 0
+F2LOOK1: The lion notices you. It looks at you like a pork chop and starts to pounce. What do you do?
+F2LOOK2: Impressive. There is a reason why lions are referred to as the king of the jungle, or in this case, the king of cat kingdom. Although he is now distracted by the catnip, you are still very nervous in his presence.
+F2HIT1: Think twice before trying that, he would maul you.
+F2HIT2: The lion rips the catnip from you and runs to the corner. He is now happily distracted.
+F2OPEN1: Why would you want to do that?
+F2OPEN2: Why would you want to do that?
+F2MOVE1: That's not the best idea. Better off to avoid him, he would maul you.
+F2MOVE2: That's not the best idea. Better off to avoid him, he would maul you.
 NUMOBJ: 0
 OBJECT: NA
-NUMEXITS: 3
-EXIT1DIRECTION: north
-EXIT2DIRECTION: east
-EXIT3DIRECTION: west
+NUMEXITS: 2
+EXIT1DIRECTION: east
+EXIT2DIRECTION: west
+EXIT3DIRECTION: NA
 EXIT4DIRECTION: NA
-EXIT1NAME: Storage
-EXIT2NAME: Ghost Room
-EXIT3NAME: Basement
+EXIT1NAME: Tennis Court
+EXIT2NAME: Library
+EXIT3NAME: NA
 EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
-FEATURE2ENEMY?: No
+FEATURE2ENEMY?: Yes

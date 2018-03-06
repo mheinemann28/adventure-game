@@ -1,32 +1,42 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Garage
-LONGDESCRIPTION: You enter a garage with a car but garage door can’t open.  There are oil stains on the ground, exposed brick walls with some parts covered with paintings of cars. There is a door to the northwest where fluttering noise can be heard. There is a door to the southwest with storage sign on it.  There is a door to the east where bar music can be heard playing behind it.
-SHORTDESCRIPTION: You’ve entered a garage with a car but garage door can’t open. There is a door to the northwest where fluttering noise can be heard. There is a door to the southwest with storage sign on it.  There is a door to the east where bar music can be heard playing behind it.
-FEATURE1: Car
-LOOK1: It’s a beat up ford mustang.
-HIT1: Hitting the car only hurts your hand. 
-OPEN1: Open trunk with key. To reveal catnip. 
-MOVE1: Takes the catnip from the car to put into player’s inventory.
-FEATURE2: Awaken Dog
-LOOK2: Starts fight sequence –  The huge dog is angry that you woke him up and is ready to charge at you.
-HIT2: Starts fight sequence – Hit the dog.
-OPEN2: NA
-MOVE2: NA
-LOOKAT2: The dog is knocked out.
-HITD2: Don’t hit the dog again. It is no longer a threat.
-OPEND2: NA.
-MOVED2: You moved the dog.
-NUMOBJ: 0
-OBJECT: NA
-NUMEXITS: 3
+ROOMNAME: Riddle Room
+LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. An electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky. To the west is a dark and damp door.
+SHORTDESCRIPTION: You've entered the riddle room. There are notes on the table and an electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky. To the west is a dark and damp door. bar music behind it.
+FEATURENAME1: notes
+F1CONTAINOBJECT: 0
+F1LOOK1: It is a riddle. "You buy me to eat, but never eat me. What am I?"
+F1LOOK2: It is a riddle. "You buy me to eat, but never eat me. What am I?"
+F1HIT1: Nothing happens.
+F1HIT2: Nothing happens.
+F1OPEN1: Paper can't open.
+F1OPEN2: Paper can't open.
+F1MOVE1: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
+F1MOVE2: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
+FEATURENAME2: keypad
+F2CONTAINOBJECT: 0
+F2LOOK1: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
+F2LOOK2: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
+F2HIT1: Careful don't break it.
+F2HIT2: Careful don't break it.
+F2OPEN1: Maybe answer the puzzle.
+F2OPEN2: Maybe answer the puzzle.
+F2MOVE1: You can't move it
+F2MOVE2: You can't move it
+NUMOBJ: 1
+OBJECT: riddle
+NUMEXITS: 2
 EXIT1DIRECTION: east
-EXIT2DIRECTION: southwest
-EXIT3DIRECTION: northwest
+EXIT2DIRECTION: west
+EXIT3DIRECTION: NA
 EXIT4DIRECTION: NA
-EXIT1NAME: Bar
-EXIT2NAME: Storage
-EXIT3NAME: Cage Room
+EXIT1NAME: Ghost Room
+EXIT2NAME: Basement
+EXIT3NAME: NA
 EXIT4NAME: NA
+EXIT1BLOCK: riddle
+EXIT2BLOCK: riddle
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
-FEATURE2ENEMY?: Yes
+FEATURE2ENEMY?: No

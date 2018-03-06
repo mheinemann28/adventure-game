@@ -25,7 +25,7 @@ F2MOVE1: You can't move this.
 F2MOVE2: You can't move this.
 NUMOBJ: 1
 OBJECT: magical wand
-NUMEXITS: 3
+NUMEXITS: 2
 EXIT1DIRECTION: southwest
 EXIT2DIRECTION: northwest
 EXIT3DIRECTION: NA

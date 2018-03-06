@@ -1,32 +1,42 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Ghost Room
-LONGDESCRIPTION: As you walk in you notice a chill in the air. You get an eerie feeling as if you are being watched. The moonlight illuminates the room from the window and lights up a desk. You notice a rocking chair in the center of the room that seems to be moving on its own. As you creep closer you begin to see it, the ghost of an old man sitting in the chair. To the north, there is a door with a storage sign on it. To the east, there is a door with a live pig staring back at you. To the west, there is another door, but you feel confusion looking at it.
-SHORTDESCRIPTION: You've entered the ghost room. There is a ghost sitting in a rocking chair next to a desk. To the north, there is a door with a storage sign on it. To the east, there is a door with a live pig staring back at you. To the west, there is another door, but you feel confusion looking at it.
-FEATURE1: desk
-LOOK1: An old desk. There is an old letter on it addressed to a Harold Smith.
-HIT1: Nothing happens.
-OPEN1: You see more paperwork in the desk.
-MOVE1: There is nothing behind it.
-FEATURE2: ghost
-LOOK2: He moves towards you. Can a ghost hurt you? What do you do?
-HIT2: He moves towards you. Can a ghost hurt you? What do you do?
-OPEN2: He moves towards you. Can a ghost hurt you? What do you do?
-MOVE2: He moves towards you. Can a ghost hurt you? What do you do?
-LOOKAT2: It disappears.
-HITD2: It disappears.
-OPEND2: It disappears.
-MOVED2: It disappears.
-NUMOBJ: 0 
+ROOMNAME: Basement
+LONGDESCRIPTION: You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.  There are stairs leading down.  The only lightsource is from the high window in the corner.  You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike, moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a cabinet on the opposite west wall.  You should examine the rooms further and figure out what to do next. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
+SHORTDESCRIPTION: You've entered a basement. There is a chest along the east wall and a cabinet on the opposite west wall. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
+FEATURENAME1: cabinet
+F1CONTAINOBJECT: 1
+F1LOOK1: Just an old beat up cabinet, maybe there is something inside.
+F1LOOK2: Just an old beat up cabinet, maybe there is something inside.
+F1HIT1: Nothing happened to the cabinet.
+F1HIT2: Nothing happened to the cabinet.
+F1OPEN1: There is a crowbar inside.
+F1OPEN2: The cabinet is empty
+F1MOVE1: There is nothing behind the cabinet.
+F1MOVE2: There is nothing behind the cabinet.
+FEATURENAME2: chest
+F2CONTAINOBJECT: 1
+F2LOOK1: This chest is padlocked, Maybe I can find something to open it.
+F2LOOK2: The lock is broken, you can look inside.
+F2HIT1: You need something string to break the lock.
+F2HIT2: You have broken the padlock.
+F2OPEN1: There is a key inside.
+F2OPEN2: The chest is empty
+F2MOVE1: It is too heavy for you.
+F2MOVE2: It is too heavy for you.
+NUMOBJ: 2
 OBJECT: NA
 NUMEXITS: 3
-EXIT1DIRECTION: north
-EXIT2DIRECTION: east
-EXIT3DIRECTION: west
+EXIT1DIRECTION: northwest
+EXIT2DIRECTION: northeast
+EXIT3DIRECTION: east
 EXIT4DIRECTION: NA
-EXIT1NAME: Storage
-EXIT2NAME: Animal Room
+EXIT1NAME: Doll Room
+EXIT2NAME: Courtyard
 EXIT3NAME: Riddle Room
 EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
-FEATURE2ENEMY?: Yes
+FEATURE2ENEMY?: No

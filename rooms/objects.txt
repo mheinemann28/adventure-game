@@ -8,7 +8,7 @@ OBJECT3NAME: bones
 OBJECT3STARTROOM: Animal Room
 USEDFOR: dog
 OBJECT4NAME: tennis racket
-OBJECT4STARTROOM: Tennis Court
+OBJECT4STARTROOM: Storage
 USEDFOR: serena williams 
 OBJECT5NAME: book
 OBJECT5STARTROOM: Library
@@ -19,3 +19,6 @@ USEDFOR: door
 OBJECT7NAME: magical wand
 OBJECT7STARTROOM: Bar
 USEDFOR: hostile magical beast
+OBJECT8NAME: catnip
+OBJECT8STARTROOM: Garage
+USEDFOR: lion
