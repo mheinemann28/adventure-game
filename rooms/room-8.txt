@@ -1,31 +1,31 @@
 VVISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cafe
-LONGDESCRIPTION: 
-SHORTDESCRIPTION: 
-FEATURENAME1: 
-F1CONTAINOBJECT: 0
-F1LOOK1: 
-F1LOOK2: 
-F1HIT1: 
-F1HIT2: 
-F1OPEN1: 
-F1OPEN2: 
-F1MOVE1: 
-F1MOVE2: 
-FEATURENAME2: 
+LONGDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. It looks like you are in a cute little coffee shop. No one is around, which is odd because steaming hot coffee and warm cookies are sitting on the counter. Maybe you can find something useful in here. There is only 1 door to the west, from which you came.  
+SHORTDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. There is only 1 door to the west, from which you came.
+FEATURENAME1: front counter
+F1CONTAINOBJECT: 1
+F1LOOK1: You could use a cup of coffee, and those cookies look good. but you notice something laying next to them, a magical wand.
+F1LOOK2: You could use a cup of coffee, and those cookies look good. This is where you found the magical wand.
+F1HIT1: Why would you want to ruin those beautiful looking cookies?
+F1HIT2: Why would you want to ruin those beautiful looking cookies?
+F1OPEN1: Nothing to open here.
+F1OPEN2: Nothing to open here.
+F1MOVE1: You can't move this.
+F1MOVE2: You can't move this.
+FEATURENAME2: window
 F2CONTAINOBJECT: 0
-F2LOOK1: 
-F2LOOK2: 
-F2HIT1: 
-F2HIT2:
-F2OPEN1: NA
-F2OPEN2: NA
-F2MOVE1: NA
-F2MOVE2: NA
-NUMOBJ: 0
-OBJECT: NA
-NUMEXITS: 3
+F2LOOK1: This is not a window! Just a picture to make it look like one! What an odd place...
+F2LOOK2: This is not a window! Just a picture to make it look like one! What an odd place...
+F2HIT1: Let's try not and ruin things here.
+F2HIT2: Let's try not and ruin things here.
+F2OPEN1: The window is fake, you cannot open it.
+F2OPEN2: The window is fake, you cannot open it.
+F2MOVE1: The window picture seems to be stuck.
+F2MOVE2: The window picture seems to be stuck.
+NUMOBJ: 1
+OBJECT: magical wand
+NUMEXITS: 1
 EXIT1DIRECTION: west
 EXIT2DIRECTION: NA
 EXIT3DIRECTION: NA
