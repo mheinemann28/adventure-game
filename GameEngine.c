@@ -335,6 +335,10 @@ void moveFeature(struct parsed_command pc, struct Room *room) {
 
 				return;
 			}
+			else if(strcmp(room->feature[i].name, pc.noun1) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0){
+				printf("%s\n", room->feature[i].move1);
+				return;
+			}
 			else if (strcmp(room->feature[i].name, pc.noun1) == 0 && j == room->numExits - 1) {
 				printf("%s\n", room->feature[i].move2);
 				return;
@@ -413,7 +417,7 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 			}
 			
 			printf("%s\n", room->feature[i].hit2);
-			//	strcpy(room->feature[i].enemy, "No");
+			strcpy(room->feature[i].enemy, "No");
 			return;
 		}
 	}
