@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cage Room
-LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the northwest with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
-SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the northwest with sounds of balls being hit coming from it. There is a door to the south with a sign that says storage on it.  There is a door to the northeast that has a musical note on it.  There is a door to the southeast that has a car sign on it.
+LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the west with sounds of balls being hit coming from it. There is a door to the east that has a musical note on it. 
+SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the west with sounds of balls being hit coming from it. There is a door to the east that has a musical note on it. 
 FEATURENAME1: cage
 F1CONTAINOBJECT: 0
 F1LOOK1: The cage hanging from the ceiling is broken. No way to cage the bat anymore.
@@ -15,14 +15,14 @@ F1MOVE1: Moving the cage just makes it swing back since it is hanging from the c
 F1MOVE2: Moving the cage just makes it swing back since it is hanging from the ceiling.
 FEATURENAME2: bat
 F2CONTAINOBJECT: 0
-F2LOOK1: The bat is flying around the room at lightening speed. He tries to bite if you move. You are going to have to defeat it to move on.
-F2LOOK2: The bat lays lifelessly on the ground.
-F2HIT1: You cannot hit the bat as it flies all around. Only if you had a long object that you can swing around to hit the bat
-F2HIT2: You hit the bat dead on! It wont be flying around anymore!
+F2LOOK1: The bat is flying around the room at lightening speed. He tries to bite if you move. You are going to have to disrtact it to move on.
+F2LOOK2: The bat hides away in its cage.
+F2HIT1: You cannot hit the bat as it flies all around. If only you had some kind of light source to scare it away.
+F2HIT2: The bat cant stand the brightness of the flasslight. It hides away in its cage covering its eyes.
 F2OPEN1: Why would you do that?
 F2OPEN2: Why would you do that?
 F2MOVE1: The bat is too fast!
-F2MOVE2: You pushed the bat's dead carcass across the floor.
+F2MOVE2: The bat is in its cage
 NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 2
