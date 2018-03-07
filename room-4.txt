@@ -1,0 +1,42 @@
+VISITED: 0
+ROOMTYPE: MID
+ROOMNAME: Garage
+LONGDESCRIPTION: You enter a garage with a car but garage door can’t open.  There are oil stains on the ground, exposed brick walls with some parts covered with paintings of cars. There is a door to the west with storage sign on it.  There is a door to the east where bar music can be heard playing behind it.
+SHORTDESCRIPTION: You’ve entered a garage with a car but garage door can’t open. There is a door to the west with storage sign on it.  There is a door to the east where bar music can be heard playing behind it.
+FEATURENAME1: car
+F1CONTAINOBJECT: 1
+F1LOOK1: It’s a beat up ford mustang.
+F1LOOK2: It’s a beat up ford mustang.
+F1HIT1: Hitting the car only hurts your hand.
+F1HIT2: Hitting the car only hurts your hand.
+F1OPEN1: Open trunk to reveal catnip.
+F1OPEN2: The trunk is empty.
+F1MOVE1: This is too heavy to move.
+F1MOVE2: This is too heavy to move.
+FEATURENAME2: dog
+F2CONTAINOBJECT: 0
+F2LOOK1: The huge dog is angry that you woke him up and is ready to charge at you.
+F2LOOK2: The dog lays unconscious on the floor.
+F2HIT1: You layed a good hit on him, but hes not down yet, do you have a bone?
+F2HIT2: The dog loves its new bone. He wont be a problem anymore.
+F2OPEN1: That would be gross.
+F2OPEN2: That would be gross.
+F2MOVE1: You moved the dog.
+F2MOVE2: You moved the dog.
+NUMOBJ: 1
+OBJECT: catnip
+NUMEXITS: 2
+EXIT1DIRECTION: east
+EXIT2DIRECTION: west
+EXIT3DIRECTION: NA
+EXIT4DIRECTION: NA
+EXIT1NAME: Bar
+EXIT2NAME: Storage
+EXIT3NAME: NA
+EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
