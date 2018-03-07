@@ -24,7 +24,7 @@ F2OPEN2: There is nothing to open.
 F2MOVE1: You can't move this.
 F2MOVE2: You can't move this.
 NUMOBJ: 1
-OBJECT: magical wand
+OBJECT: flashlight
 NUMEXITS: 3
 EXIT1DIRECTION: southwest
 EXIT2DIRECTION: northwest

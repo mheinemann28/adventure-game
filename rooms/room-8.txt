@@ -3,7 +3,7 @@ ROOMTYPE: MID
 ROOMNAME: Cafe
 LONGDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. It looks like you are in a cute little coffee shop. No one is around, which is odd because steaming hot coffee and warm cookies are sitting on the counter. Maybe you can find something useful in here. There is only 1 door to the west, from which you came.  
 SHORTDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. There is only 1 door to the west, from which you came.
-FEATURENAME1: front counter
+FEATURENAME1: table
 F1CONTAINOBJECT: 1
 F1LOOK1: You could use a cup of coffee, and those cookies look good. but you notice something laying next to them, a magical wand.
 F1LOOK2: You could use a cup of coffee, and those cookies look good. This is where you found the magical wand.

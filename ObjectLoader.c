@@ -74,7 +74,7 @@ void readObjects(struct Object* array, char newestDirName[256])
 void initInventory(struct Inventory* invArray)
 {
 	int i;
-	for (i = 0; i < 8; i++) {
+	for (i = 0; i < 9; i++) {
 		//invArray->name[i] = calloc(255, sizeof(char));
 		//strcpy(invArray->name[i], '\0');
 

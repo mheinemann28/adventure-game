@@ -4,7 +4,7 @@ USEDFOR: west
 OBJECT2NAME: crowbar
 OBJECT2STARTROOM: Basement 
 USEDFOR: chest
-OBJECT3NAME: bones
+OBJECT3NAME: bone
 OBJECT3STARTROOM: Animal Room
 USEDFOR: dog
 OBJECT4NAME: tennis racket
