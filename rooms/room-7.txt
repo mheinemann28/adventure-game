@@ -3,7 +3,7 @@ ROOMTYPE: MID
 ROOMNAME: Animal Room
 LONGDESCRIPTION: You enter the room and it's as if you've been transported to some kind of farm.  There are cats rubbing up against your legs, Sheep and pigs wandering throughout, the walls made up of fish tanks.  There are bones on the ground beside you. A mean sheep dog stares you down. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit. To the west, you see a spooky door.
 SHORTDESCRIPTION: You've entered the animal room. There are books next to your legs and a mean sheep dog. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit. To the west, you see a spooky door. 
-FEATURENAME1: Skeleton
+FEATURENAME1: skeleton
 F1CONTAINOBJECT: 1
 F1LOOK1: One of the animals must have died here.
 F1LOOK2: One of the animals must have died here.
@@ -13,7 +13,7 @@ F1OPEN1: It doesn't open.
 F1OPEN2: It doesn't open.
 F1MOVE1: You see more bones.
 F1MOVE2: You see more bones.
-FEATURENAME2: Dog
+FEATURENAME2: dog
 F2CONTAINOBJECT: 0
 F2LOOK1: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
 F2LOOK2: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
@@ -25,15 +25,15 @@ F2MOVE1: You can't do that.
 F2MOVE2: You can't do that.
 NUMOBJ: 1
 OBJECT: Bones
-NUMEXITS: 3
-EXIT1DIRECTION: east
-EXIT2DIRECTION: southeast
-EXIT3DIRECTION: southwest
-EXIT4DIRECTION: north
-EXIT1NAME: Garage
-EXIT2NAME: Ghost Room
-EXIT3NAME: Riddle Room
-EXIT4NAME: Cage Room
+NUMEXITS: 2
+EXIT1DIRECTION: north
+EXIT2DIRECTION: east
+EXIT3DIRECTION: NA
+EXIT4DIRECTION: NA
+EXIT1NAME: Bar
+EXIT2NAME: Cafe
+EXIT3NAME: NA
+EXIT4NAME: NA
 EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA

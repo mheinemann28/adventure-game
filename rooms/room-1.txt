@@ -15,7 +15,7 @@ F1MOVE1: The low cabinet is not too heavy and is moved out of the way to the doo
 F1MOVE2: You already moved this.
 FEATURENAME2: bar counter
 F2CONTAINOBJECT: 1
-F2LOOK1: On the bar counter is a magical wand.
+F2LOOK1: On the bar counter is a flashlight.
 F2LOOK2: The bar counter is now empty.
 F2HIT1: That did nothing.
 F2HIT2: That did nothing.
@@ -25,14 +25,14 @@ F2MOVE1: You can't move this.
 F2MOVE2: You can't move this.
 NUMOBJ: 1
 OBJECT: magical wand
-NUMEXITS: 2
+NUMEXITS: 3
 EXIT1DIRECTION: southwest
 EXIT2DIRECTION: northwest
-EXIT3DIRECTION: NA
+EXIT3DIRECTION: south
 EXIT4DIRECTION: NA
 EXIT1NAME: Garage
 EXIT2NAME: Music Room
-EXIT3NAME: NA
+EXIT3NAME: Animal Room
 EXIT4NAME: NA
 EXIT1BLOCK: NA
 EXIT2BLOCK: low cabinet
