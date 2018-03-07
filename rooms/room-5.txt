@@ -13,7 +13,7 @@ F1OPEN1: NA
 F1OPEN2: NA
 F1MOVE1: NA
 F1MOVE2: NA
-FEATURENAME2: spider
+FEATURENAME2: giant spider
 F2CONTAINOBJECT: 0
 F2LOOK1: It’s a giant hairy spider.
 F2LOOK2: It’s a giant hairy spider.
