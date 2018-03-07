@@ -6,9 +6,9 @@ SHORTDESCRIPTION: You've entered the ghost room. There is a ghost sitting in a r
 FEATURENAME1: desk
 F1CONTAINOBJECT: 0
 F1LOOK1: An old desk. There is an old letter on it addressed to a Harold Smith.
-F1LOOK2: An old desk. There is an old letter on it addressed to a Harold Smith. the shelf. Amazing how it didn’t fall off the shelf.
-F1HIT1: Nothing happens.
-F1HIT2: Nothing happens.
+F1LOOK2: An old desk. There is an old letter on it addressed to a Harold Smith.
+F1HIT1: The desk is strong.
+F1HIT2: The desk is strong.
 F1OPEN1: You see more paperwork in the desk.
 F1OPEN2: You see more paperwork in the desk.
 F1MOVE1: There is nothing behind it.

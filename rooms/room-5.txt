@@ -6,23 +6,23 @@ SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has
 FEATURENAME1: shelf
 F1CONTAINOBJECT: 1
 F1LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
-F1LOOK2: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
+F1LOOK2: shelf has many expired foods. This is where you found the tennis racket.
 F1HIT1: The tennis racket falls of the shelf.
 F1HIT2: The tennis racket falls of the shelf.
-F1OPEN1: NA
-F1OPEN2: NA
-F1MOVE1: NA
-F1MOVE2: NA
+F1OPEN1: You cannot open the shelf.
+F1OPEN2: You cannot open the shelf.
+F1MOVE1: The shelf is fastened to the wall.
+F1MOVE2: The shelf is fastened to the wall.
 FEATURENAME2: giant spider
 F2CONTAINOBJECT: 0
 F2LOOK1: It’s a giant hairy spider.
-F2LOOK2: It’s a giant hairy spider.
+F2LOOK2: The squished mess of the spider is left on the floor.
 F2HIT1: You defeated the spider by stomping on it.
 F2HIT2: You defeated the spider by stomping on it.
-F2OPEN1: NA
-F2OPEN2: NA
-F2MOVE1: NA
-F2MOVE2: the dead spider is too disgusting to move.
+F2OPEN1: Nothing to open here.
+F2OPEN2: Nothing to open here.
+F2MOVE1: Probably not a good idea. It might bite.
+F2MOVE2: You don't want to get that gooey mess on yourself.
 NUMOBJ: 1
 OBJECT: tennis racket
 NUMEXITS: 3
