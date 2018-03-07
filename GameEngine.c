@@ -344,7 +344,7 @@ void moveFeature(struct parsed_command pc, struct Room *room) {
 }
 
 void hitFeature(struct parsed_command pc, struct Room *room) {
-	int i, j, k;
+	int i, j, k, n;
 //	printf("pc.noun1: %s\n", pc.noun1);
 //	printf("pc.noun2: %s\n", pc.noun2);
 	for (i = 0; i < MAX_FEATURES; i++) {
@@ -358,13 +358,14 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 							if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
 								strcpy(room->blockedBy[k], "NA");
 						}
+						return;
 					}
 					else {
 						printf("%s\n", room->feature[i].hit1);
 						return;
 					}
 				}
-				else {
+				else if(j == invArray.invCount - 1) {
 					printf("That is not in your inventory!\n");
 					return;
 				}
@@ -376,30 +377,42 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 		}
 		else if (strcmp(pc.noun1, room->feature[i].name) == 0)
 		{
-			for (j = 0; j < invArray.invCount; j++) {
-				if (strcmp(pc.noun2, invArray.name[j]) == 0) {
-					if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
-						printf("%s\n", room->feature[i].hit2);
-						strcpy(room->feature[i].enemy, "No");
-						for (k = 0; k < room->numExits; k++) {
-							if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
-								strcpy(room->blockedBy[k], "NA");
+			//loop through object array to check if object needed for enemy
+			for (n = 0; n < 9; n++) {
+				if (strcmp(objArray[n].usedFor, room->feature[i].name) == 0) {
+					for (j = 0; j < invArray.invCount; j++) {
+						if (strcmp(pc.noun2, invArray.name[j]) == 0) {
+							if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
+								printf("%s\n", room->feature[i].hit2);
+								strcpy(room->feature[i].enemy, "No");
+								for (k = 0; k < room->numExits; k++) {
+									if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
+										strcpy(room->blockedBy[k], "NA");
+								}
+								return;
+							}
+							else {
+								printf("%s does nothing to %s\n", invArray.name[j], room->feature[i].name);
+								return;
+							}
+						}
+						else if(strlen(pc.noun2) == 0){
+							printf("%s\n", room->feature[i].hit1);
+							break;
+						}
+						else if(j == invArray.invCount - 1){
+							printf("That is not in your inventory!\n");
+							return;
 						}
 					}
-					else {
+					if (invArray.invCount == 0) {
 						printf("%s\n", room->feature[i].hit1);
-						return;
 					}
-				}
-				else {
-					printf("That is not in your inventory!\n");
 					return;
 				}
 			}
-
-			if (invArray.invCount == 0) {
-				printf("%s\n", room->feature[i].hit1);
-			}
+			
+			printf("%s\n", room->feature[i].hit2);
 			//	strcpy(room->feature[i].enemy, "No");
 			return;
 		}

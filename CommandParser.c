@@ -756,20 +756,20 @@ void getObjectFeaturePhrase(struct command_line* cl) {
 			return;
 		}
 	}
-	if(strstr(cl->processedInput, "awaken dog") != NULL) {
+	if(strstr(cl->processedInput, "dog") != NULL) {
 		if (cl->noun1Index == -1) {
 			//add to noun1
 			memset(cl->noun1, '\0', sizeof(cl->noun1));
-			strcpy(cl->noun1, "awaken dog");	
+			strcpy(cl->noun1, "dog");	
     		for (i = 0; i < cl->inputArraySize; i++) {
     			if (strcmp(cl->inputArray[i], "dog") == 0) {
     				cl->noun1Index = i;
     			}
     		}
-		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "awaken dog") != 0)) {
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "dog") != 0)) {
 			//add to noun2
 			memset(cl->noun2, '\0', sizeof(cl->noun2));
-			strcpy(cl->noun2, "awaken dog");	
+			strcpy(cl->noun2, "dog");	
     		for (i = 0; i < cl->inputArraySize; i++) {
     			if (strcmp(cl->inputArray[i], "dog") == 0) {
     				cl->noun1Index = 1;
