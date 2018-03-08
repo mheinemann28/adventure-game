@@ -10,18 +10,18 @@ F1LOOK2: It’s a beat up ford mustang.
 F1HIT1: Hitting the car only hurts your hand.
 F1HIT2: Hitting the car only hurts your hand.
 F1OPEN1: Open trunk to reveal catnip.
-F1OPEN2: Open trunk to reveal catnip.
-F1MOVE1: NA
-F1MOVE2: NA
+F1OPEN2: The trunk is empty.
+F1MOVE1: This is too heavy to move.
+F1MOVE2: This is too heavy to move.
 FEATURENAME2: dog
 F2CONTAINOBJECT: 0
 F2LOOK1: The huge dog is angry that you woke him up and is ready to charge at you.
-F2LOOK2: The huge dog is angry that you woke him up and is ready to charge at you.
-F2HIT1: You defeated the dog by knocking it unconscious.
-F2HIT2: You defeated the dog by knocking it unconscious.
-F2OPEN1: NA
-F2OPEN2: NA
-F2MOVE1: NA
+F2LOOK2: The dog lays unconscious on the floor.
+F2HIT1: You layed a good hit on him, but hes not down yet, do you have a bone?
+F2HIT2: The dog loves its new bone. He wont be a problem anymore.
+F2OPEN1: That would be gross.
+F2OPEN2: That would be gross.
+F2MOVE1: You moved the dog.
 F2MOVE2: You moved the dog.
 NUMOBJ: 1
 OBJECT: catnip

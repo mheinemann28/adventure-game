@@ -14,10 +14,13 @@
 #include "GameStateLoader.h"
 #include "RoomLoader.h"
 #include "ObjectLoader.h"
+#include "SaveGame.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
+#include <dirent.h>
 
 /*********************************************************************
  ** Function: main();
@@ -28,9 +31,9 @@
  *********************************************************************/
 
 int main() {
-	readRooms(rooms, "rooms");
+	//readRooms(rooms, "rooms");
+	//readObjects(objArray, "rooms");
 
-	readObjects(objArray, "rooms");
 	intro();
 	runGame(rooms, objArray, invArray);
 
@@ -58,14 +61,58 @@ void intro() {
 
 	char *sendoff = "Good luck and have fun!\n";
 
-	char *input;
+	char input[255];
+	char buff[255];
 	memset(input, '\0', sizeof(input));
 
 	printf("%s\n", intro);
 	printf("%s\n", instructions);
 	printf("%s\n", sendoff);
-	printf("\nType start game to begin: ");
-	fgets(input, 25, stdin);
+
+	while (1) {
+		printf("\nDo you have a saved game you would like to load? ");
+		fgets(input, 25, stdin);
+		strtok(input, "\n");
+
+		if (strcmp(input, "yes") == 0 || strcmp(input, "Yes") == 0 || strcmp(input, "y") == 0 || strcmp(input, "Y") == 0) {
+
+			memset(input, '\0', sizeof(input));
+			printf("\nType in your save name: ");
+			fgets(input, 255, stdin);
+			strtok(input, "\n");
+
+			memset(buff, '\0', sizeof(buff));
+			strcpy(buff, "gamestates/");
+			strcat(buff, input);
+
+
+			//check if directory exists
+			DIR *dir = opendir(buff);
+
+			if (dir) {
+				closedir(dir);
+
+				//load game
+				readRooms(rooms, buff);
+				readObjects(objArray, buff);
+				readInventory(&invArray, buff);
+
+				return;
+			}
+			else if (ENOENT == errno) {
+				printf("Directory does not exist\n");
+			}
+			else {
+				printf("Problem opening directory\n");
+			}
+		}
+		else if (strcmp(input, "no") == 0 || strcmp(input, "No") == 0 || strcmp(input, "n") == 0 || strcmp(input, "N") == 0) {
+			readRooms(rooms, "rooms");
+			readObjects(objArray, "rooms");
+			readInventory(&invArray, "rooms");
+			return;
+		}
+	}
 }
 
 
@@ -94,8 +141,13 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 	char inputBuff[255];
 	memset(inputBuff, '\0', sizeof(inputBuff));
 
-	tempRoomName = rooms[0].name;
-	invArray.invCount = 0;
+	for (i = 0; i < 15; i++) {
+		if (strcmp(rooms[i].type, "START") == 0) {
+			tempRoomName = rooms[i].name;
+			strcpy(rooms[i].type, "MID");
+			break;
+		}
+	}
 
 	while (1) {
 
@@ -161,7 +213,7 @@ continue_game:
 }
 
 
-int examineRoom(struct Room *room, struct parsed_command pc)
+int examineRoom(struct Room * room, struct parsed_command pc)
 {
 	int i;
 	char tempString[30];
@@ -172,7 +224,8 @@ int examineRoom(struct Room *room, struct parsed_command pc)
 
 	if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") != 0))
 	{
-//		printf("pc.noun1: %s\n", pc.noun1);
+		printf("pc.noun1: %s\n", pc.noun1);
+		printf("lenght: %d\n", strlen(pc.noun1));
 		strcat(tempString, pc.noun1);
 		for (i = 0; i < MAX_FEATURES; i++)
 		{
@@ -218,12 +271,14 @@ int examineRoom(struct Room *room, struct parsed_command pc)
 		moveFeature(pc, room);
 	else if (strcmp(pc.verb, "hit") == 0)
 		hitFeature(pc, room);
+	else if (strcmp(pc.verb, "save") == 0)
+		save(room);
 	else
 		printf("your command is not recognized\n");
 	return 0;
 }
 
-void takeObject(struct parsed_command pc, struct Room *room) {
+void takeObject(struct parsed_command pc, struct Room * room) {
 	int i, j, n;
 	for (j = 0; j < 9; j++)
 	{
@@ -273,7 +328,7 @@ void takeObject(struct parsed_command pc, struct Room *room) {
 
 }
 
-void dropObject(struct parsed_command pc, struct Room *room) {
+void dropObject(struct parsed_command pc, struct Room * room) {
 	int i, j, k;
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(pc.noun1, invArray.name[i]) == 0 || strcmp(pc.noun2, invArray.name[i]) == 0) {
@@ -324,7 +379,7 @@ void checkInventory(struct parsed_command pc) {
 	}
 }
 
-void moveFeature(struct parsed_command pc, struct Room *room) {
+void moveFeature(struct parsed_command pc, struct Room * room) {
 	int i, j;
 	for (j = 0; j < room->numExits; j++) {
 		for (i = 0; i < MAX_FEATURES; i++) {
@@ -335,7 +390,7 @@ void moveFeature(struct parsed_command pc, struct Room *room) {
 
 				return;
 			}
-			else if(strcmp(room->feature[i].name, pc.noun1) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0){
+			else if (strcmp(room->feature[i].name, pc.noun1) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0) {
 				printf("%s\n", room->feature[i].move1);
 				return;
 			}
@@ -347,7 +402,7 @@ void moveFeature(struct parsed_command pc, struct Room *room) {
 	}
 }
 
-void hitFeature(struct parsed_command pc, struct Room *room) {
+void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
 //	printf("pc.noun1: %s\n", pc.noun1);
 //	printf("pc.noun2: %s\n", pc.noun2);
@@ -369,7 +424,7 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 						return;
 					}
 				}
-				else if(j == invArray.invCount - 1) {
+				else if (j == invArray.invCount - 1) {
 					printf("That is not in your inventory!\n");
 					return;
 				}
@@ -400,11 +455,11 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 								return;
 							}
 						}
-						else if(strlen(pc.noun2) == 0){
+						else if (strlen(pc.noun2) == 0) {
 							printf("%s\n", room->feature[i].hit1);
 							break;
 						}
-						else if(j == invArray.invCount - 1){
+						else if (j == invArray.invCount - 1) {
 							printf("That is not in your inventory!\n");
 							return;
 						}
@@ -415,7 +470,7 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 					return;
 				}
 			}
-			
+
 			printf("%s\n", room->feature[i].hit2);
 			strcpy(room->feature[i].enemy, "No");
 			return;
@@ -423,7 +478,7 @@ void hitFeature(struct parsed_command pc, struct Room *room) {
 	}
 }
 
-void openFeature(struct parsed_command pc, struct Room *room) {
+void openFeature(struct parsed_command pc, struct Room * room) {
 	int i;
 	for (i = 0; i < MAX_FEATURES; i++) {
 		if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
@@ -440,4 +495,66 @@ void openFeature(struct parsed_command pc, struct Room *room) {
 				printf("%s\n", room->feature[i].open2);
 		}
 	}
+}
+
+void save(struct Room *curRoom) {
+	char input[255];
+	char buff[255];
+	char newDir[255];
+	int i, getName;
+
+	strcpy(curRoom->type, "START");
+
+
+	while (1) {
+		getName = 1;
+		while (getName) {
+			memset(input, '\0', sizeof(input));
+			printf("\ncreate a save name: ");
+			fgets(input, 255, stdin);
+			strtok(input, "\n");
+			if (isspace(input[strlen(input) - 1]) != 0)
+				input[strlen(input) - 1] = '\0';
+
+			for (i = 0; i < strlen(input); i++) {
+				if (input[i] == ' ')
+					printf("\nYou save name cannot contain any spaces.\n");
+				else if(i == strlen(input) - 1) {
+					getName = 0;
+				}
+			}
+		}
+
+		memset(buff, '\0', sizeof(buff));
+		strcat(buff, input);
+
+
+		//check if directory exists
+		DIR *dir = opendir(buff);
+
+		if (dir) {
+			closedir(dir);
+
+			printf("\nSave name already exists\n");
+		}
+		else if (ENOENT == errno) {
+			memset(newDir, '\0', sizeof(newDir));
+			strcpy(newDir, "gamestates/");
+			strcat(newDir, buff);
+			mkdir(newDir, 0700);
+
+			writeRoomData(rooms, buff);
+			writeObjectData(objArray, buff);
+			writePlayerInventory(&invArray, buff);
+
+			printf("\nGame successfully saved\n");
+			printf("\nThanks for playing!\n");
+
+			break;
+		}
+		else {
+			printf("Problem saving directory\n");
+		}
+	}
+	exit(0);
 }

@@ -124,7 +124,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 			word[strlen(word) - 1] = '\0';
 		array[i].feature[0].description1 = calloc(1000, sizeof(char));
 		strcpy(array[i].feature[0].description1, word);
-//		printf("%s\n",array[i].look1);
+//		printf("%s\n",array[i].feature[0].description1);
 
 		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -134,7 +134,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 			word[strlen(word) - 1] = '\0';
 		array[i].feature[0].description2 = calloc(1000, sizeof(char));
 		strcpy(array[i].feature[0].description2, word);
-//		printf("%s\n",array[i].look1);
+//		printf("%s\n",array[i].feature[0].description2);
 
 		fseek(file, 8, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -228,7 +228,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 			word[strlen(word) - 1] = '\0';
 		array[i].feature[1].description1 = calloc(255, sizeof(char));
 		strcpy(array[i].feature[1].description1, word);
-//		printf("%s\n",array[i].look2);
+//		printf("%s\n",array[i].feature[1].description1);
 
 		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -238,7 +238,7 @@ void readRooms(Room* array, char newestDirName[256]) {
 			word[strlen(word) - 1] = '\0';
 		array[i].feature[1].description2 = calloc(255, sizeof(char));
 		strcpy(array[i].feature[1].description2, word);
-//		printf("%s\n",array[i].look2);
+//		printf("%s\n",array[i].feature[1].description2);
 
 
 		fseek(file, 8, SEEK_CUR);

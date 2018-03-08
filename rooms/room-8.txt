@@ -1,4 +1,4 @@
-VVISITED: 0
+VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cafe
 LONGDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. It looks like you are in a cute little coffee shop. No one is around, which is odd because steaming hot coffee and warm cookies are sitting on the counter. Maybe you can find something useful in here. There is only 1 door to the west, from which you came.  

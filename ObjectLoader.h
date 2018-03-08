@@ -29,7 +29,7 @@ struct Inventory {
 
 void readObjects(struct Object* array, char newestDirName[256]);
 
-void initInventory(struct Inventory* invArray);
+void readInventory(struct Inventory* array, char newestDirName[256]);
 
 /* Place at end of file - End of header conditional */
 #endif
