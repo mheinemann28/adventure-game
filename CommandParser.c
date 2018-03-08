@@ -213,6 +213,11 @@ void getVerb(struct command_line* cl) {
 	memset(cl->verb, '\0', sizeof(cl->verb));
 	int i;
 	int j;
+	if(strstr(cl->processedInput, "save") != NULL) {
+    	strcpy(cl->verb, "save");	
+    	
+    	return;
+	}
 	if(strstr(cl->processedInput, "look at") != NULL) {
     	strcpy(cl->verb, "look at");	
     	for (i = 0; i < cl->inputArraySize; i++) {
