@@ -10,19 +10,19 @@ F1LOOK2: Large and circular. There are pennies, nickels, and dimes resting in th
 F1HIT1: It was made with cement. You hurt your hand.
 F1HIT2: It was made with cement. You hurt your hand. 
 F1OPEN1: It doesn’t open. You can already see the bottom.
-F2OPEN2: It doesn’t open. You can already see the bottom.
-F2MOVE1: It was too heavy. You rub your back and wonder why you would try that.
-F2MOVE2: It was too heavy. You rub your back and wonder why you would try that.
+F1OPEN2: It doesn’t open. You can already see the bottom.
+F1MOVE1: It was too heavy. You rub your back and wonder why you would try that.
+F1MOVE2: It was too heavy. You rub your back and wonder why you would try that.
 FEATURENAME2: hammock
 F2CONTAINOBJECT: 0
 F2LOOK1: As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
 F2LOOK2: Better off staying away from that hammock. You might just fall asleep.
-F2HIT1: That did not mek you any less sleepy.
-F2HIT2: That did not mek you any less sleepy.
+F2HIT1: That did not make you any less sleepy.
+F2HIT2: That did not make you any less sleepy.
 F2OPEN1: You cannot open this.
 F2OPEN2: You cannot open this.
-F2MOVE1: The hammock swings back and forth, better not stay for long or you might fall asleep.
-F2MOVE2: The hammock swings back and forth, better not stay for long or you might fall asleep.
+F2MOVE1: Now that you moved the hammock, you no longer feel sleepy.
+F2MOVE2: Now that you moved the hammock, you no longer feel sleepy.
 NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 4
