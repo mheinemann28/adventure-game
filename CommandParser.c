@@ -48,8 +48,8 @@ const int verb_help_synonyms_size = 2;
 const char *verb_help_synonyms[] = {"help","actions"};
 const int verb_inventory_synonyms_size = 4;
 const char *verb_inventory_synonyms[] = {"inventory","items","bag","objects"};
-const int verb_hit_synonyms_size = 9;
-const char *verb_hit_synonyms[] = {"hit","smack","fight","attack","charge","punch","kick","hurt","swing"};
+const int verb_hit_synonyms_size = 10;
+const char *verb_hit_synonyms[] = {"hit","smack","fight","attack","charge","punch","kick","hurt","swing","give"};
 const int verb_open_synonyms_size = 1;
 const char *verb_open_synonyms[] = {"open"};
 const int verb_move_synonyms_size = 2;
@@ -213,6 +213,11 @@ void getVerb(struct command_line* cl) {
 	memset(cl->verb, '\0', sizeof(cl->verb));
 	int i;
 	int j;
+	if(strstr(cl->processedInput, "save") != NULL) {
+    	strcpy(cl->verb, "save");	
+    	
+    	return;
+	}
 	if(strstr(cl->processedInput, "look at") != NULL) {
     	strcpy(cl->verb, "look at");	
     	for (i = 0; i < cl->inputArraySize; i++) {
@@ -756,20 +761,20 @@ void getObjectFeaturePhrase(struct command_line* cl) {
 			return;
 		}
 	}
-	if(strstr(cl->processedInput, "awaken dog") != NULL) {
+	if(strstr(cl->processedInput, "dog") != NULL) {
 		if (cl->noun1Index == -1) {
 			//add to noun1
 			memset(cl->noun1, '\0', sizeof(cl->noun1));
-			strcpy(cl->noun1, "awaken dog");	
+			strcpy(cl->noun1, "dog");	
     		for (i = 0; i < cl->inputArraySize; i++) {
     			if (strcmp(cl->inputArray[i], "dog") == 0) {
     				cl->noun1Index = i;
     			}
     		}
-		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "awaken dog") != 0)) {
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "dog") != 0)) {
 			//add to noun2
 			memset(cl->noun2, '\0', sizeof(cl->noun2));
-			strcpy(cl->noun2, "awaken dog");	
+			strcpy(cl->noun2, "dog");	
     		for (i = 0; i < cl->inputArraySize; i++) {
     			if (strcmp(cl->inputArray[i], "dog") == 0) {
     				cl->noun1Index = 1;

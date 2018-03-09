@@ -1,32 +1,42 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Tennis Court
-LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. A tennis ball rolls towards you and stops at your feet. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. In the northeast corner, there is an exit with fluttering noise behind the exit door.
-SHORTDESCRIPTION: You’ve entered the tennis court. A tennis ball rests at your feet. Serena Williams stands on the opposite side of the court. In the northwest corner, there is an exit covered in animal hair. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. In the northeast corner, there is an exit with fluttering noise behind the exit door.
-FEATURE1: TENNIS BALL
-LOOK1: A Wilson brand tennis ball. Yellow and very fuzzy
-HIT1: It moves to the other side of the court.
-OPEN1: It doesn’t open.
-MOVE1: It rolls across the floor. Be careful not to roll your ankle.
-FEATURE2: SERENA WILLIAMS
-LOOK2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
-HIT2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
-OPEN2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
-MOVE2: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
-LOOKAT2: She is the number one tennis player in the world. She is concentrating on her form, possibly thinking about her next match.
-HITD2: Stop that. It’s creepy.
-OPEND2: Stop that. It’s creepy.
-MOVED2: Stop that. It’s creepy.
+ROOMNAME: Music Room
+LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
+SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
+FEATURENAME1: piano
+F1CONTAINOBJECT: 1
+F1LOOK1: The pianos lid is closed.
+F1LOOK2: The pianos lid is closed
+F1HIT1: Why would you want to do that?
+F1HIT2: Why would you want to do that?
+F1OPEN1: There is a key under the lid.
+F1OPEN2: The piano is empty.
+F1MOVE1: The piano is too heavy to move.
+F1MOVE2: The piano is too heavy to move.
+FEATURENAME2: hostile magical beast
+F2CONTAINOBJECT: 0
+F2LOOK1: The magical beast is hideous looking... You'll have to kill it to reach the piano.
+F2LOOK2: The magical beast lays lifelessly on the floor.
+F2HIT1: The magical beast is not harmed by physical attacks.  Maybe the magical beast can only be defeated by magic?
+F2HIT2: You killed the magical beast with the magic wand.
+F2OPEN1: Why would you want to do that?
+F2OPEN2: Why would you want to do that?
+F2MOVE1: The beast is too heavy to move.
+F2MOVE2: The beast is too heavy to move.
 NUMOBJ: 1
-OBJECT: tennis racket
-NUMEXITS: 3
-EXIT1DIRECTION: northeast
-EXIT2DIRECTION: southwest
-EXIT3DIRECTION: northwest
+OBJECT: key
+NUMEXITS: 2
+EXIT1DIRECTION: east
+EXIT2DIRECTION: west
+EXIT3DIRECTION: NA
 EXIT4DIRECTION: NA
-EXIT1NAME: Cage Room
-EXIT2NAME: Courtyard
-EXIT3NAME: Cat Kingdom
+EXIT1NAME: Bar
+EXIT2NAME: Cage Room
+EXIT3NAME: NA
 EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: key
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

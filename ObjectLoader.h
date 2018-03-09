@@ -17,19 +17,19 @@
 struct Object {
 	char *name;		
 	char *room;
-	char *description;		
+	char *usedFor;		
 };
 
 struct Inventory {
 	int invCount;
 	char *name[MAX_INV];		
 	char *room[MAX_INV];
-	char *description[MAX_INV];		
+	char *usedFor[MAX_INV];		
 };
 
 void readObjects(struct Object* array, char newestDirName[256]);
 
-void initInventory(struct Inventory* invArray);
+void readInventory(struct Inventory* array, char newestDirName[256]);
 
 /* Place at end of file - End of header conditional */
 #endif

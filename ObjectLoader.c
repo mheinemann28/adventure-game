@@ -27,13 +27,13 @@ void readObjects(struct Object* array, char newestDirName[256])
 	char word[BUFFER_SIZE];
 	memset(word, '\0', sizeof(word));
 
-	printf("i: %d\n", i);
+
 	sprintf(filename, "%s/objects.txt", dirname);
 //	printf("filename: %s\n", filename);
 	/* Open file */
 	file = fopen(filename, "r");
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 9; i++)
 	{
 		/*change the file position of the stream by x bytes to get info after :
 		  And remove the newline character read by fgets()
@@ -58,71 +58,70 @@ void readObjects(struct Object* array, char newestDirName[256])
 		strcpy(array[i].room, word);
 		//printf("OBJECT%dSTARTROOM: %s\n", i+1, array[i].room);
 
-		fseek(file, 20, SEEK_CUR);
+		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
 		fgets(word, BUFFER_SIZE, file);
 		strtok(word, "\n");
 		if (isspace(word[strlen(word) - 1]) != 0)
 			word[strlen(word) - 1] = '\0';
-		array[i].description = calloc(255, sizeof(char));
-		strcpy(array[i].description, word);
-		//printf("OBJECT%dDESCRIPTION: %s\n", i+1, array[i].description);
+		array[i].usedFor = calloc(255, sizeof(char));
+		strcpy(array[i].usedFor, word);
+		//printf("OBJECT%dDESCRIPTION: %s\n", i+1, array[i].usedFor);
 	}
 	fclose(file);
 }
 
-void initInventory(struct Inventory* invArray)
+void readInventory(struct Inventory* array, char newestDirName[256])
 {
-	int i;
-	for (i = 0; i < 8; i++) {
-		//invArray->name[i] = calloc(255, sizeof(char));
-		//strcpy(invArray->name[i], '\0');
+	int i = 0;
+	FILE* file;
+	char dirname[80];
+	sprintf(dirname, "%s", newestDirName);
+	char filename[500];
+	char word[BUFFER_SIZE];
+	memset(word, '\0', sizeof(word));
 
-	//	memset(invArray->name[i], '\0', sizeof(char));
-	//	memset(invArray->room[i], '\0', sizeof(char));
-	//	memset(invArray->description[i], '\0', sizeof(char));
-	
+
+	sprintf(filename, "%s/inventory.txt", dirname);
+//	printf("filename: %s\n", filename);
+	/* Open file */
+	file = fopen(filename, "r");
+
+	fseek(file, 7, SEEK_CUR);
+	fgets(word, BUFFER_SIZE, file);
+	strtok(word, "\n");
+	if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+	array->invCount = atoi(word);
+
+	for(i = 0; i < array->invCount; i++){
+		fseek(file, 13, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array->name[i] = calloc(255, sizeof(char));
+		strcpy(array->name[i], word);
+
+		fseek(file, 18, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array->room[i] = calloc(255, sizeof(char));
+		strcpy(array->room[i], word);
+
+		fseek(file, 9, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array->usedFor[i] = calloc(255, sizeof(char));
+		strcpy(array->usedFor[i], word);
 	}
-	/*
-		invArray[0].name = NULL;
-		invArray[0].room = NULL;
-		invArray[0].description = NULL;
-		invArray[1].name = NULL;
-		invArray[1].room = NULL;
-		invArray[1].description = NULL;
-		invArray[2].name = NULL;
-		invArray[2].room = NULL;
-		invArray[2].description = NULL;
-		invArray[3].name = NULL;
-		invArray[3].room = NULL;
-		invArray[3].description = NULL;
-		invArray[4].name = NULL;
-		invArray[4].room = NULL;
-		invArray[4].description = NULL;
-		invArray[5].name = NULL;
-		invArray[5].room = NULL;
-		invArray[5].description = NULL;
-		invArray[6].name = NULL;
-		invArray[6].room = NULL;
-		invArray[6].description = NULL;
-		invArray[7].name = NULL;
-		invArray[7].room = NULL;
-		invArray[7].description = NULL;		*/
+	fclose(file);
 }
 
-/*
-int main()
-{
-	struct Object *array;
-	readObjects(array, "rooms");
-
-	int j;
-	for(j=0; j<8; j++)
-	{
-		printf("OBJECT%dNAME: %s\n", j+1, array[j].name);
-		printf("OBJECT%dSTARTROOM: %s\n", j+1, array[j].room);
-		printf("OBJECT%dDESCRIPTION: %s\n", j+1, array[j].description);
-	}
-	return 0;
-}
-*/

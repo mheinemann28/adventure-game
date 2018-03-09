@@ -1,32 +1,42 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Music Room
-LONGDESCRIPTION: You enter a room with nice marble floor. In the middle of the room is a jet black Steinway & Son grand piano raised on a platform made of hardwood. Guarding the piano is a hostile magical beast. To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
-SHORTDESCRIPTION: You’ve entered a room with a grand piano in the middle and a hostile magical beast guarding the piano.  To the west there is a door with fluttering noise coming from behind it. To the east there is a door with bar music behind it.
-FEATURE1: Piano
-LOOK1: A key on the piano has fingerprint blood. The piano’s lid is closed.
-HIT1: Press the key with fingerprint blood. Piano lid opens. Revealing a key (object) inside. 
-OPEN1: Piano lid is locked. 
-MOVE1: Takes the key from the piano to put into the player’s inventory.
-FEATURE2: Hostile Magical Beast
-LOOK2: Starts fight sequence – The magical beast is hideous looking...
-HIT2: Starts fight sequence – The magical beast is not harmed by physical attacks.  Maybe the magical beast can only be defeated by magic?
-OPEN2: NA
-MOVE2: NA
-LOOKAT2: The magical beast lays lifelessly on the ground.
-HITD2: Hitting the magical beast still doesn’t harm the magical beast.
-OPEND2: NA.
-MOVED2: The magical beast is too heavy to move.
+ROOMNAME: Animal Room
+LONGDESCRIPTION: You enter the room and it's as if you've been transported to some kind of farm.  There are cats rubbing up against your legs, Sheep and pigs wandering throughout, the walls made up of fish tanks.  There are bones on the ground beside you. A mean sheep dog stares you down. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit.
+SHORTDESCRIPTION: You've entered the animal room. There are books next to your legs and a mean sheep dog. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit.
+FEATURENAME1: skeleton
+F1CONTAINOBJECT: 1
+F1LOOK1: One of the animals must have died here.
+F1LOOK2: One of the animals must have died here.
+F1HIT1: It smacks back on the floor.
+F1HIT2: It smacks back on the floor.
+F1OPEN1: It doesn't open.
+F1OPEN2: It doesn't open.
+F1MOVE1: You see more bones.
+F1MOVE2: You see more bones.
+FEATURENAME2: dog
+F2CONTAINOBJECT: 0
+F2LOOK1: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
+F2LOOK2: The dog is too interested in its bone to care about you.
+F2HIT1: That did not work on this dog. Maybe there is another way?
+F2HIT2: The dog runs away with his bone, leaving the door free.
+F2OPEN1: You can't do that.
+F2OPEN2: You can't do that.
+F2MOVE1: You can't do that.
+F2MOVE2: You can't do that.
 NUMOBJ: 1
-OBJECT: Magical wand
+OBJECT: bone
 NUMEXITS: 2
-EXIT1DIRECTION: east
-EXIT2DIRECTION: west
+EXIT1DIRECTION: north
+EXIT2DIRECTION: east
 EXIT3DIRECTION: NA
 EXIT4DIRECTION: NA
 EXIT1NAME: Bar
-EXIT2NAME: Cage Room
+EXIT2NAME: Cafe
 EXIT3NAME: NA
 EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: dog
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
-FEATURE2ENEMY?: Yes
+FEATURE2ENEMY?: No

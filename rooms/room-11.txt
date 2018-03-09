@@ -1,33 +1,42 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Basement
-LONGDESCRIPTION: You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.  There are stairs leading down.  The only lightsource is from the high window in the corner.  You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike, moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a cabinet on the opposite west wall.  You should examine the rooms further and figure out what to do next. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
-SHORTDESCRIPTION: You've entered a basement. There is a chest along the east wall and a cabinet on the opposite west wall. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
-FEATURE1: cabinet
-LOOK1: Just an old beat up cabinet, maybe there is something inside.
-HIT1: Nothing happened
-OPEN1: There is a crowbar inside.
-MOVE1: There is nothing behind it.
-FEATURE2: chest
-LOOK2: This chest is padlocked, Maybe I can find something to open it.
-HIT2: You've broken the padlock.
-OPEN2: There is a key inside.
-MOVE2: It was too heavy for you.
-LOOKAT2: NA
-HITD2: NA
-OPEND2: NA
-MOVED2: NA
-NUMOBJ: 0
-OBJECT: NA
+ROOMNAME: Library
+LONGDESCRIPTION: You enter a room with bookshelves that reach the ceiling. There is a slight musty smell to the books. They look old and covered in dust. The lights are dim. There is a skylight on the ceiling, but the sunshine from outside is obscured by years of grime. Off to one side of the room, there is an exhibit featuring a large book. The exhibit’s title is Book of Wallpaper. On the other side of the room sits an old man behind the librarian’s reference desk. He looks nearly as old as the book collection. In the south end of the room, there is an exit with a creepy vibe. In the southeast corner of the room, there is an exit with fresh air blowing through. In the northeast corner, there is an exit covered in animal hair.
+SHORTDESCRIPTION: You’ve entered the library. A special exhibit featuring The Book of Wallpaper is off to one side, on the other sits a librarian behind the reference desk. In the south end of the room, there is an exit with a creepy vibe. In the southeast corner of the room, there is an exit with fresh air blowing through. In the northeast corner, there is an exit covered in animal hair.
+FEATURENAME1: book of wallpaper
+F1CONTAINOBJECT: 0
+F1LOOK1: The Book of Wallpaper is a large book with samples of wallpapers from the 1700 and 1800 hundreds. The patterns are beautiful. The exhibit posted a warning sign because wallpapers during this time period were made with arsenic, a dangerous poison when touched, ingested, or inhaled. Most copies of this rare book were destroyed by their hosting institutions to prevent poisoning their patrons.
+F1LOOK2: The Book of Wallpaper is a large book with samples of wallpapers from the 1700 and 1800 hundreds. The patterns are beautiful. The exhibit posted a warning sign because wallpapers during this time period were made with arsenic, a dangerous poison when touched, ingested, or inhaled. Most copies of this rare book were destroyed by their hosting institutions to prevent poisoning their patrons.
+F1HIT1: A puff of dust rises in the air. Try not to inhale. Old wallpaper contains arsenic.
+F1HIT2: A puff of dust rises in the air. Try not to inhale. Old wallpaper contains arsenic.
+F1OPEN1: You scroll through a few pages. Remember not to rub your eyes. Old wallpaper was made with arsenic.
+F1OPEN2: You scroll through a few pages. Remember not to rub your eyes. Old wallpaper was made with arsenic.
+F1MOVE1: You move the book leaving a dust outline where it use to sit. Don’t forget to wash your hands before you eat. Old wallpaper still has arsenic residue.
+F1MOVE2: You move the book back.
+FEATURENAME2: librarian
+F2CONTAINOBJECT: 0
+F2LOOK1: He might look ancient, but the librarian moves quickly in your direction. He demands that you return your overdue book. He blocks your path and you can’t move around him. What do you do?
+F2LOOK2: An old man dressed in a worn-out tweed suit. He is back to sorting library cards at the reference desk.
+F2HIT1: He falls to the ground. Why would you do that? He’s like 200 years old.
+F2HIT2: The librarian takes the book back to his desk.
+F2OPEN1: Why would you do that?
+F2OPEN2: Why would you do that?
+F2MOVE1: The old man is strong for his age. You're not going to be able to get by him that easy.
+F2MOVE2: The old man is strong for his age. You're not going to be able to get by him that easy.
+NUMOBJ: 1
+OBJECT: book
 NUMEXITS: 3
-EXIT1DIRECTION: northwest
-EXIT2DIRECTION: northeast
-EXIT3DIRECTION: east
+EXIT1DIRECTION: northeast
+EXIT2DIRECTION: southeast
+EXIT3DIRECTION: south
 EXIT4DIRECTION: NA
-EXIT1NAME: Doll Room
+EXIT1NAME: Cat Kingdom
 EXIT2NAME: Courtyard
-EXIT3NAME: Riddle Room
+EXIT3NAME: Doll Room
 EXIT4NAME: NA
-EXIT4DIRECTION: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
-FEATURE2ENEMY?: No
+FEATURE2ENEMY?: Yes

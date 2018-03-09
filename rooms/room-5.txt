@@ -1,32 +1,42 @@
 VISITED: 0
 ROOMTYPE: MID
-ROOMNAME: Courtyard
-LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
-SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
-FEATURE1: fountain
-LOOK1: Large and circular. There are pennies, nickels, and dimes resting in the water. Remnants of someone’s wish? A sparkly fish statue spits water in the air.
-HIT1: It was made with cement. You hurt your hand. 
-OPEN1: It doesn’t open. You can already see the bottom. 
-MOVE1: It was too heavy. You rub your back and wonder why you would try that. 
-FEATURE2:  hammock
-LOOK2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-HIT2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-OPEN2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-MOVE2: Starts fight sequence – As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
-LOOKAT2: A very comfortable looking hammock made from rope. The tree it hangs from provides the perfect shade.
-HITD2: It swings back and forth.
-OPEND2: It doesn’t open.
-MOVED2: You move it away from the tree. It looks less enticing now.
-NUMOBJ: 0
-OBJECT: NA
-NUMEXITS: 4
+ROOMNAME: Storage
+LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
+SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
+FEATURENAME1: shelf
+F1CONTAINOBJECT: 1
+F1LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
+F1LOOK2: shelf has many expired foods. This is where you found the tennis racket.
+F1HIT1: The tennis racket falls of the shelf.
+F1HIT2: The tennis racket falls of the shelf.
+F1OPEN1: You cannot open the shelf.
+F1OPEN2: You cannot open the shelf.
+F1MOVE1: The shelf is fastened to the wall.
+F1MOVE2: The shelf is fastened to the wall.
+FEATURENAME2: giant spider
+F2CONTAINOBJECT: 0
+F2LOOK1: It’s a giant hairy spider.
+F2LOOK2: The squished mess of the spider is left on the floor.
+F2HIT1: You defeated the spider by stomping on it.
+F2HIT2: You defeated the spider by stomping on it.
+F2OPEN1: Nothing to open here.
+F2OPEN2: Nothing to open here.
+F2MOVE1: Probably not a good idea. It might bite.
+F2MOVE2: You don't want to get that gooey mess on yourself.
+NUMOBJ: 1
+OBJECT: tennis racket
+NUMEXITS: 3
 EXIT1DIRECTION: east
-EXIT2DIRECTION: south
+EXIT2DIRECTION: southeast
 EXIT3DIRECTION: southwest
-EXIT4DIRECTION: northwest
-EXIT1NAME: Tennis Court
-EXIT2NAME: Basement
-EXIT3NAME: Doll Room
-EXIT4NAME: Library
+EXIT4DIRECTION: NA
+EXIT1NAME: Garage
+EXIT2NAME: Ghost Room
+EXIT3NAME: Riddle Room
+EXIT4NAME: NA
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

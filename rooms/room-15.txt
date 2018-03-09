@@ -1,32 +1,42 @@
 VISITED: 0
-ROOMTYPE: END
-ROOMNAME: Cafe
-LONGDESCRIPTION: Congratulations! You've made it to the final room! There are fresh bake chocolate chip cookies just for you. Enjoy.
-SHORTDESCRIPTION: NA
-FEATURE1: NA
-LOOK1: NA
-HIT1: NA
-OPEN1: NA
-MOVE1: NA
-FEATURE2: NA
-LOOK2: NA
-HIT2: NA
-OPEN2: NA
-MOVE2: NA
-LOOKAT2: NA
-HITD2: NA
-OPEND2: NA
-MOVED2: NA
+ROOMTYPE: MID
+ROOMNAME: Courtyard
+LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
+SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
+FEATURENAME1: fountain
+F1CONTAINOBJECT: 0
+F1LOOK1: Large and circular. There are pennies, nickels, and dimes resting in the water. Remnants of someone’s wish? A sparkly fish statue spits water in the air.
+F1LOOK2: Large and circular. There are pennies, nickels, and dimes resting in the water. Remnants of someone’s wish? A sparkly fish statue spits water in the air.
+F1HIT1: It was made with cement. You hurt your hand.
+F1HIT2: It was made with cement. You hurt your hand. 
+F1OPEN1: It doesn’t open. You can already see the bottom.
+F2OPEN2: It doesn’t open. You can already see the bottom.
+F2MOVE1: It was too heavy. You rub your back and wonder why you would try that.
+F2MOVE2: It was too heavy. You rub your back and wonder why you would try that.
+FEATURENAME2: hammock
+F2CONTAINOBJECT: 0
+F2LOOK1: As you look more closely at the comfy hammock you realize just how sleepy you are. It would make a great place to close your eyes for a second. It becomes harder and harder to fight off sleep. What do you do?
+F2LOOK2: Better off staying away from that hammock. You might just fall asleep.
+F2HIT1: That did not mek you any less sleepy.
+F2HIT2: That did not mek you any less sleepy.
+F2OPEN1: You cannot open this.
+F2OPEN2: You cannot open this.
+F2MOVE1: The hammock swings back and forth, better not stay for long or you might fall asleep.
+F2MOVE2: The hammock swings back and forth, better not stay for long or you might fall asleep.
 NUMOBJ: 0
 OBJECT: NA
-NUMEXITS: 0
-EXIT1DIRECTION: NA
-EXIT2DIRECTION: NA
-EXIT3DIRECTION: NA
-EXIT4DIRECTION: NA
-EXIT1NAME: NA
-EXIT2NAME: NA
-EXIT3NAME: NA
-EXIT4NAME: NA
-FEATURE1ENEMY?: NA 
-FEATURE2ENEMY?: NA
+NUMEXITS: 4
+EXIT1DIRECTION: east
+EXIT2DIRECTION: south
+EXIT3DIRECTION: southwest
+EXIT4DIRECTION: northwest
+EXIT1NAME: Tennis Court
+EXIT2NAME: Basement
+EXIT3NAME: Doll Room
+EXIT4NAME: Library
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
+EXIT3BLOCK: NA
+EXIT4BLOCK: NA
+FEATURE1ENEMY?: No
+FEATURE2ENEMY?: Yes
