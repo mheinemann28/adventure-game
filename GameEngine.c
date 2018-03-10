@@ -11,7 +11,6 @@
 #include "CommandParser.h"
 #include "GameEngine.h"
 #include "GameEngine_helpers.h"
-#include "GameStateLoader.h"
 #include "RoomLoader.h"
 #include "ObjectLoader.h"
 #include "SaveGame.h"
@@ -212,29 +211,68 @@ continue_game:
 	}
 }
 
-
+/*********************************************************************
+ ** Function: examineRoom(struct Room *room, struct parse_command pc)
+ ** Description: based on player input this function will print out 
+ ** 	descriptions of different feature, or call the appropriate
+ ** 	function to interact with objects.
+ ** Parameters: struct parse_command pc, struct Room *room
+ ** Pre-Conditions: none
+ ** Post-Conditions: appropriate functions are called or descriptions
+ ** 	are printed out.
+ *********************************************************************/
 int examineRoom(struct Room * room, struct parsed_command pc)
 {
-	int i;
+	int i, j, count;
 	char tempString[30];
 	memset(tempString, '\0', sizeof(tempString));
-//	printf("pc.verb: %s\n", pc.verb);
-//	printf("noun1: %s\n", pc.noun1);
-//	printf("noun2: %s\n", pc.noun2);
 
-	if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") != 0))
+	// if player chooses to look at features in room
+	if ((strcmp(pc.verb, "look") == 0) && (strcmp(pc.noun1, "inventory") != 0))
 	{
-		printf("pc.noun1: %s\n", pc.noun1);
-		printf("lenght: %d\n", strlen(pc.noun1));
 		strcat(tempString, pc.noun1);
+
+		// if player chooses to look at whole room, print out general information
+		if (strcmp(pc.noun1, "room") == 0) {
+			// print current room
+			printf("\nCurrent room: %s\n", room->name);
+
+			// print out all features
+			printf("\nFeatures:\n");
+			for (j = 0; j < MAX_FEATURES; j++) {
+				printf("\t%d. %s\n", j + 1, room->feature[j].name);
+			}
+
+			// print out any objects that were dropped and left on the floor
+			count = 0;
+			printf("\nObjects on floor\n");
+			for (j = 0; j < 9; j++) {
+				if (strcmp(objArray[j].room, room->name) == 0) {
+					if (strcmp(objArray[j].dropped, "yes") == 0) {
+						count++;
+						printf("\t%d. %s\n", count, objArray[j].name);
+					}
+				}
+			}
+
+			// if no dropped object is found
+			if (count == 0) {
+				printf("\tnone\n");
+			}
+		}
+
+		// loop through room features to print out feature descriptions
 		for (i = 0; i < MAX_FEATURES; i++)
 		{
+			// if feature is enemy and still alive print first description
 			if (strcmp(tempString, room->feature[i].name) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0) {
 				printf("%s\n", room->feature[i].description1);
 				room->feature[i].firstLook = 1;
 			}
+			// if feature contains an object print first description
 			else if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 1)
 			{
+				// if feature is blocked by enemy, let player know
 				if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
 					printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
 				}
@@ -244,7 +282,9 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 				else
 					printf("%s\n", room->feature[i].description1);
 			}
+			// if feature does not contain object or enemy is dead print description 2
 			else if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 0 && strcmp(room->feature[i].enemy, "No") == 0) {
+				// if blocked by enemy let player know
 				if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
 					printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
 				}
@@ -256,76 +296,154 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 			}
 		}
 	}
-	else if ((strcmp(pc.verb, "look at") == 0) && (strcmp(pc.noun1, "inventory") == 0))
+	// if user chooses to look at inventory
+	else if ((strcmp(pc.verb, "look") == 0) && (strcmp(pc.noun1, "inventory") == 0))
 		checkInventory(pc);
+	// if user chooses to open feature
 	else if ((strcmp(pc.verb, "open") == 0)) {
 		openFeature(pc, room);
 	}
+	// if user chooses to take object
 	else if (strcmp(pc.verb, "take") == 0)
 		takeObject(pc, room);
+	// if user chooses to drop object
 	else if (strcmp(pc.verb, "drop") == 0)
 		dropObject(pc, room);
+	// if user chooses to go through door
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
+	// if user chooses to move feature
 	else if (strcmp(pc.verb, "move") == 0)
 		moveFeature(pc, room);
+	// if user chooses to hit feature
 	else if (strcmp(pc.verb, "hit") == 0)
 		hitFeature(pc, room);
+	// if user chooses to save game
 	else if (strcmp(pc.verb, "save") == 0)
 		save(room);
+	// if user command is not listed
 	else
 		printf("your command is not recognized\n");
 	return 0;
 }
 
+/*********************************************************************
+ ** Function: takeObject(struct parse_command pc, struct Room *room)
+ ** Description: adds in game objects to players inventory if player
+ ** 	chooses to pick one up.
+ ** Parameters: struct parse_command pc, struct Room *room
+ ** Pre-Conditions: user must choose to take an object through the
+ ** 	command line.
+ ** Post-Conditions: players inventory is updated with selected object
+ ** 	or if selected object is unavailable or missing message is
+ ** 	outputed to user explaining so.
+ *********************************************************************/
 void takeObject(struct parsed_command pc, struct Room * room) {
-	int i, j, n;
+	int i, j, n, k, tempCount;
+
+	// loop through all objects
 	for (j = 0; j < 9; j++)
 	{
-		//printf("objArray[%d]: %s\n", j, objArray[j].name);
+		// check if object exists and is in current room
 		if (strcmp(pc.noun1, objArray[j].name) == 0 && strcmp(room->name, objArray[j].room) == 0)
 		{
-			//	printf("Confirmed that you got %s\n", objArray[j].name);
 			n = 0;
-
+			tempCount = invArray.invCount;
+			// loop to find next available space in inventory array
 			do {
 				if (invArray.name[n] == '\0')
 				{
-					//	printf("invArray.name[%d]: %s\n", n, invArray.name[n]);
-					invArray.name[n] = calloc(255, sizeof(char));
-					invArray.room[n] = calloc(255, sizeof(char));
-					invArray.usedFor[n] = calloc(255, sizeof(char));
-					strcpy(invArray.name[n], objArray[j].name);
-					strcpy(invArray.room[n], objArray[j].room);
-					strcpy(invArray.usedFor[n], objArray[j].usedFor);
-					//	printf("invArray.name[%d]: %s\n", n, invArray.name[n]);
-					//	printf("invArray.room[%d]: %s\n", n, invArray.room[n]);
-					//	printf("invArray.usedFor[%d]: %s\n", n, invArray.usedFor[n]);
-					invArray.invCount++;
+					// loop through features in current room
+					for (k = 0; k < MAX_FEATURES; k++) {
 
-					for (i = 0; i < room->numObjects; i++) {
-						if (strcmp(invArray.name[n], room->object[i]) == 0) {
-							strcpy(room->object[i], "NA");
-							room->numObjects--;
+						// if feature contains object add to inventory
+						if (room->feature[k].containObject == 1) {
+
+							// allocate space
+							invArray.name[n] = calloc(255, sizeof(char));
+							invArray.room[n] = calloc(255, sizeof(char));
+							invArray.usedFor[n] = calloc(255, sizeof(char));
+
+							// add object information to inventory
+							strcpy(invArray.name[n], objArray[j].name);
+							strcpy(invArray.room[n], objArray[j].room);
+							strcpy(invArray.usedFor[n], objArray[j].usedFor);
+
+							// increment inventory count
+							invArray.invCount++;
+
+							// loop through objects in room data and remove object picked up
+							for (i = 0; i < room->numObjects; i++) {
+								if (strcmp(invArray.name[n], room->object[i]) == 0) {
+									strcpy(room->object[i], "NA");
+									room->numObjects--;
+								}
+							}
+
+							printf("%s was added to your inventory.\n", invArray.name[n]);
+
+							break;
 						}
 					}
 
-					printf("%s was added to your inventory.\n", invArray.name[n]);
 
-					for (i = 0; i < MAX_FEATURES; i++) {
-						if (room->feature[i].containObject == 1) {
-							room->feature[i].containObject = 0;
+
+					// if object was not found with feature check floor
+					if (room->feature[k].containObject == 0) {
+						// loop through all objects in room
+						for (k = 0; k < room->numObjects; k++) {
+							// check if object was dropped
+							if (strcmp(objArray[j].name, pc.noun1) == 0 && strcmp(objArray[j].dropped, "yes") == 0) {
+								// allocate space
+								invArray.name[n] = calloc(255, sizeof(char));
+								invArray.room[n] = calloc(255, sizeof(char));
+								invArray.usedFor[n] = calloc(255, sizeof(char));
+
+								// add object information to inventory
+								strcpy(invArray.name[n], objArray[j].name);
+								strcpy(invArray.room[n], objArray[j].room);
+								strcpy(invArray.usedFor[n], objArray[j].usedFor);
+
+								// increment inventory count
+								invArray.invCount++;
+
+								room->numObjects--;
+
+								strcpy(objArray[j].dropped, "no");
+
+								printf("%s was added to your inventory.\n", invArray.name[n]);
+
+								break;
+							}
+						}
+
+						// if no other objects found print message saying so
+						if (tempCount == invArray.invCount) {
+							printf("There is no %s.\n", pc.noun1);
 						}
 					}
+
+					// remove object flag from feature
+					room->feature[k].containObject = 0;
 
 					n = 0;
 				}
 				else
 					n++;
 			} while (n != 0);
+
+			return;
+		}
+
+		// object exists but not in current room display message
+		if (strcmp(pc.noun1, objArray[j].name) == 0 && strcmp(room->name, objArray[j].room) != 0) {
+			printf("There is no %s.\n", pc.noun1);
+			return;
 		}
 	}
 
+	// if at this line object does not exist
+	printf("There is no %s.\n", pc.noun1);
 }
 
 void dropObject(struct parsed_command pc, struct Room * room) {
@@ -349,11 +467,14 @@ void dropObject(struct parsed_command pc, struct Room * room) {
 						invArray.room[j] = '\0';
 						invArray.usedFor[j] = '\0';
 						invArray.invCount--;
-						for (k = 0; k < 8; k++)
+						room->numObjects++;
+
+						for (k = 0; k < 9; k++)
 						{
 							if (strcmp(objArray[k].name, pc.noun1) == 0)
 							{
 								strcpy(objArray[k].room, room->name);
+								strcpy(objArray[k].dropped, "yes");
 								printf("%s is now in %s\n", pc.noun1, room->name);
 							}
 						}
@@ -519,7 +640,7 @@ void save(struct Room *curRoom) {
 			for (i = 0; i < strlen(input); i++) {
 				if (input[i] == ' ')
 					printf("\nYou save name cannot contain any spaces.\n");
-				else if(i == strlen(input) - 1) {
+				else if (i == strlen(input) - 1) {
 					getName = 0;
 				}
 			}

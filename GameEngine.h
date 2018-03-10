@@ -12,7 +12,6 @@
 #define GAME_ENGINE_H
 
 #include "GameEngine_helpers.h"
-#include "GameStateLoader.h"
 #include "RoomLoader.h"
 #include "ObjectLoader.h"
 
