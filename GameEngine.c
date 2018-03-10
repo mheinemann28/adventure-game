@@ -10,7 +10,6 @@
 
 #include "CommandParser.h"
 #include "GameEngine.h"
-#include "GameEngine_helpers.h"
 #include "RoomLoader.h"
 #include "ObjectLoader.h"
 #include "SaveGame.h"
