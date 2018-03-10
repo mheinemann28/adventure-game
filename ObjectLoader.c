@@ -67,6 +67,15 @@ void readObjects(struct Object* array, char newestDirName[256])
 		array[i].usedFor = calloc(255, sizeof(char));
 		strcpy(array[i].usedFor, word);
 		//printf("OBJECT%dDESCRIPTION: %s\n", i+1, array[i].usedFor);
+
+		fseek(file, 10, SEEK_CUR);
+		memset(word, '\0', sizeof(word));
+		fgets(word, BUFFER_SIZE, file);
+		strtok(word, "\n");
+		if (isspace(word[strlen(word) - 1]) != 0)
+			word[strlen(word) - 1] = '\0';
+		array[i].dropped = calloc(255, sizeof(char));
+		strcpy(array[i].dropped, word);
 	}
 	fclose(file);
 }

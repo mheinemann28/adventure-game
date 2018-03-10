@@ -17,7 +17,8 @@
 struct Object {
 	char *name;		
 	char *room;
-	char *usedFor;		
+	char *usedFor;
+	char *dropped;
 };
 
 struct Inventory {
