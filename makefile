@@ -4,8 +4,8 @@ default: GameEngine.c RoomLoader.c ObjectLoader.c GameStateLoader.c CommandParse
 test-CommandParser: CommandParser.c CommandParser-tester.c
 	gcc -o test-CommandParser CommandParser.c CommandParser-tester.c
 
-gameEngine: CommandParser.c CommandParser.h GameEngine.c GameEngine.h GameEngine_helpers.h RoomLoader.c RoomLoader.h ObjectLoader.c ObjectLoader.h SaveGame.c SaveGame.h
-	gcc -g -o gameEngine CommandParser.c CommandParser.h GameEngine.c GameEngine.h GameEngine_helpers.h RoomLoader.c RoomLoader.h ObjectLoader.c ObjectLoader.h SaveGame.c SaveGame.h
+gameEngine: CommandParser.c CommandParser.h GameEngine.c GameEngine.h RoomLoader.c RoomLoader.h ObjectLoader.c ObjectLoader.h SaveGame.c SaveGame.h
+	gcc -g -o gameEngine CommandParser.c CommandParser.h GameEngine.c GameEngine.h RoomLoader.c RoomLoader.h ObjectLoader.c ObjectLoader.h SaveGame.c SaveGame.h
 
 clean:
 	rm -f adventure-game test-CommandParser gameEngine
