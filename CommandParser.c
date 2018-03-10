@@ -36,8 +36,8 @@ const char *stop_words[] = {"a","about","above","after","again","against",
 	"whens","where","wheres","which","while","who","whos","whom","why",
 	"whys","with","wont","would","wouldnt","you","youd","youll",
 	"youre","youve","your","yours","yourself","yourselves","around"};
-const int verb_look_synonyms_size = 2;
-const char *verb_look_synonyms[] = {"look", "see"};
+const int verb_look_synonyms_size = 5;
+const char *verb_look_synonyms[] = {"look", "see", "describe", "examine", "look at"};
 const int verb_go_synonyms_size = 3;
 const char *verb_go_synonyms[] = {"go","depart","exit"};
 const int verb_take_synonyms_size = 4;
@@ -219,7 +219,7 @@ void getVerb(struct command_line* cl) {
     	return;
 	}
 	if(strstr(cl->processedInput, "look at") != NULL) {
-    	strcpy(cl->verb, "look at");	
+    	strcpy(cl->verb, "look");	
     	for (i = 0; i < cl->inputArraySize; i++) {
     		if (strcmp(cl->inputArray[i], "at") == 0) {
     			cl->verbIndex = i;
@@ -227,7 +227,7 @@ void getVerb(struct command_line* cl) {
     	}	
     	return;
 	}
-	if(strstr(cl->processedInput, "describe") != NULL) {
+/*	if(strstr(cl->processedInput, "describe") != NULL) {
     	strcpy(cl->verb, "look at");	
     	for (i = 0; i < cl->inputArraySize; i++) {
     		if (strcmp(cl->inputArray[i], "describe") == 0) {
@@ -235,7 +235,7 @@ void getVerb(struct command_line* cl) {
     		}
     	}	
     	return;
-	}
+	}*/
 	for (i = 0; i < cl->inputArraySize; i++) {
 		for (j = 0; j < verb_look_synonyms_size; j++) {
 			if (strcmp(cl->inputArray[i], verb_look_synonyms[j]) == 0) {
@@ -957,6 +957,20 @@ void getObjectFeatureWord(struct command_line* cl) {
 				return;
 			}
     	}
+    	if (strcmp(cl->inputArray[i], "bar") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "bar counter");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bar counter") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "bar counter");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
     	if (strcmp(cl->inputArray[i], "keypad") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
@@ -1101,11 +1115,11 @@ void getObjectFeatureWord(struct command_line* cl) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
 				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "cabinet");	
+				strcpy(cl->noun1, "low cabinet");	
 				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "cabinet") != 0)) {
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "low cabinet") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "cabinet");	
+				strcpy(cl->noun2, "low cabinet");	
  				cl->noun2Index = i;
 			} else {
 				return;
