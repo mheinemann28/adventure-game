@@ -13,16 +13,16 @@ F1OPEN1: There is a crowbar inside.
 F1OPEN2: The cabinet is empty
 F1MOVE1: There is nothing behind the cabinet.
 F1MOVE2: There is nothing behind the cabinet.
-FEATURENAME2: chest
+FEATURENAME2: southwest door lock
 F2CONTAINOBJECT: 0
-F2LOOK1: Maybe there is something inside the chest?
-F2LOOK2: There is nothing inside the chest.
-F2HIT1: No matter how you hit the chest, it isn't breaking.
-F2HIT2: No matter how you hit the chest, it isn't breaking.
-F2OPEN1: There is nothing inside the chest.
-F2OPEN2: There is nothing inside the chest.
-F2MOVE1: It is too heavy for you.
-F2MOVE2: It is too heavy for you.
+F2LOOK1: There is a lock on the southwest door
+F2LOOK2: You broke the lock on the southwest door
+F2HIT1: Maybe you can break the lock with an object?
+F2HIT2: You broke the lock on the southwest door
+F2OPEN1: You can't open the southwest door lock
+F2OPEN2: Instead of opening the southwest door lock, you broke it.
+F2MOVE1: You can't move the lock
+F2MOVE2: Instead of moving the southwest door lock, you broke it.
 NUMOBJ: 1
 OBJECT: crowbar
 NUMEXITS: 3
