@@ -18,7 +18,7 @@ F2CONTAINOBJECT: 0
 F2LOOK1: You shake your head to make sure you are not imagining things. Life size barbie starts to move in your direction. Her originally pleasant features become filled with ugly rage. Her arms stretch out as if she plans to strangle you. What do you do?
 F2LOOK2: The barbie's head lay detatched next to it's body. Won't have to worry about her anymore.
 F2HIT1: You shook her up pretty good, one more hit and that might be it.
-F2HIT2: You nkowcked the barbies head clean off! It topples to the floor.
+F2HIT2: You knocked the barbies head clean off! It topples to the floor.
 F2OPEN1: Nothing to open here.
 F2OPEN2: Nothing to open here.
 F2MOVE1: You moved the lifeless barbie to the side.

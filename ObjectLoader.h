@@ -11,7 +11,7 @@
 #ifndef OBJECTLOADER_H
 #define OBJECTLOADER_H
 
-#define MAX_INV 8
+#define MAX_INV 9
 
 /* Object struct */
 struct Object {

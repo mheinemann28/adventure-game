@@ -10,6 +10,7 @@
 
 #include "CommandParser.h"
 #include "GameEngine.h"
+#include "GameEngine_helpers.h"
 #include "RoomLoader.h"
 #include "ObjectLoader.h"
 #include "SaveGame.h"
@@ -600,6 +601,10 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 
 void openFeature(struct parsed_command pc, struct Room * room) {
 	int i;
+	//see if room file feature struct properties containObjects are being read in correctly.
+	printf("room->feature[1].open1 %d\n", room->feature[0].containObject);
+	printf("room->feature[2].open2 %d\n", room->feature[1].containObject);
+	printf("room.object: %s\n", room->object);
 	for (i = 0; i < MAX_FEATURES; i++) {
 		if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
 			printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);

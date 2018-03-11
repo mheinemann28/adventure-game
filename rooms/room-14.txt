@@ -14,25 +14,25 @@ F1OPEN2: The cabinet is empty
 F1MOVE1: There is nothing behind the cabinet.
 F1MOVE2: There is nothing behind the cabinet.
 FEATURENAME2: chest
-F2CONTAINOBJECT: 1
-F2LOOK1: This chest is padlocked, Maybe I can find something to open it.
-F2LOOK2: The lock is broken, you can look inside.
-F2HIT1: You need something string to break the lock.
-F2HIT2: You have broken the padlock.
-F2OPEN1: There is a key inside.
-F2OPEN2: The chest is empty
+F2CONTAINOBJECT: 0
+F2LOOK1: Maybe there is something inside the chest?
+F2LOOK2: There is nothing inside the chest.
+F2HIT1: No matter how you hit the chest, it isn't breaking.
+F2HIT2: No matter how you hit the chest, it isn't breaking.
+F2OPEN1: There is nothing inside the chest.
+F2OPEN2: There is nothing inside the chest.
 F2MOVE1: It is too heavy for you.
 F2MOVE2: It is too heavy for you.
-NUMOBJ: 2
-OBJECT: NA
+NUMOBJ: 1
+OBJECT: crowbar
 NUMEXITS: 3
 EXIT1DIRECTION: northwest
 EXIT2DIRECTION: northeast
-EXIT3DIRECTION: east
+EXIT3DIRECTION: southwest
 EXIT4DIRECTION: NA
 EXIT1NAME: Doll Room
 EXIT2NAME: Courtyard
-EXIT3NAME: Riddle Room
+EXIT3NAME: Outside
 EXIT4NAME: NA
 EXIT1BLOCK: NA
 EXIT2BLOCK: NA

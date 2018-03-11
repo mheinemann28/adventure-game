@@ -46,7 +46,7 @@ void readObjects(struct Object* array, char newestDirName[256])
 			word[strlen(word) - 1] = '\0';
 		array[i].name = calloc(255, sizeof(char));
 		strcpy(array[i].name, word);
-		//printf("OBJECT%dNAME: %s\n", i+1, array[i].name);
+		printf("OBJECT%dNAME: %s\n", i+1, array[i].name);
 
 		fseek(file, 18, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -56,7 +56,7 @@ void readObjects(struct Object* array, char newestDirName[256])
 			word[strlen(word) - 1] = '\0';
 		array[i].room = calloc(255, sizeof(char));
 		strcpy(array[i].room, word);
-		//printf("OBJECT%dSTARTROOM: %s\n", i+1, array[i].room);
+		printf("OBJECT%dSTARTROOM: %s\n", i+1, array[i].room);
 
 		fseek(file, 9, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -66,7 +66,7 @@ void readObjects(struct Object* array, char newestDirName[256])
 			word[strlen(word) - 1] = '\0';
 		array[i].usedFor = calloc(255, sizeof(char));
 		strcpy(array[i].usedFor, word);
-		//printf("OBJECT%dDESCRIPTION: %s\n", i+1, array[i].usedFor);
+		printf("OBJECT%dUSEDFOR: %s\n", i+1, array[i].usedFor);
 
 		fseek(file, 10, SEEK_CUR);
 		memset(word, '\0', sizeof(word));
@@ -76,6 +76,7 @@ void readObjects(struct Object* array, char newestDirName[256])
 			word[strlen(word) - 1] = '\0';
 		array[i].dropped = calloc(255, sizeof(char));
 		strcpy(array[i].dropped, word);
+		printf("OBJECT%dDROPPED: %s\n", i+1, array[i].dropped);
 	}
 	fclose(file);
 }

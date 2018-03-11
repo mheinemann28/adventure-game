@@ -11,10 +11,11 @@
 #ifndef GAME_ENGINE_H
 #define GAME_ENGINE_H
 
+#include "GameEngine_helpers.h"
 #include "RoomLoader.h"
 #include "ObjectLoader.h"
 
-struct Room rooms[15];
+struct Room rooms[16];
 struct Object objArray[9];
 struct Inventory invArray;
 struct parsed_command pc;

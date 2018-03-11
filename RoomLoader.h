@@ -35,7 +35,7 @@ struct Feature {
 
 /* Room struct */
 struct Room {
-	int visited;	//0 not vidited, 1 visited	
+	int visited;	//0 not visited, 1 visited	
 	char *type;		// room type
 	char *name;		// room name
 	char *longDescription;
