@@ -26,7 +26,7 @@ void writeRoomData(Room *room, char newDirName[256]) {
 	char intBuff[10];
 	memset(buff, '\0', sizeof(buff));
 
-	for (i = 0; i < 15; i++) {
+	for (i = 0; i < 16; i++) {
 		sprintf(fileName, "%s/%s/room-%d.txt", dirName, newDirName, i + 1);
 
 		file = fopen(fileName, "w");
@@ -319,21 +319,27 @@ void writeObjectData(Object *object, char newDirName[256]) {
 		fputs(buff, file);
 
 		memset(buff, '\0', sizeof(buff));
-		sprintf(buff, "OBJECT%dSTARTROOM", i + 1);
+		sprintf(buff, "OBJECT%dSTARTROOM: ", i + 1);
 		strcat(buff, object[i].room);
+		strcat(buff, "\n");
+		fputs(buff, file);
+
+		memset(buff, '\0', sizeof(buff));
+		strcpy(buff, "USEDFOR: ");
+		strcat(buff, object[i].usedFor);
 		strcat(buff, "\n");
 		fputs(buff, file);
 
 		if (i == 8) {
 			memset(buff, '\0', sizeof(buff));
-			strcpy(buff, "USEDFOR: ");
-			strcat(buff, object[i].usedFor);
+			sprintf(buff, "DROPPED%d: ", i + 1);
+			strcat(buff, object[i].dropped);
 			fputs(buff, file);
 		}
-		else{
+		else {
 			memset(buff, '\0', sizeof(buff));
-			strcpy(buff, "USEDFOR: ");
-			strcat(buff, object[i].usedFor);
+			sprintf(buff, "DROPPED%d: ", i + 1);
+			strcat(buff, object[i].dropped);
 			strcat(buff, "\n");
 			fputs(buff, file);
 		}
@@ -341,7 +347,7 @@ void writeObjectData(Object *object, char newDirName[256]) {
 	fclose(file);
 }
 
-void writePlayerInventory(Inventory *inv, char newDirName[256]){
+void writePlayerInventory(Inventory *inv, char newDirName[256]) {
 	int i;
 
 	FILE* file;
@@ -361,7 +367,7 @@ void writePlayerInventory(Inventory *inv, char newDirName[256]){
 	strcat(buff, "\n");
 	fputs(buff, file);
 
-	for (i = 0; i < inv->invCount; i++){
+	for (i = 0; i < inv->invCount; i++) {
 		memset(buff, '\0', sizeof(buff));
 		sprintf(buff, "OBJECT%dNAME: ", i + 1);
 		strcat(buff, inv->name[i]);
@@ -380,7 +386,7 @@ void writePlayerInventory(Inventory *inv, char newDirName[256]){
 			strcat(buff, inv->usedFor[i]);
 			fputs(buff, file);
 		}
-		else{
+		else {
 			memset(buff, '\0', sizeof(buff));
 			strcpy(buff, "USEDFOR: ");
 			strcat(buff, inv->usedFor[i]);
