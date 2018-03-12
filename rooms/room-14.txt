@@ -1,38 +1,38 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Basement
-LONGDESCRIPTION: You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.  There are stairs leading down.  The only lightsource is from the high window in the corner.  You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike, moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a cabinet on the opposite west wall.  You should examine the rooms further and figure out what to do next. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
-SHORTDESCRIPTION: You've entered a basement. There is a chest along the east wall and a cabinet on the opposite west wall. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
-FEATURENAME1: cabinet
+LONGDESCRIPTION: You notice a moldy smell, and can feel the dampness in the air as soon as you enter the room.  There are stairs leading down.  The only lightsource is from the high window in the corner.  You seem to have entered a basement.  Seems to be full of a lot of junk.  A rusty old bike, moldy bed sheets, papers scattered throughout.  You notice a chest along the east wall and a lock on the southwest door.  You should examine the rooms further and figure out what to do next. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
+SHORTDESCRIPTION: You've entered a basement. There is a chest along the east wall and a lock on the southwest door. Towards the northwest, there is a creepy door. In the northeast, there is an exit with fresh air blowing through. To the east is an exit, but it causes you confusion when you look at it.
+FEATURENAME1: chest
 F1CONTAINOBJECT: 1
-F1LOOK1: Just an old beat up cabinet, maybe there is something inside.
-F1LOOK2: Just an old beat up cabinet, maybe there is something inside.
-F1HIT1: Nothing happened to the cabinet.
-F1HIT2: Nothing happened to the cabinet.
+F1LOOK1: Just an old beat up chest, maybe there is something inside.
+F1LOOK2: Just an old beat up chest, maybe there is something inside.
+F1HIT1: Nothing happened to the chest.
+F1HIT2: Nothing happened to the chest.
 F1OPEN1: There is a crowbar inside.
-F1OPEN2: The cabinet is empty
-F1MOVE1: There is nothing behind the cabinet.
-F1MOVE2: There is nothing behind the cabinet.
-FEATURENAME2: chest
-F2CONTAINOBJECT: 1
-F2LOOK1: This chest is padlocked, Maybe I can find something to open it.
-F2LOOK2: The lock is broken, you can look inside.
-F2HIT1: You need something string to break the lock.
-F2HIT2: You have broken the padlock.
-F2OPEN1: There is a key inside.
-F2OPEN2: The chest is empty
-F2MOVE1: It is too heavy for you.
-F2MOVE2: It is too heavy for you.
-NUMOBJ: 2
-OBJECT: NA
+F1OPEN2: The chest is empty.
+F1MOVE1: There is nothing behind the chest.
+F1MOVE2: There is nothing behind the chest.
+FEATURENAME2: southwest door lock
+F2CONTAINOBJECT: 0
+F2LOOK1: There is a lock on this door.
+F2LOOK2: You broke the lock.
+F2HIT1: That didn't work. Maybe you can break the lock with an object.
+F2HIT2: You broke the lock!
+F2OPEN1: It is still locked.
+F2OPEN2: The lock is broken.
+F2MOVE1: The lock cannot be moved.
+F2MOVE2: The lock is broken.
+NUMOBJ: 1
+OBJECT: crowbar
 NUMEXITS: 3
 EXIT1DIRECTION: northwest
 EXIT2DIRECTION: northeast
-EXIT3DIRECTION: east
+EXIT3DIRECTION: southwest
 EXIT4DIRECTION: NA
 EXIT1NAME: Doll Room
 EXIT2NAME: Courtyard
-EXIT3NAME: Riddle Room
+EXIT3NAME: Outside
 EXIT4NAME: NA
 EXIT1BLOCK: NA
 EXIT2BLOCK: NA

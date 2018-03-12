@@ -149,7 +149,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 
 	while (1) {
 
-		for (i = 0; i < 15; i++) {
+		for (i = 0; i < 16; i++) {
 
 			if (strcmp(tempRoomName, rooms[i].name) == 0) {
 				printf("--------------------------------------------------------------------------------------------\n");
