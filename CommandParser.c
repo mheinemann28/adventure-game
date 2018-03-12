@@ -1125,6 +1125,20 @@ void getObjectFeatureWord(struct command_line* cl) {
 				return;
 			}
     	}
+    	if (strcmp(cl->inputArray[i], "wand") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "magical wand");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "magical wand") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "magical wand");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	}
     	if (strcmp(cl->inputArray[i], "chest") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
