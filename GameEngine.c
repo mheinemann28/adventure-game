@@ -29,9 +29,6 @@
  *********************************************************************/
 
 int main() {
-	//readRooms(rooms, "rooms");
-	//readObjects(objArray, "rooms");
-
 	intro();
 	runGame(rooms, objArray, invArray);
 
@@ -212,7 +209,7 @@ continue_game:
 
 /*********************************************************************
  ** Function: examineRoom(struct Room *room, struct parse_command pc)
- ** Description: based on player input this function will print out 
+ ** Description: based on player input this function will print out
  ** 	descriptions of different feature, or call the appropriate
  ** 	function to interact with objects.
  ** Parameters: struct parse_command pc, struct Room *room
@@ -522,21 +519,61 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
 	}
 }
 
+/*********************************************************************
+ ** Function: hitFeature(struct parse_command pc, struct Room *room)
+ ** Description: function is used when a player chooses to hit something 
+ ** 	within the game. This could be an enemy to defeat or other features.
+ ** Parameters: struct parse_command pc, struct Room *room
+ ** Pre-Conditions: user must choose to hit a feature through the
+ ** 	command line.
+ ** Post-Conditions: Appropriate message is displayed afterwards. If against
+ ** 	enemy, it may be defeated through hit.
+ *********************************************************************/
 void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
-//	printf("pc.noun1: %s\n", pc.noun1);
-//	printf("pc.noun2: %s\n", pc.noun2);
+
+	// Loop through features in room
 	for (i = 0; i < MAX_FEATURES; i++) {
+
+		// check if feature matches user input
 		if (strcmp(pc.noun2, room->feature[i].name) == 0) {
+
+			// Loop through inventory
 			for (j = 0; j < invArray.invCount; j++) {
+
+				// check if object is used
 				if (strcmp(pc.noun1, invArray.name[j]) == 0) {
+
+					// If corect object is used to defeat enemy, eliminate obstacle
 					if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
 						printf("%s\n", room->feature[i].hit2);
 						strcpy(room->feature[i].enemy, "No");
+
+						// if enemy was blocking any exits, free them up
 						for (k = 0; k < room->numExits; k++) {
 							if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
 								strcpy(room->blockedBy[k], "NA");
 						}
+
+						// if feature is the dog, bone must be removed from inventory after given
+						if (strcmp(room->feature[i].name, "dog") == 0) {
+							for (k = j; k < invArray.invCount; k++) {
+								if (k == invArray.invCount - 1) {
+									invArray.name[k] = '\0';
+									invArray.room[k] = '\0';
+									invArray.usedFor[k] = '\0';
+									invArray.invCount--;
+
+									break;
+								}
+								else {
+									invArray.name[k] = invArray.name[k + 1];
+									invArray.room[k] = invArray.room[k + 1];
+									invArray.usedFor[k] = invArray.usedFor[k + 1];
+								}
+							}
+						}
+
 						return;
 					}
 					else {
@@ -567,6 +604,24 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 								for (k = 0; k < room->numExits; k++) {
 									if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
 										strcpy(room->blockedBy[k], "NA");
+								}
+
+								if (strcmp(room->feature[i].name, "dog") == 0) {
+									for (k = j; k < invArray.invCount; k++) {
+										if (k == invArray.invCount - 1) {
+											invArray.name[k] = '\0';
+											invArray.room[k] = '\0';
+											invArray.usedFor[k] = '\0';
+											invArray.invCount--;
+
+											break;
+										}
+										else {
+											invArray.name[k] = invArray.name[k + 1];
+											invArray.room[k] = invArray.room[k + 1];
+											invArray.usedFor[k] = invArray.usedFor[k + 1];
+										}
+									}
 								}
 								return;
 							}
