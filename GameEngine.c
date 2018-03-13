@@ -447,32 +447,32 @@ void dropObject(struct parsed_command pc, struct Room * room) {
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(pc.noun1, invArray.name[i]) == 0 || strcmp(pc.noun2, invArray.name[i]) == 0) {
 
-				for (j = i; j < invArray.invCount; j++) {
-					if (j == invArray.invCount - 1) {
-						invArray.name[j] = '\0';
-						invArray.room[j] = '\0';
-						invArray.usedFor[j] = '\0';
-						invArray.invCount--;
-						room->numObjects++;
+			for (j = i; j < invArray.invCount; j++) {
+				if (j == invArray.invCount - 1) {
+					invArray.name[j] = '\0';
+					invArray.room[j] = '\0';
+					invArray.usedFor[j] = '\0';
+					invArray.invCount--;
+					room->numObjects++;
 
-						for (k = 0; k < 9; k++)
+					for (k = 0; k < 9; k++)
+					{
+						if (strcmp(objArray[k].name, pc.noun1) == 0)
 						{
-							if (strcmp(objArray[k].name, pc.noun1) == 0)
-							{
-								strcpy(objArray[k].room, room->name);
-								strcpy(objArray[k].dropped, "yes");
-								printf("%s is now in %s\n", pc.noun1, room->name);
-							}
+							strcpy(objArray[k].room, room->name);
+							strcpy(objArray[k].dropped, "yes");
+							printf("%s is now in %s\n", pc.noun1, room->name);
 						}
-						break;
 					}
-					else {
-						invArray.name[j] = invArray.name[j + 1];
-						invArray.room[j] = invArray.room[j + 1];
-						invArray.usedFor[j] = invArray.usedFor[j + 1];
-					}
+					break;
 				}
-	//		}
+				else {
+					invArray.name[j] = invArray.name[j + 1];
+					invArray.room[j] = invArray.room[j + 1];
+					invArray.usedFor[j] = invArray.usedFor[j + 1];
+				}
+			}
+			//		}
 		}
 	}
 }
@@ -521,10 +521,11 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
  *********************************************************************/
 void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
-
+	printf("noun1: %s\n", pc.noun1);
+	printf("noun2: %s\n", pc.noun2);
 	//check if we are using a key and that it belongs to correct door
 	for (i = 0; i < invArray.invCount; i++) {
-		if (strcmp(invArray.name[i], "key") == 0) {
+		if (strcmp(invArray.name[i], "key") == 0 && strcmp(pc.noun1, "key") == 0) {
 			for (j = 0; j < room->numExits; j++) {
 				if (strcmp(room->exitDirection[j], invArray.usedFor[i]) == 0) {
 					printf("%s door is now unlocked\n", room->exitDirection[j]);
@@ -535,6 +536,11 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 			printf("wrong key for this door.\n");
 			return;
 		}
+	}
+
+
+	if (strcmp(pc.noun1, "key") == 0) {
+		printf("You do not have the key!\n");
 	}
 
 	// Loop through features in room
@@ -708,9 +714,12 @@ void save(struct Room *curRoom) {
 		memset(buff, '\0', sizeof(buff));
 		strcat(buff, input);
 
+		memset(newDir, '\0', sizeof(newDir));
+		strcpy(newDir, "gamestates/");
+		strcat(newDir, buff);
 
 		//check if directory exists
-		DIR *dir = opendir(buff);
+		DIR *dir = opendir(newDir);
 
 		if (dir) {
 			closedir(dir);
@@ -718,9 +727,6 @@ void save(struct Room *curRoom) {
 			printf("\nSave name already exists\n");
 		}
 		else if (ENOENT == errno) {
-			memset(newDir, '\0', sizeof(newDir));
-			strcpy(newDir, "gamestates/");
-			strcat(newDir, buff);
 			mkdir(newDir, 0700);
 
 			writeRoomData(rooms, buff);
