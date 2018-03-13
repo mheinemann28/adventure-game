@@ -446,17 +446,7 @@ void dropObject(struct parsed_command pc, struct Room * room) {
 	int i, j, k;
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(pc.noun1, invArray.name[i]) == 0 || strcmp(pc.noun2, invArray.name[i]) == 0) {
-			if (strcmp(invArray.name[i], "key") == 0) {
-				for (j = 0; j < room->numExits; j++) {
-					if (strcmp(room->exitDirection[j], invArray.usedFor[i]) == 0) {
-						printf("%s door is now unlocked\n", room->exitDirection[j]);
-						strcpy(room->blockedBy[j], "NA");
-						return;
-					}
-				}
-				printf("wrong key for this door.\n");
-			}
-			else {
+
 				for (j = i; j < invArray.invCount; j++) {
 					if (j == invArray.invCount - 1) {
 						invArray.name[j] = '\0';
@@ -482,7 +472,7 @@ void dropObject(struct parsed_command pc, struct Room * room) {
 						invArray.usedFor[j] = invArray.usedFor[j + 1];
 					}
 				}
-			}
+	//		}
 		}
 	}
 }
@@ -521,7 +511,7 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
 
 /*********************************************************************
  ** Function: hitFeature(struct parse_command pc, struct Room *room)
- ** Description: function is used when a player chooses to hit something 
+ ** Description: function is used when a player chooses to hit something
  ** 	within the game. This could be an enemy to defeat or other features.
  ** Parameters: struct parse_command pc, struct Room *room
  ** Pre-Conditions: user must choose to hit a feature through the
@@ -531,6 +521,21 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
  *********************************************************************/
 void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
+
+	//check if we are using a key and that it belongs to correct door
+	for (i = 0; i < invArray.invCount; i++) {
+		if (strcmp(invArray.name[i], "key") == 0) {
+			for (j = 0; j < room->numExits; j++) {
+				if (strcmp(room->exitDirection[j], invArray.usedFor[i]) == 0) {
+					printf("%s door is now unlocked\n", room->exitDirection[j]);
+					strcpy(room->blockedBy[j], "NA");
+					return;
+				}
+			}
+			printf("wrong key for this door.\n");
+			return;
+		}
+	}
 
 	// Loop through features in room
 	for (i = 0; i < MAX_FEATURES; i++) {
