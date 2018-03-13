@@ -269,10 +269,10 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 			else if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 1)
 			{
 				// if feature is blocked by enemy, let player know
-				if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
+				if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0 && strcmp(room->feature[i - 1].name, "dog") != 0) {
 					printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
 				}
-				if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0) {
+				if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0 && strcmp(room->feature[i + 1].name, "dog") != 0) {
 					printf("%s is blocking the %s\n", room->feature[i + 1].name, room->feature[i].name);
 				}
 				else
@@ -370,7 +370,13 @@ void takeObject(struct parsed_command pc, struct Room * room) {
 
 							// loop through objects in room data and remove object picked up
 							for (i = 0; i < room->numObjects; i++) {
-								if (strcmp(invArray.name[n], room->object[i]) == 0) {
+								if (strcmp(invArray.name[n], room->object[i]) == 0 && strcmp(room->name, "Animal Room") == 0) {
+									break;
+								}
+								else if (strcmp(invArray.name[n], room->object[i]) == 0) {
+									// remove object flag from feature
+									room->feature[k].containObject = 0;
+
 									strcpy(room->object[i], "NA");
 									room->numObjects--;
 								}
@@ -405,6 +411,9 @@ void takeObject(struct parsed_command pc, struct Room * room) {
 
 								room->numObjects--;
 
+								// remove object flag from feature
+								room->feature[k].containObject = 0;
+
 								strcpy(objArray[j].dropped, "no");
 
 								printf("%s was added to your inventory.\n", invArray.name[n]);
@@ -419,8 +428,7 @@ void takeObject(struct parsed_command pc, struct Room * room) {
 						}
 					}
 
-					// remove object flag from feature
-					room->feature[k].containObject = 0;
+
 
 					n = 0;
 				}
@@ -521,8 +529,7 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
  *********************************************************************/
 void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
-	printf("noun1: %s\n", pc.noun1);
-	printf("noun2: %s\n", pc.noun2);
+
 	//check if we are using a key and that it belongs to correct door
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(invArray.name[i], "key") == 0 && strcmp(pc.noun1, "key") == 0) {
