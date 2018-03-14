@@ -132,6 +132,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 	int i, j, m, n, k;
 	char *noun;
 	char *tempRoomName;
+	char *previousRoomName;
 	//buffer to hold keyboard input data
 	char inputBuff[255];
 	memset(inputBuff, '\0', sizeof(inputBuff));
@@ -139,6 +140,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 	for (i = 0; i < 15; i++) {
 		if (strcmp(rooms[i].type, "START") == 0) {
 			tempRoomName = rooms[i].name;
+			previousRoomName = tempRoomName;
 			strcpy(rooms[i].type, "MID");
 			break;
 		}
@@ -169,6 +171,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 
 				do {
 blocked_door:
+					printf("previous room: %s\n", previousRoomName);
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
 					//noun = pc.noun1;
@@ -176,15 +179,23 @@ blocked_door:
 					m = examineRoom(&rooms[i], pc);
 				} while (m == 0);
 
-
+				
 				for (j = 0; j < rooms[i].numExits; j++) {
 					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0 || strcmp(pc.noun1, rooms[i].exitDescription[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0) {
 
 						tempRoomName = rooms[i].Exits[j];
+						previousRoomName = rooms[i].name;
 
 						goto continue_game;
 					}
 					else if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0 || strcmp(pc.noun1, rooms[i].exitDescription[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0) {
+						if(strcmp(previousRoomName, rooms[i].Exits[j]) == 0){
+							strcpy(rooms[i].blockedBy[j], "NA");
+							tempRoomName = rooms[i].Exits[j];
+							previousRoomName = rooms[i].name;
+
+							goto continue_game;
+						}
 						if (strcmp(rooms[i].blockedBy[j], "key") == 0) {
 							printf("The door is locked, you must find the key\n");
 						}

@@ -34,7 +34,7 @@ EXIT1NAME: Cage Room
 EXIT2NAME: Courtyard
 EXIT3NAME: Cat Kingdom
 EXIT4NAME: NA
-EXIT1BLOCK: NA
+EXIT1BLOCK: serena williams
 EXIT2BLOCK: serena williams
 EXIT3BLOCK: serena williams
 EXIT4BLOCK: NA
