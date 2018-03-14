@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cafe
-LONGDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. It looks like you are in a cute little coffee shop. No one is around, which is odd because steaming hot coffee and warm cookies are sitting on the counter. Maybe you can find something useful in here. There is only 1 door to the west, from which you came.  
-SHORTDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. There is only 1 door to the west, from which you came.
+LONGDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. It looks like you are in a cute little coffee shop. No one is around, which is odd because steaming hot coffee and warm cookies are sitting on the counter. Maybe you can find something useful in here. There is only 1 door to the west with different animal sounds behind it.
+SHORTDESCRIPTION: As soon as you enter the room, the smell of freshed baked cookies, and coffee fill your nose. There is only 1 door to the west with different animal sounds behind it.
 FEATURENAME1: table
 F1CONTAINOBJECT: 1
 F1LOOK1: You could use a cup of coffee, and those cookies look good. but you notice something laying next to them, a magical wand.
@@ -38,5 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: bar music door
+EXIT2DESCRIPTION: animal sounds door
+EXIT3DESCRIPTION: NA
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: No

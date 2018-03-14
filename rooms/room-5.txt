@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Storage
-LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
-SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door with a chill in the air aura.
+LONGDESCRIPTION: You enter a storage room consisting of mostly empty shelves except for one shelf that has objects on it.  It looks like most of the items have been taken out of the storage room or that the storage room was barely used. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a door surrounded with ghostly chills.
+SHORTDESCRIPTION: You entered a storage room with shelves but only one shelf has items. There is a door to the east with a car sign on it. To the southwest there is a colorful door. To the southeast there is a spooky door.
 FEATURENAME1: shelf
 F1CONTAINOBJECT: 1
 F1LOOK1: shelf has many expired foods and a tennis racket (object) too high up on the shelf to reach. Half the body of the racket is hanging out from the shelf. Amazing how it didn’t fall off the shelf.
@@ -38,5 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: car sign door
+EXIT2DESCRIPTION: spooky door
+EXIT3DESCRIPTION: colorful door
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

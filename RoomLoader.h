@@ -47,6 +47,7 @@ struct Room {
 	char *exitDirection[MAX_EXITS];
 	char *Exits[MAX_EXITS];
 	char *blockedBy[MAX_EXITS]; // feature blocking door
+	char *exitDescription[MAX_EXITS];
 };
 
 

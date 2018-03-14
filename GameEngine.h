@@ -15,6 +15,7 @@
 #include "ObjectLoader.h"
 
 struct Room rooms[16];
+//struct Room rooms[1];
 struct Object objArray[9];
 struct Inventory invArray;
 struct parsed_command pc;
