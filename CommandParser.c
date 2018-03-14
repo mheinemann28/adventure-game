@@ -48,8 +48,8 @@ const int verb_help_synonyms_size = 2;
 const char *verb_help_synonyms[] = {"help","actions"};
 const int verb_inventory_synonyms_size = 4;
 const char *verb_inventory_synonyms[] = {"inventory","items","bag","objects"};
-const int verb_hit_synonyms_size = 13;
-const char *verb_hit_synonyms[] = {"hit","smack","fight","attack","charge","punch","kick","hurt","swing","give", "use", "unlock", "shine"};
+const int verb_hit_synonyms_size = 14;
+const char *verb_hit_synonyms[] = {"hit","smack","fight","attack","charge","punch","kick","hurt","swing","give", "use", "unlock", "shine", "throw"};
 const int verb_open_synonyms_size = 1;
 const char *verb_open_synonyms[] = {"open"};
 const int verb_move_synonyms_size = 2;
@@ -761,7 +761,7 @@ void getObjectFeaturePhrase(struct command_line* cl) {
 			return;
 		}
 	}
-	if(strstr(cl->processedInput, "dog") != NULL) {
+/*	if(strstr(cl->processedInput, "dog") != NULL) {
 		if (cl->noun1Index == -1) {
 			//add to noun1
 			memset(cl->noun1, '\0', sizeof(cl->noun1));
@@ -783,7 +783,7 @@ void getObjectFeaturePhrase(struct command_line* cl) {
 		} else {
 			return;
 		}
-	}
+	}*/
 	if(strstr(cl->processedInput, "giant spider") != NULL) {
 		if (cl->noun1Index == -1) {
 			//add to noun1
@@ -1278,6 +1278,20 @@ void getObjectFeatureWord(struct command_line* cl) {
 				return;
 			}
     	} 
+    	if (strcmp(cl->inputArray[i], "bone") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "bone");	
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "bone") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "bone");	
+ 				cl->noun2Index = i;
+			} else {
+				return;
+			}
+    	} 
     	if (strcmp(cl->inputArray[i], "key") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
@@ -1334,15 +1348,15 @@ void getObjectFeatureWord(struct command_line* cl) {
 				return;
 			}
     	} 
-    	if (strcmp(cl->inputArray[i], "key1") == 0) {
+    	if (strcmp(cl->inputArray[i], "flashlight") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
 				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "key1");	
+				strcpy(cl->noun1, "flashlight");	
 				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "key1") != 0)) {
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "flashlight") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "key1");	
+				strcpy(cl->noun2, "flashlight");	
  				cl->noun2Index = i;
 			} else {
 				return;

@@ -261,34 +261,16 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 		for (i = 0; i < MAX_FEATURES; i++)
 		{
 			// if feature is enemy and still alive print first description
-			if (strcmp(tempString, room->feature[i].name) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0) {
-				printf("%s\n", room->feature[i].description1);
-				room->feature[i].firstLook = 1;
-			}
-			// if feature contains an object print first description
-			else if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 1)
-			{
-				// if feature is blocked by enemy, let player know
-				if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0 && strcmp(room->feature[i - 1].name, "dog") != 0) {
-					printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
-				}
-				if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0 && strcmp(room->feature[i + 1].name, "dog") != 0) {
-					printf("%s is blocking the %s\n", room->feature[i + 1].name, room->feature[i].name);
-				}
-				else
+			if (strcmp(tempString, room->feature[i].name) == 0) {
+				if (strcmp(room->feature[i].enemy, "Yes") == 0 || i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0 || i == 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
 					printf("%s\n", room->feature[i].description1);
-			}
-			// if feature does not contain object or enemy is dead print description 2
-			else if (strcmp(tempString, room->feature[i].name) == 0 && room->feature[i].containObject == 0 && strcmp(room->feature[i].enemy, "No") == 0) {
-				// if blocked by enemy let player know
-				if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
-					printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
 				}
-				if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0) {
-					printf("%s is blocking the %s\n", room->feature[i + 1].name, room->feature[i].name);
+				else if (room->feature[i].containObject == 1) {
+					printf("%s\n", room->feature[i].description1);
 				}
-				else
+				else {
 					printf("%s\n", room->feature[i].description2);
+				}
 			}
 		}
 	}
@@ -498,20 +480,30 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
 	int i, j;
 	for (j = 0; j < room->numExits; j++) {
 		for (i = 0; i < MAX_FEATURES; i++) {
-			if (strcmp(room->blockedBy[j], room->feature[i].name) == 0 && strcmp(room->feature[i].name, pc.noun1) == 0) {
-				printf("%s\n", room->feature[i].move1);
+			if (strcmp(room->feature[i].name, pc.noun1) == 0) {
+				if (strcmp(room->blockedBy[j], room->feature[i].name) == 0) {
+					printf("%s\n", room->feature[i].move1);
 
-				strcpy(room->blockedBy[j], "NA");
+					strcpy(room->blockedBy[j], "NA");
 
-				return;
-			}
-			else if (strcmp(room->feature[i].name, pc.noun1) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0) {
-				printf("%s\n", room->feature[i].move1);
-				return;
-			}
-			else if (strcmp(room->feature[i].name, pc.noun1) == 0 && j == room->numExits - 1) {
-				printf("%s\n", room->feature[i].move2);
-				return;
+					return;
+				}
+				else if (strcmp(room->feature[i].name, pc.noun1) == 0 && strcmp(room->feature[i].enemy, "Yes") == 0) {
+					printf("%s\n", room->feature[i].move1);
+					return;
+				}
+				else if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
+					printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
+					return;
+				}
+				else if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0) {
+					printf("%s is blocking the %s\n", room->feature[i + 1].name, room->feature[i].name);
+					return;
+				}
+				else if (strcmp(room->feature[i].name, pc.noun1) == 0 && j == room->numExits - 1) {
+					printf("%s\n", room->feature[i].move2);
+					return;
+				}
 			}
 		}
 	}
@@ -529,6 +521,9 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
  *********************************************************************/
 void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
+
+	printf("noun1: %s\n", pc.noun1);
+	printf("noun2: %s\n", pc.noun2);
 
 	//check if we are using a key and that it belongs to correct door
 	for (i = 0; i < invArray.invCount; i++) {
@@ -555,12 +550,21 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 
 		// check if feature matches user input
 		if (strcmp(pc.noun2, room->feature[i].name) == 0) {
+			if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
+				printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
+				return;
+			}
+			else if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0) {
+				printf("%s is blocking the %s\n", room->feature[i + 1].name, room->feature[i].name);
+				return;
+			}
 
 			// Loop through inventory
 			for (j = 0; j < invArray.invCount; j++) {
 
 				// check if object is used
 				if (strcmp(pc.noun1, invArray.name[j]) == 0) {
+
 
 					// If corect object is used to defeat enemy, eliminate obstacle
 					if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
@@ -611,53 +615,68 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 		}
 		else if (strcmp(pc.noun1, room->feature[i].name) == 0)
 		{
+			if (i == MAX_FEATURES - 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
+				printf("%s is blocking the %s\n", room->feature[i - 1].name, room->feature[i].name);
+				return;
+			}
+			else if (i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0) {
+				printf("%s is blocking the %s\n", room->feature[i + 1].name, room->feature[i].name);
+				return;
+			}
 			//loop through object array to check if object needed for enemy
 			for (n = 0; n < 9; n++) {
 				if (strcmp(objArray[n].usedFor, room->feature[i].name) == 0) {
-					for (j = 0; j < invArray.invCount; j++) {
-						if (strcmp(pc.noun2, invArray.name[j]) == 0) {
-							if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
-								printf("%s\n", room->feature[i].hit2);
-								strcpy(room->feature[i].enemy, "No");
-								for (k = 0; k < room->numExits; k++) {
-									if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
-										strcpy(room->blockedBy[k], "NA");
-								}
+					if (strcmp(pc.noun2, objArray[n].name) == 0) {
+						for (j = 0; j < invArray.invCount; j++) {
 
-								if (strcmp(room->feature[i].name, "dog") == 0) {
-									for (k = j; k < invArray.invCount; k++) {
-										if (k == invArray.invCount - 1) {
-											invArray.name[k] = '\0';
-											invArray.room[k] = '\0';
-											invArray.usedFor[k] = '\0';
-											invArray.invCount--;
+							if (strcmp(pc.noun2, invArray.name[j]) == 0) {
 
-											break;
-										}
-										else {
-											invArray.name[k] = invArray.name[k + 1];
-											invArray.room[k] = invArray.room[k + 1];
-											invArray.usedFor[k] = invArray.usedFor[k + 1];
+								if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
+									printf("%s\n", room->feature[i].hit2);
+									strcpy(room->feature[i].enemy, "No");
+									for (k = 0; k < room->numExits; k++) {
+										if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
+											strcpy(room->blockedBy[k], "NA");
+									}
+
+									if (strcmp(room->feature[i].name, "dog") == 0) {
+										for (k = j; k < invArray.invCount; k++) {
+											if (k == invArray.invCount - 1) {
+												invArray.name[k] = '\0';
+												invArray.room[k] = '\0';
+												invArray.usedFor[k] = '\0';
+												invArray.invCount--;
+
+												break;
+											}
+											else {
+												invArray.name[k] = invArray.name[k + 1];
+												invArray.room[k] = invArray.room[k + 1];
+												invArray.usedFor[k] = invArray.usedFor[k + 1];
+											}
 										}
 									}
+									return;
 								}
+								else {
+									printf("%s does nothing to %s\n", invArray.name[j], room->feature[i].name);
+									return;
+								}
+							}
+							else if (strlen(pc.noun2) == 0) {
+								printf("%s\n", room->feature[i].hit1);
+								break;
+							}
+							else if (j == invArray.invCount - 1) {
+								printf("That is not in your inventory!\n");
 								return;
 							}
-							else {
-								printf("%s does nothing to %s\n", invArray.name[j], room->feature[i].name);
-								return;
-							}
-						}
-						else if (strlen(pc.noun2) == 0) {
-							printf("%s\n", room->feature[i].hit1);
-							break;
-						}
-						else if (j == invArray.invCount - 1) {
-							printf("That is not in your inventory!\n");
-							return;
 						}
 					}
-					if (invArray.invCount == 0) {
+					if (invArray.invCount == 0 && strlen(pc.noun2) > 0) {
+						printf("%s is not in your inventory.\n", pc.noun2);
+					}
+					else {
 						printf("%s\n", room->feature[i].hit1);
 					}
 					return;
@@ -710,8 +729,10 @@ void save(struct Room *curRoom) {
 				input[strlen(input) - 1] = '\0';
 
 			for (i = 0; i < strlen(input); i++) {
-				if (input[i] == ' ')
+				if (input[i] == ' ') {
 					printf("\nYou save name cannot contain any spaces.\n");
+					break;
+				}
 				else if (i == strlen(input) - 1) {
 					getName = 0;
 				}
