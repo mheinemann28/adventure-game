@@ -178,13 +178,13 @@ blocked_door:
 
 
 				for (j = 0; j < rooms[i].numExits; j++) {
-					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0) {
+					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0 || strcmp(pc.noun1, rooms[i].exitDescription[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0) {
 
 						tempRoomName = rooms[i].Exits[j];
 
 						goto continue_game;
 					}
-					else if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0) {
+					else if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0 || strcmp(pc.noun1, rooms[i].exitDescription[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0) {
 						if (strcmp(rooms[i].blockedBy[j], "key") == 0) {
 							printf("The door is locked, you must find the key\n");
 						}

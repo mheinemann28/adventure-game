@@ -1,7 +1,7 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Riddle Room
-LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. An electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky.
+LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. An electronic key pad on the wall. There is a storage sign door to the north. There is a door to the east that looks spooky.
 SHORTDESCRIPTION: You've entered the riddle room. There are notes on the table and an electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky.
 FEATURENAME1: notes
 F1CONTAINOBJECT: 0
@@ -38,5 +38,9 @@ EXIT1BLOCK: riddle
 EXIT2BLOCK: riddle
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: storage sign
+EXIT2DESCRIPTION: spooky
+EXIT3DESCRIPTION: NA
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: No

@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Animal Room
-LONGDESCRIPTION: You enter the room and it's as if you've been transported to some kind of farm.  There are cats rubbing up against your legs, Sheep and pigs wandering throughout, the walls made up of fish tanks.  There are bones on the ground beside you. A mean sheep dog stares you down. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit.
-SHORTDESCRIPTION: You've entered the animal room. There are books next to your legs and a mean sheep dog. To the north, you hear bar music coming through a door. To the east, you smell cookies through an exit.
+LONGDESCRIPTION: You enter the room and it's as if you've been transported to some kind of farm.  There are cats rubbing up against your legs, Sheep and pigs wandering throughout, the walls made up of fish tanks.  There are bones on the ground beside you. A mean sheep dog stares you down. To the north, you hear bar music coming through a door. To the east, there is a door with cookie smell behind it.
+SHORTDESCRIPTION: You've entered the animal room. There are books next to your legs and a mean sheep dog. To the north, you hear bar music coming through a door. To the east, there is a door with cookie smell behind it.
 FEATURENAME1: skeleton
 F1CONTAINOBJECT: 1
 F1LOOK1: One of the animals must have died here.
@@ -38,5 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: dog
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: bar music
+EXIT2DESCRIPTION: cookie smell
+EXIT3DESCRIPTION: NA
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

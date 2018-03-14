@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cat Kingdom
-LONGDESCRIPTION: You start sneezing when you enter this room. It’s not very big, yet there are at least 25 felines wandering around the room, climbing on the cat castle, or napping adorably in this cat kingdom. A tabby cat saunters over to you and looks up expectantly. She starts to purr. But you are distracted by a roar. Not ten feet from you stands a male lion. You start to tremble with fear. Good kitty? To the west, there is a musty exit. To the east, there is an exit with bright lights.
-SHORTDESCRIPTION: You’ve entered the cat kingdom. A tabby cat purrs at your feet and a lion paces ten feet from where you stand. To the west, there is a musty exit. To the east, there is an exit with bright lights.
+LONGDESCRIPTION: You start sneezing when you enter this room. It’s not very big, yet there are at least 25 felines wandering around the room, climbing on the cat castle, or napping adorably in this cat kingdom. A tabby cat saunters over to you and looks up expectantly. She starts to purr. But you are distracted by a roar. Not ten feet from you stands a male lion. You start to tremble with fear. Good kitty? To the west, there is a musty door. To the east, there is an door with bright lights.
+SHORTDESCRIPTION: You’ve entered the cat kingdom. A tabby cat purrs at your feet and a lion paces ten feet from where you stand. To the west, there is a musty door. To the east, there is an door with bright lights.
 FEATURENAME1: tabby cat
 F1CONTAINOBJECT: 0
 F1LOOK1: A beautiful cat, spotted with orange, black, and yellow.
@@ -38,5 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: bright lights
+EXIT2DESCRIPTION: musty
+EXIT3DESCRIPTION: NA
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

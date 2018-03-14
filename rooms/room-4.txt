@@ -5,8 +5,8 @@ LONGDESCRIPTION: You enter a garage with a car but garage door can’t open.  Th
 SHORTDESCRIPTION: You’ve entered a garage with a car but garage door can’t open. There is a door to the west with storage sign on it.  There is a door to the east where bar music can be heard playing behind it.
 FEATURENAME1: car
 F1CONTAINOBJECT: 1
-F1LOOK1: It’s a beat up ford mustang.
-F1LOOK2: It’s a beat up ford mustang.
+F1LOOK1: It’s a beat up ford mustang and the trunk is not closed all the way.
+F1LOOK2: It’s a beat up ford mustang and the trunk is not closed all the way.
 F1HIT1: Hitting the car only hurts your hand.
 F1HIT2: Hitting the car only hurts your hand.
 F1OPEN1: Open trunk to reveal catnip.
@@ -35,8 +35,12 @@ EXIT2NAME: Storage
 EXIT3NAME: NA
 EXIT4NAME: NA
 EXIT1BLOCK: NA
-EXIT2BLOCK: NA
+EXIT2BLOCK: dog
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: bar music
+EXIT2DESCRIPTION: storage sign
+EXIT3DESCRIPTION: NA
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

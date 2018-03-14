@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Courtyard
-LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
-SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northwest corner, there is a musty exit. In the southwest corner, there is a creepy exit. To the east, there is an exit with bright lights. To the south there is a moldy smelling exit.
+LONGDESCRIPTION: As you enter this space, you are greeted by the warm glow of sunshine. There is no ceiling between you and blue skies in this courtyard. You hear a few blue birds sing in the trees around you. In the center of the courtyard is a fountain with a fish spouting water in the air. Under one of the trees is a hammock. It looks super comfy. In the northwest corner, there is a musty door. In the southwest corner, there is a creepy door. To the east, there is an door with bright lights. To the south there is a dark and damp door.
+SHORTDESCRIPTION: You’ve entered the courtyard. A fountain is in the middle. A hammock hangs from one of the trees. In the northwest corner, there is a musty door. In the southwest corner, there is a creepy door. To the east, there is an exit with bright lights. To the south there is a dark and damp door.
 FEATURENAME1: fountain
 F1CONTAINOBJECT: 0
 F1LOOK1: Large and circular. There are pennies, nickels, and dimes resting in the water. Remnants of someone’s wish? A sparkly fish statue spits water in the air.
@@ -38,5 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: bright lights
+EXIT2DESCRIPTION: dark and damp
+EXIT3DESCRIPTION: creepy
+EXIT4DESCRIPTION: musty
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

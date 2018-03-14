@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Cage Room
-LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. There is a door to the west with sounds of balls being hit coming from it. There is a door to the east that has a musical note on it. 
-SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. There is a door to the west with sounds of balls being hit coming from it. There is a door to the east that has a musical note on it. 
+LONGDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. The room’s floor is covered with bat feces and really stinks. To the west there is a door with bright lights. There is a door to the east that has a music note on it. 
+SHORTDESCRIPTION: The Room has a broken cage hanging from the ceiling with a bat flying around. To the west there is a door with bright lights. There is a door to the east that has a music note on it. 
 FEATURENAME1: cage
 F1CONTAINOBJECT: 0
 F1LOOK1: The cage hanging from the ceiling is broken. No way to cage the bat anymore.
@@ -35,8 +35,12 @@ EXIT2NAME: Tennis Court
 EXIT3NAME: NA
 EXIT4NAME: NA
 EXIT1BLOCK: NA
-EXIT2BLOCK: NA
+EXIT2BLOCK: bat
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
+EXIT1DESCRIPTION: music note
+EXIT2DESCRIPTION: bright lights
+EXIT3DESCRIPTION: NA
+EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes
