@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Ghost Room
-LONGDESCRIPTION: As you walk in you notice a chill in the air. You get an eerie feeling as if you are being watched. The moonlight illuminates the room from the window and lights up a desk. You notice a rocking chair in the center of the room that seems to be moving on its own. As you creep closer you begin to see it, the ghost of an old man sitting in the chair. To the north, there is a door with a storage sign on it. To the west, there is a riddle covered door.
-SHORTDESCRIPTION: You've entered the ghost room. There is a ghost sitting in a rocking chair next to a desk. To the north, there is a door with a storage sign on it. To the west, there is a riddle covered door.
+LONGDESCRIPTION: As you walk in you notice a chill in the air. You get an eerie feeling as if you are being watched. The moonlight illuminates the room from the window and lights up a desk. You notice a rocking chair in the center of the room that seems to be moving on its own. As you creep closer you begin to see it, the ghost of an old man sitting in the chair. To the north, there is a door with a storage sign on it. To the west, there is a colorful door.
+SHORTDESCRIPTION: You've entered the ghost room. There is a ghost sitting in a rocking chair next to a desk. To the north, there is a door with a storage sign on it. To the west, there is a colorful door.
 FEATURENAME1: desk
 F1CONTAINOBJECT: 0
 F1LOOK1: An old desk. There is an old letter on it addressed to a Harold Smith.
@@ -38,8 +38,8 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
-EXIT1DESCRIPTION: storage sign door
-EXIT2DESCRIPTION: riddle covered door
+EXIT1DESCRIPTION: storage sign
+EXIT2DESCRIPTION: colorful
 EXIT3DESCRIPTION: NA
 EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No

@@ -396,10 +396,20 @@ void getExit(struct command_line* cl) {
     	}	
     	return;
 	}
-	if(strstr(cl->processedInput, "smell cookies") != NULL) {
-    	strcpy(cl->noun1, "smell cookies");	
+	//changed smell cookies to cookie smell. I think it is easier like this?
+	if(strstr(cl->processedInput, "cookie smell") != NULL) {
+    	strcpy(cl->noun1, "cookie smell");	
     	for (i = 0; i < cl->inputArraySize; i++) {
-    		if (strcmp(cl->inputArray[i], "cookies") == 0) {
+    		if (strcmp(cl->inputArray[i], "smell") == 0) {
+    			cl->noun1Index = i;
+    		}
+    	}	
+    	return;
+	}
+	if(strstr(cl->processedInput, "animal sounds") != NULL) {
+    	strcpy(cl->noun1, "animal sounds");	
+    	for (i = 0; i < cl->inputArraySize; i++) {
+    		if (strcmp(cl->inputArray[i], "sounds") == 0) {
     			cl->noun1Index = i;
     		}
     	}	
@@ -507,18 +517,34 @@ void getExit(struct command_line* cl) {
     		cl->noun1Index = i;
     		return;
     	}
+		/*
     	if (strcmp(cl->inputArray[i], "pig") == 0) {
 			strcpy(cl->noun1, "pig");
     		cl->noun1Index = i;
     		return;
     	}
+		*/
+		//replaced pig with animal sounds
+		if (strcmp(cl->inputArray[i], "sounds") == 0) {
+			strcpy(cl->noun1, "animal sounds");
+    		cl->noun1Index = i;
+    		return;
+    	}
+		if (strcmp(cl->inputArray[i], "sound") == 0) {
+			strcpy(cl->noun1, "animal sounds");
+    		cl->noun1Index = i;
+    		return;
+    	}
+		/*
     	if (strcmp(cl->inputArray[i], "confusion") == 0) {
 			strcpy(cl->noun1, "confusing");
     		cl->noun1Index = i;
     		return;
     	}
-    	if (strcmp(cl->inputArray[i], "confusing") == 0) {
-			strcpy(cl->noun1, "confusing");
+		*/
+		//replaced confusion with colorful
+    	if (strcmp(cl->inputArray[i], "colorful") == 0) {
+			strcpy(cl->noun1, "colorful");
     		cl->noun1Index = i;
     		return;
     	}
@@ -527,13 +553,20 @@ void getExit(struct command_line* cl) {
     		cl->noun1Index = i;
     		return;
     	}
-    	if (strcmp(cl->inputArray[i], "cookie") == 0) {
+    	if (strcmp(cl->inputArray[i], "smell") == 0) {
+			strcpy(cl->noun1, "cookie smell");
+    		cl->noun1Index = i;
+    		return;
+    	}
+		/*
+    	if (strcmp(cl->inputArray[i], "cookies") == 0) {
 			strcpy(cl->noun1, "smell cookies");
     		cl->noun1Index = i;
     		return;
     	}
-    	if (strcmp(cl->inputArray[i], "cookies") == 0) {
-			strcpy(cl->noun1, "smell cookies");
+		*/
+		if (strcmp(cl->inputArray[i], "exit") == 0) {
+			strcpy(cl->noun1, "exit");
     		cl->noun1Index = i;
     		return;
     	}

@@ -1,8 +1,8 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Doll Room
-LONGDESCRIPTION: Your hair stands on end as you enter this room. Three shelves line the four walls of this room, containing dolls of all shapes and sizes. You swear their eyes follow you as you make your way to the center of the room. Once you get there, you bump into a crib. A baby doll rests inside. To the left is a life size barbie. To the north, there is a musty door. To the east, there is an exit blowing in fresh air. To the south, there is a moldy smelling door.
-SHORTDESCRIPTION: You’ve entered the doll room. There is a crib with a baby doll and a life size barbie in the center of the room. To the north, there is a musty door. To the east, there is door blowing in fresh air. To the south, there is a moldy smelling door.
+LONGDESCRIPTION: Your hair stands on end as you enter this room. Three shelves line the four walls of this room, containing dolls of all shapes and sizes. You swear their eyes follow you as you make your way to the center of the room. Once you get there, you bump into a crib. A baby doll rests inside. To the left is a life size barbie. To the north, there is a musty door. To the east, there is an exit blowing in fresh air. To the south, there is a dark and damp door.
+SHORTDESCRIPTION: You’ve entered the doll room. There is a crib with a baby doll and a life size barbie in the center of the room. To the north, there is a musty door. To the east, there is door blowing in fresh air. To the south, there is a dark and damp door.
 FEATURENAME1: baby doll
 F1CONTAINOBJECT: 0
 F1LOOK1: It is hairless and ugly. Perhaps a child’s former favorite toy, well used.
@@ -38,9 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
-EXIT1DESCRIPTION: musty door
-EXIT2DESCRIPTION: fresh air door
-EXIT3DESCRIPTION: moldy smelling door
+EXIT1DESCRIPTION: musty
+EXIT2DESCRIPTION: fresh air
+EXIT3DESCRIPTION: dark and damp
 EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes

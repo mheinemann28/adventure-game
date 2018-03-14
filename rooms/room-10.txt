@@ -38,9 +38,9 @@ EXIT1BLOCK: NA
 EXIT2BLOCK: serena williams
 EXIT3BLOCK: serena williams
 EXIT4BLOCK: NA
-EXIT1DESCRIPTION: fluttering noise door
-EXIT2DESCRIPTION: fresh air door
-EXIT3DESCRIPTION: animal hair covered door
+EXIT1DESCRIPTION: fluttering noise
+EXIT2DESCRIPTION: fresh air
+EXIT3DESCRIPTION: animal hair
 EXIT4DESCRIPTION: NA
 FEATURE1ENEMY?: No
 FEATURE2ENEMY?: Yes
