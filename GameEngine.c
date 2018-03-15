@@ -311,10 +311,37 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 	// if user chooses to save game
 	else if (strcmp(pc.verb, "save") == 0)
 		save(room);
+	else if(strcmp(pc.verb, "help") == 0)
+		list();
 	// if user command is not listed
 	else
 		printf("your command is not recognized\n");
 	return 0;
+}
+
+/*********************************************************************
++ ** Function: list()
++ ** Description: list a set of verbs the game understands but not all 
++ ** 	verbs because the natural language parser can understand synonyms.
++ ** Parameters: NA
++ ** Pre-Conditions: user must type help in 
++ ** 	command line.
++ ** Post-Conditions: prints a list of basic verbs the game understands
++ *********************************************************************/
+
+void list()
+{
+	printf("\n\tHere is a list of potential action words and synonyms that can be used in the game:\n");
+	
+	printf("\t\tlook/look at: see, describe, examine\n\n");
+	printf("\t\tgo: depart, exit\n\n");
+	printf("\t\ttake: grab, pick up, get\n\n");
+	printf("\t\thelp: actions\n\n");
+	printf("\t\tinventory: items, bag, objects\n\n");
+	printf("\t\thit: smack, fight, attack, charge, punch, kick, hurt, swing, give, use, unlock, shine, throw\n\n");
+	printf("\t\topen:\n\n");
+	printf("\t\tmove: push\n\n");
+	printf("\t\tdrop: leave, place, put\n\n");
 }
 
 /*********************************************************************

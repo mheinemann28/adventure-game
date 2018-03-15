@@ -30,5 +30,6 @@ void moveFeature(struct parsed_command pc, struct Room *room);
 void hitFeature(struct parsed_command pc, struct Room *room);
 void openFeature(struct parsed_command pc, struct Room *room);
 void save(struct Room *curRoom);
+void list();
 
 #endif

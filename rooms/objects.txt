@@ -4,7 +4,7 @@ USEDFOR: west
 DROPPED1: no
 OBJECT2NAME: crowbar
 OBJECT2STARTROOM: Basement
-USEDFOR: southwest door lock
+USEDFOR: lock
 DROPPED2: no
 OBJECT3NAME: bone
 OBJECT3STARTROOM: Animal Room
