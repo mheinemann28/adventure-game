@@ -1137,7 +1137,7 @@ void getObjectFeatureWord(struct command_line * cl) {
 				memset(cl->noun1, '\0', sizeof(cl->noun1));
 				strcpy(cl->noun1, "giant spider");
 				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "spider") != 0)) {
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "giant spider") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
 				strcpy(cl->noun2, "giant spider");
 				cl->noun2Index = i;
