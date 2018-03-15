@@ -283,6 +283,30 @@ void writeRoomData(Room *room, char newDirName[256]) {
 		fputs(buff, file);
 
 		memset(buff, '\0', sizeof(buff));
+		strcpy(buff, "EXIT1DESCRIPTION: ");
+		strcat(buff, room[i].exitDescription[0]);
+		strcat(buff, "\n");
+		fputs(buff, file);
+
+		memset(buff, '\0', sizeof(buff));
+		strcpy(buff, "EXIT2DESCRIPTION: ");
+		strcat(buff, room[i].exitDescription[1]);
+		strcat(buff, "\n");
+		fputs(buff, file);
+
+		memset(buff, '\0', sizeof(buff));
+		strcpy(buff, "EXIT3DESCRIPTION: ");
+		strcat(buff, room[i].exitDescription[2]);
+		strcat(buff, "\n");
+		fputs(buff, file);
+
+		memset(buff, '\0', sizeof(buff));
+		strcpy(buff, "EXIT4DESCRIPTION: ");
+		strcat(buff, room[i].exitDescription[3]);
+		strcat(buff, "\n");
+		fputs(buff, file);
+
+		memset(buff, '\0', sizeof(buff));
 		strcpy(buff, "FEATURE1ENEMY?: ");
 		strcat(buff, room[i].feature[0].enemy);
 		strcat(buff, "\n");

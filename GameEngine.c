@@ -171,7 +171,7 @@ void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invAr
 
 				do {
 blocked_door:
-					printf("previous room: %s\n", previousRoomName);
+
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
 					//noun = pc.noun1;
@@ -179,7 +179,7 @@ blocked_door:
 					m = examineRoom(&rooms[i], pc);
 				} while (m == 0);
 
-				
+
 				for (j = 0; j < rooms[i].numExits; j++) {
 					if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0 || strcmp(pc.noun1, rooms[i].exitDescription[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") == 0) {
 
@@ -189,10 +189,10 @@ blocked_door:
 						goto continue_game;
 					}
 					else if (strcmp(pc.noun1, rooms[i].exitDirection[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0 || strcmp(pc.noun1, rooms[i].exitDescription[j]) == 0 && strcmp(rooms[i].blockedBy[j], "NA") != 0) {
-						if(strcmp(previousRoomName, rooms[i].Exits[j]) == 0){
+						if (strcmp(previousRoomName, rooms[i].Exits[j]) == 0) {
 							strcpy(rooms[i].blockedBy[j], "NA");
 							tempRoomName = rooms[i].Exits[j];
-							previousRoomName = rooms[i].name;
+
 
 							goto continue_game;
 						}
@@ -209,7 +209,8 @@ blocked_door:
 			}
 		}
 continue_game:
-		//	printf("i: %d\n", i);
+		previousRoomName = rooms[i].name;
+
 		if (strcmp(rooms[i].type, "END") == 0)
 		{
 			printf("Reached the end. \n");
@@ -533,9 +534,6 @@ void moveFeature(struct parsed_command pc, struct Room * room) {
 void hitFeature(struct parsed_command pc, struct Room * room) {
 	int i, j, k, n;
 
-	printf("noun1: %s\n", pc.noun1);
-	printf("noun2: %s\n", pc.noun2);
-
 	//check if we are using a key and that it belongs to correct door
 	for (i = 0; i < invArray.invCount; i++) {
 		if (strcmp(invArray.name[i], "key") == 0 && strcmp(pc.noun1, "key") == 0) {
@@ -575,7 +573,6 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 
 				// check if object is used
 				if (strcmp(pc.noun1, invArray.name[j]) == 0) {
-
 
 					// If corect object is used to defeat enemy, eliminate obstacle
 					if (strcmp(invArray.usedFor[j], room->feature[i].name) == 0) {
@@ -637,6 +634,7 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 			//loop through object array to check if object needed for enemy
 			for (n = 0; n < 9; n++) {
 				if (strcmp(objArray[n].usedFor, room->feature[i].name) == 0) {
+					
 					if (strcmp(pc.noun2, objArray[n].name) == 0) {
 						for (j = 0; j < invArray.invCount; j++) {
 
@@ -696,6 +694,13 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 
 			printf("%s\n", room->feature[i].hit2);
 			strcpy(room->feature[i].enemy, "No");
+
+			// if enemy was blocking any exits, free them up
+			for (k = 0; k < room->numExits; k++) {
+				if (strcmp(room->blockedBy[k], room->feature[i].name) == 0)
+					strcpy(room->blockedBy[k], "NA");
+			}
+
 			return;
 		}
 	}

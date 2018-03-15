@@ -1,28 +1,28 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Tennis Court
-LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. A tennis ball rolls towards you and stops at your feet. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northwest corner, there is a animal hair covered door. In the southwest corner, there is a door blowing in fresh air onto the tennis court. To the east, there is an exit with fluttering noise behind the exit door.
-SHORTDESCRIPTION: You’ve entered the tennis court. A tennis ball rests at your feet. Serena Williams stands on the opposite side of the court. In the northwest corner, there is a animal hair covered door. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. to the east, there is an exit with fluttering noise behind the exit door.
-FEATURENAME1: tennis ball
+LONGDESCRIPTION: As you enter the room, you are blinded by the bright lights hovering over a tennis court. There are around thirty people sitting in the stands eyeing the court with interest. On the opposite side of the court Serena Williams is lost in thought. Is she at practice? Is she waiting on her next opponent to appear through the door? In the northwest corner, there is a animal hair covered door. In the southwest corner, there is a door blowing in fresh air onto the tennis court. To the east, there is an exit with fluttering noise behind the exit door.
+SHORTDESCRIPTION: You’ve entered the tennis court. Serena Williams stands on the opposite side of the court. In the northwest corner, there is a animal hair covered door. In the southwest corner, there is an exit blowing in fresh air onto the tennis court. to the east, there is an exit with fluttering noise behind the exit door.
+FEATURENAME1: tennis court
 F1CONTAINOBJECT: 0
-F1LOOK1: A Wilson brand tennis ball. Yellow and very fuzzy
-F1LOOK2: A Wilson brand tennis ball. Yellow and very fuzzy
-F1HIT1: You hit a nice shot to the corner of court, serena cannot make it to the ball. You have beat her at her own game.
-F1HIT2: You hit a nice shot to the corner of court, serena cannot make it to the ball. You have beat her at her own game.
-F1OPEN1: It doesn’t open.
-F1OPEN2: It doesn't open.
-F1MOVE1: It rolls across the floor. Be careful not to roll your ankle.
-F1MOVE2: It rolls across the floor. Be careful not to roll your ankle.
+F1LOOK1: You step onto a well lit, finely manacured grass court. It looks like something out of Wimbledon. You notice someone bouncing a ball on the opposite end. It's Serena Williams and she looks like she's ready to serve.
+F1LOOK2: You step onto a well lit, finely manacured grass court. It look like something out of Wimbledon. You notice someone bouncing a ball on the opposite end. It's Serena Williams and she looks like she's ready to serve.
+F1HIT1: Why ruin this beautiful court?
+F1HIT2: Why ruin this beautiful court?
+F1OPEN1: Nothing to open.
+F1OPEN2: Nothing to open.
+F1MOVE1: That's impossible!
+F1MOVE2: That's impossible!
 FEATURENAME2: serena williams
 F2CONTAINOBJECT: 0
-F2LOOK1: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and prepares to swing a powerful serve in your direction. What do you do?
+F2LOOK1: Serena Williams steps towards the base line, tosses a tennis ball in front of her, and hits a powerful serve in your direction. What do you do?
 F2LOOK2: Serena Williams is stunned by your winner.
-F2HIT1: Why would you want to hurt serena?
-F2HIT2: Why would you want to hurt serena?
+F2HIT1: Make sure you use your tennis racket.
+F2HIT2: You hit a nice shot to the corner of court, serena cannot make it to the ball. You have beat her at her own game.
 F2OPEN1: You can't do that.
 F2OPEN2: You can't do that.
-F2MOVE1: Serena holds her ground.
-F2MOVE2: Don't push Serena!
+F2MOVE1: You can't do that.
+F2MOVE2: You can't do that.
 NUMOBJ: 0
 OBJECT: NA
 NUMEXITS: 3

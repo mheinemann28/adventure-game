@@ -37,8 +37,8 @@ const char *stop_words[] = {"a", "about", "above", "after", "again", "against",
                             "whys", "with", "wont", "would", "wouldnt", "you", "youd", "youll",
                             "youre", "youve", "your", "yours", "yourself", "yourselves", "around"
                            };
-const int verb_look_synonyms_size = 5;
-const char *verb_look_synonyms[] = {"look", "see", "describe", "examine", "look at"};
+const int verb_look_synonyms_size = 4;
+const char *verb_look_synonyms[] = {"look", "see", "describe", "examine"};
 const int verb_go_synonyms_size = 3;
 const char *verb_go_synonyms[] = {"go", "depart", "exit"};
 const int verb_take_synonyms_size = 4;
@@ -634,22 +634,22 @@ void getObjectFeaturePhrase(struct command_line * cl) {
 			return;
 		}
 	}
-	if (strstr(cl->processedInput, "tennis ball") != NULL) {
+	if (strstr(cl->processedInput, "tennis court") != NULL) {
 		if (cl->noun1Index == -1) {
 			//add to noun1
 			memset(cl->noun1, '\0', sizeof(cl->noun1));
-			strcpy(cl->noun1, "tennis ball");
+			strcpy(cl->noun1, "tennis court");
 			for (i = 0; i < cl->inputArraySize; i++) {
-				if (strcmp(cl->inputArray[i], "ball") == 0) {
+				if (strcmp(cl->inputArray[i], "court") == 0) {
 					cl->noun1Index = i;
 				}
 			}
-		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "tennis ball") != 0)) {
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "tennis court") != 0)) {
 			//add to noun2
 			memset(cl->noun2, '\0', sizeof(cl->noun2));
-			strcpy(cl->noun2, "tennis ball");
+			strcpy(cl->noun2, "tennis court");
 			for (i = 0; i < cl->inputArraySize; i++) {
-				if (strcmp(cl->inputArray[i], "ball") == 0) {
+				if (strcmp(cl->inputArray[i], "court") == 0) {
 					cl->noun1Index = 1;
 				}
 			}
@@ -765,6 +765,29 @@ void getObjectFeaturePhrase(struct command_line * cl) {
 			strcpy(cl->noun2, "magical wand");
 			for (i = 0; i < cl->inputArraySize; i++) {
 				if (strcmp(cl->inputArray[i], "wand") == 0) {
+					cl->noun1Index = 1;
+				}
+			}
+		} else {
+			return;
+		}
+	}
+	if (strstr(cl->processedInput, "flashlight") != NULL) {
+		if (cl->noun1Index == -1) {
+			//add to noun1
+			memset(cl->noun1, '\0', sizeof(cl->noun1));
+			strcpy(cl->noun1, "flashlight");
+			for (i = 0; i < cl->inputArraySize; i++) {
+				if (strcmp(cl->inputArray[i], "flashlight") == 0) {
+					cl->noun1Index = i;
+				}
+			}
+		} else if (cl->noun2Index == -1 && (strcmp(cl->noun1, "flashlight") != 0)) {
+			//add to noun2
+			memset(cl->noun2, '\0', sizeof(cl->noun2));
+			strcpy(cl->noun2, "flashlight");
+			for (i = 0; i < cl->inputArraySize; i++) {
+				if (strcmp(cl->inputArray[i], "flashlight") == 0) {
 					cl->noun1Index = 1;
 				}
 			}
@@ -888,11 +911,11 @@ void getObjectFeatureWord(struct command_line * cl) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
 				memset(cl->noun1, '\0', sizeof(cl->noun1));
-				strcpy(cl->noun1, "tennis ball");
+				strcpy(cl->noun1, "serena williams");
 				cl->noun1Index = i;
-			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tennis ball") != 0)) {
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "serena williams") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
-				strcpy(cl->noun2, "tennis ball");
+				strcpy(cl->noun2, "serena williams");
 				cl->noun2Index = i;
 			} else {
 				return;
@@ -1359,7 +1382,7 @@ void getObjectFeatureWord(struct command_line * cl) {
 				return;
 			}
 		}
-		if (strcmp(cl->inputArray[i], "flashlight") == 0) {
+		if (strcmp(cl->inputArray[i], "light") == 0) {
 			if (cl->noun1Index == -1) {
 				//add to noun1
 				memset(cl->noun1, '\0', sizeof(cl->noun1));
@@ -1368,6 +1391,34 @@ void getObjectFeatureWord(struct command_line * cl) {
 			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "flashlight") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
 				strcpy(cl->noun2, "flashlight");
+				cl->noun2Index = i;
+			} else {
+				return;
+			}
+		}
+		if (strcmp(cl->inputArray[i], "racket") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "tennis racket");
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tennis racket") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "tennis racket");
+				cl->noun2Index = i;
+			} else {
+				return;
+			}
+		}
+		if (strcmp(cl->inputArray[i], "court") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "tennis court");
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "tennis court") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "tennis court");
 				cl->noun2Index = i;
 			} else {
 				return;

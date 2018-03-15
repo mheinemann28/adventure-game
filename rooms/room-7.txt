@@ -15,7 +15,7 @@ F1MOVE1: You see more bones.
 F1MOVE2: You see more bones.
 FEATURENAME2: dog
 F2CONTAINOBJECT: 0
-F2LOOK1: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybed you can distract it with something. What do you do?
+F2LOOK1: The dog is foaming at the mouth, barking at you viciously.  There is no way you can get through that door without getting attacked.  Maybe you can distract it with something. What do you do?
 F2LOOK2: The dog is too interested in its bone to care about you.
 F2HIT1: That did not work on this dog. Maybe there is another way?
 F2HIT2: The dog runs away with his bone, leaving the door free.

@@ -12,7 +12,7 @@ USEDFOR: dog
 DROPPED3: no
 OBJECT4NAME: tennis racket
 OBJECT4STARTROOM: Storage
-USEDFOR: tennis ball
+USEDFOR: serena williams
 DROPPED4: no
 OBJECT5NAME: book
 OBJECT5STARTROOM: Library
