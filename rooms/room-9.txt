@@ -1,30 +1,30 @@
 VISITED: 0
 ROOMTYPE: MID
 ROOMNAME: Riddle Room
-LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. An electronic key pad on the wall. There is a storage sign door to the north. There is a door to the east that looks spooky.
-SHORTDESCRIPTION: You've entered the riddle room. There are notes on the table and an electronic key pad on the wall. There is a north exit with a storage sign. There is a door to the east that looks spooky.
-FEATURENAME1: notes
+LONGDESCRIPTION: You are met with bright lights and vibrant colors as soon as you enter the room. It is almost blinding, taking your eyes some time to adjust. Besides the colorful walls, the room is strangely bare. A small table on a tie dye rug with notes on it. There is a storage sign door to the north. There is a door to the east that looks spooky.
+SHORTDESCRIPTION: You've entered the riddle room. There are noteson the table. There is a north exit with a storage sign. There is a door to the east that looks spooky.
+FEATURENAME1: riddle 1
 F1CONTAINOBJECT: 0
-F1LOOK1: It is a riddle. "You buy me to eat, but never eat me. What am I?"
-F1LOOK2: It is a riddle. "You buy me to eat, but never eat me. What am I?"
-F1HIT1: Nothing happens.
-F1HIT2: Nothing happens.
+F1LOOK1: "You buy me to eat, but never eat me. What am I?"
+F1LOOK2: "You buy me to eat, but never eat me. What am I?"
+F1HIT1: Sorry try again.
+F1HIT2: That's it! You may proceed.
 F1OPEN1: Paper can't open.
 F1OPEN2: Paper can't open.
-F1MOVE1: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
-F1MOVE2: You see another note with another riddle. "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
-FEATURENAME2: keypad
+F1MOVE1: You move the riddle but nothing happens.
+F1MOVE2: You move the riddle but nothing happens.
+FEATURENAME2: riddle 2
 F2CONTAINOBJECT: 0
-F2LOOK1: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
-F2LOOK2: A math puzzle. "Find a 10-digit number where the first digit is how many zeros in the number, the second digit is how many 1s in the number etc. until the tenth digit which is how many 9s in the number."
-F2HIT1: Careful don't break it.
-F2HIT2: Careful don't break it.
-F2OPEN1: Maybe answer the puzzle.
-F2OPEN2: Maybe answer the puzzle.
-F2MOVE1: You can't move it
-F2MOVE2: You can't move it
-NUMOBJ: 1
-OBJECT: riddle
+F2LOOK1: "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
+F2LOOK2: "A man was stabbed in the heart, no one tried to save him but he didn’t die. How is that possible?"
+F2HIT1: Sorry try again.
+F2HIT2: That's it! You may proceed.
+F2OPEN1: Paper can't open.
+F2OPEN2: Paper can't open.
+F2MOVE1: You move the riddle but nothing happens.
+F2MOVE2: You move the riddle but nothing happens.
+NUMOBJ: 0
+OBJECT: NA
 NUMEXITS: 2
 EXIT1DIRECTION: north
 EXIT2DIRECTION: east
@@ -34,13 +34,13 @@ EXIT1NAME: Storage
 EXIT2NAME: Ghost Room
 EXIT3NAME: NA
 EXIT4NAME: NA
-EXIT1BLOCK: riddle
-EXIT2BLOCK: riddle
+EXIT1BLOCK: NA
+EXIT2BLOCK: NA
 EXIT3BLOCK: NA
 EXIT4BLOCK: NA
 EXIT1DESCRIPTION: storage sign
 EXIT2DESCRIPTION: spooky
 EXIT3DESCRIPTION: NA
 EXIT4DESCRIPTION: NA
-FEATURE1ENEMY?: No
-FEATURE2ENEMY?: No
+FEATURE1ENEMY?: Yes
+FEATURE2ENEMY?: Yes
