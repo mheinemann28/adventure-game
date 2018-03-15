@@ -13,10 +13,10 @@ F1OPEN1: There is a crowbar inside.
 F1OPEN2: The chest is empty.
 F1MOVE1: There is nothing behind the chest.
 F1MOVE2: There is nothing behind the chest.
-FEATURENAME2: southwest door lock
+FEATURENAME2: lock
 F2CONTAINOBJECT: 0
-F2LOOK1: There is a lock on this door.
-F2LOOK2: You broke the lock.
+F2LOOK1: There is a door lock on the exit door.
+F2LOOK2: You broke the door lock on the exit door.
 F2HIT1: That didn't work. Maybe you can break the lock with an object.
 F2HIT2: You broke the lock!
 F2OPEN1: It is still locked.
@@ -36,7 +36,7 @@ EXIT3NAME: Outside
 EXIT4NAME: NA
 EXIT1BLOCK: NA
 EXIT2BLOCK: NA
-EXIT3BLOCK: NA
+EXIT3BLOCK: lock
 EXIT4BLOCK: NA
 EXIT1DESCRIPTION: creepy
 EXIT2DESCRIPTION: fresh air
