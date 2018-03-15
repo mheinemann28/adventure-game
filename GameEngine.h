@@ -23,6 +23,7 @@ void intro();
 void getInput(char *inputBuff);
 void runGame(struct Room *rooms, struct Object *objArray, struct Inventory invArray);
 int examineRoom(struct Room *room, struct parsed_command pc);
+void list();
 void takeObject(struct parsed_command pc, struct Room *room);
 void dropObject(struct parsed_command pc, struct Room *room);
 void checkInventory(struct parsed_command pc);
