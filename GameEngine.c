@@ -268,7 +268,11 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 				printf("\tnone\n");
 			}
 		}
+		else if (strcmp(pc.noun1, "") == 0){
+			printf("%s\n", room->longDescription);
+		}
 
+		else{
 		// loop through room features to print out feature descriptions
 		for (i = 0; i < MAX_FEATURES; i++)
 		{
@@ -284,6 +288,7 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 					printf("%s\n", room->feature[i].description2);
 				}
 			}
+		}
 		}
 	}
 	// if user chooses to look at inventory
