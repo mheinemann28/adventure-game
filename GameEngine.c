@@ -268,20 +268,24 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 				printf("\tnone\n");
 			}
 		}
-
-		// loop through room features to print out feature descriptions
-		for (i = 0; i < MAX_FEATURES; i++)
-		{
-			// if feature is enemy and still alive print first description
-			if (strcmp(tempString, room->feature[i].name) == 0) {
-				if (strcmp(room->feature[i].enemy, "Yes") == 0 || i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0 || i == 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
-					printf("%s\n", room->feature[i].description1);
-				}
-				else if (room->feature[i].containObject == 1) {
-					printf("%s\n", room->feature[i].description1);
-				}
-				else {
-					printf("%s\n", room->feature[i].description2);
+		else if (strcmp(pc.noun1, "") == 0) {
+			printf("%s\n", room->longDescription);
+		}
+		else {
+			// loop through room features to print out feature descriptions
+			for (i = 0; i < MAX_FEATURES; i++)
+			{
+				// if feature is enemy and still alive print first description
+				if (strcmp(tempString, room->feature[i].name) == 0) {
+					if (strcmp(room->feature[i].enemy, "Yes") == 0 || i == 0 && strcmp(room->feature[i + 1].enemy, "Yes") == 0 || i == 1 && strcmp(room->feature[i - 1].enemy, "Yes") == 0) {
+						printf("%s\n", room->feature[i].description1);
+					}
+					else if (room->feature[i].containObject == 1) {
+						printf("%s\n", room->feature[i].description1);
+					}
+					else {
+						printf("%s\n", room->feature[i].description2);
+					}
 				}
 			}
 		}
@@ -302,6 +306,8 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 	// if user chooses to go through door
 	else if (strcmp(pc.verb, "go") == 0)
 		return 1;
+	else if(strcmp(pc.verb, "") == 0)
+		return 1;
 	// if user chooses to move feature
 	else if (strcmp(pc.verb, "move") == 0)
 		moveFeature(pc, room);
@@ -311,7 +317,7 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 	// if user chooses to save game
 	else if (strcmp(pc.verb, "save") == 0)
 		save(room);
-	else if(strcmp(pc.verb, "help") == 0)
+	else if (strcmp(pc.verb, "help") == 0)
 		list();
 	// if user command is not listed
 	else
@@ -321,10 +327,10 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 
 /*********************************************************************
 + ** Function: list()
-+ ** Description: list a set of verbs the game understands but not all 
++ ** Description: list a set of verbs the game understands but not all
 + ** 	verbs because the natural language parser can understand synonyms.
 + ** Parameters: NA
-+ ** Pre-Conditions: user must type help in 
++ ** Pre-Conditions: user must type help in
 + ** 	command line.
 + ** Post-Conditions: prints a list of basic verbs the game understands
 + *********************************************************************/
@@ -332,7 +338,7 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 void list()
 {
 	printf("\n\tHere is a list of potential action words and synonyms that can be used in the game:\n");
-	
+
 	printf("\t\tlook/look at: see, describe, examine\n\n");
 	printf("\t\tgo: depart, exit\n\n");
 	printf("\t\ttake: grab, pick up, get\n\n");
@@ -661,7 +667,7 @@ void hitFeature(struct parsed_command pc, struct Room * room) {
 			//loop through object array to check if object needed for enemy
 			for (n = 0; n < 9; n++) {
 				if (strcmp(objArray[n].usedFor, room->feature[i].name) == 0) {
-					
+
 					if (strcmp(pc.noun2, objArray[n].name) == 0) {
 						for (j = 0; j < invArray.invCount; j++) {
 

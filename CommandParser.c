@@ -40,7 +40,7 @@ const char *stop_words[] = {"a", "about", "above", "after", "again", "against",
 const int verb_look_synonyms_size = 4;
 const char *verb_look_synonyms[] = {"look", "see", "describe", "examine"};
 const int verb_go_synonyms_size = 3;
-const char *verb_go_synonyms[] = {"go", "depart", "exit"};
+const char *verb_go_synonyms[] = {"go", "depart", "exit", ""};
 const int verb_take_synonyms_size = 4;
 const char *verb_take_synonyms[] = {"take", "grab", "pick", "get"};
 const int verb_drop_synonyms_size = 4;
@@ -388,15 +388,6 @@ void getExit(struct command_line* cl) {
 		}
 		return;
 	}
-	if (strstr(cl->processedInput, "dark and damp") != NULL) {
-		strcpy(cl->noun1, "dark and damp");
-		for (i = 0; i < cl->inputArraySize; i++) {
-			if (strcmp(cl->inputArray[i], "damp") == 0) {
-				cl->noun1Index = i;
-			}
-		}
-		return;
-	}
 	if (strstr(cl->processedInput, "cookie smell") != NULL) {
 		strcpy(cl->noun1, "cookie smell");
 		for (i = 0; i < cl->inputArraySize; i++) {
@@ -545,6 +536,16 @@ void getExit(struct command_line* cl) {
 		}
 		if (strcmp(cl->inputArray[i], "cookies") == 0) {
 			strcpy(cl->noun1, "cookie smell");
+			cl->noun1Index = i;
+			return;
+		}
+		if (strcmp(cl->inputArray[i], "damp") == 0) {
+			strcpy(cl->noun1, "damp");
+			cl->noun1Index = i;
+			return;
+		}
+		if (strcmp(cl->inputArray[i], "exit") == 0) {
+			strcpy(cl->noun1, "exit");
 			cl->noun1Index = i;
 			return;
 		}
@@ -1196,6 +1197,20 @@ void getObjectFeatureWord(struct command_line * cl) {
 			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "dog") != 0)) {
 				memset(cl->noun2, '\0', sizeof(cl->noun2));
 				strcpy(cl->noun2, "dog");
+				cl->noun2Index = i;
+			} else {
+				return;
+			}
+		}
+		if (strcmp(cl->inputArray[i], "lock") == 0) {
+			if (cl->noun1Index == -1) {
+				//add to noun1
+				memset(cl->noun1, '\0', sizeof(cl->noun1));
+				strcpy(cl->noun1, "lock");
+				cl->noun1Index = i;
+			} else if (cl->noun2Index == -1  && (strcmp(cl->noun1, "lock") != 0)) {
+				memset(cl->noun2, '\0', sizeof(cl->noun2));
+				strcpy(cl->noun2, "lock");
 				cl->noun2Index = i;
 			} else {
 				return;
