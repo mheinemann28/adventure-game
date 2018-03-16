@@ -174,8 +174,6 @@ blocked_door:
 
 					getInput(inputBuff);
 					pc = parseCommand(inputBuff);
-					//noun = pc.noun1;
-
 					m = examineRoom(&rooms[i], pc);
 				} while (m == 0);
 
@@ -306,6 +304,8 @@ int examineRoom(struct Room * room, struct parsed_command pc)
 		dropObject(pc, room);
 	// if user chooses to go through door
 	else if (strcmp(pc.verb, "go") == 0)
+		return 1;
+	else if (strcmp(pc.verb, "") == 0)
 		return 1;
 	// if user chooses to move feature
 	else if (strcmp(pc.verb, "move") == 0)
