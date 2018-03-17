@@ -14,7 +14,7 @@ This is an escape game. Users will be placed in a starting room and must navigat
 * take - adds specified object to user's inventory
 * drop - removes specified object from user's inventory
 * help - displays list of supported actions to user
-* inventory - lists user's current inventory
+* look at inventory - lists user's current inventory
 * hit - hits specified object or feature
 * open - opens specified object or feature
 * move - moves specified object or feature 
